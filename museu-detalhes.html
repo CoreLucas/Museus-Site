@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museu Casa Hermano José</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="museu-detalhes.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+    <script src="https://unpkg.com/three@0.150.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="logo-ufpb.png" alt="" class="logo-img">
+                <span class="logo-text">LOGO DA UFPB</span>
+            </div>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="./index.html" class="nav-link active">INÍCIO</a></li>
+                    <li><a href="./museus.html" class="nav-link">MUSEUS</a></li>
+                    <li class="nav-item-with-submenu">
+                        <a href="" class="nav-link">ACERVOS</a>
+                        <ul class="submenu">
+                            <li><a href="inventario.html">INVENTÁRIO</a></li>
+                            <li><a href="">ORIENTAÇÃO TÉCNICA</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="" class="nav-link">NOTÍCIAS</a></li>
+                    <li class="nav-item-with-submenu">
+                        <a href="" class="nav-link">SISMUS</a>
+                        <ul class="submenu">
+                            <li><a href="sobre.html">SOBRE</a></li>
+                            <li><a href="composicao.html">COMPOSIÇÃO</a></li>
+                            <li><a href="documentos.html">DOCUMENTOS</a></li>
+                            <li><a href="">FORMAÇÃO</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section Dinâmica -->
+    <section class="hero-section">
+        <div class="hero-content" style="background-image: url('./images/banner_museu_casa_hermano.jpg')">
+            <!-- <video autoplay muted loop class="hero-video">
+                <source src="museu-apresentacao.mp4" type="video/mp4">
+            </video> -->
+            <div class="hero-overlay"></div>
+            <div class="hero-text">
+                <h1 class="hero-title">Museu Casa Hermano José</h1>
+                <div class="hero-actions">
+                    <button class="btn-primary" onclick="openBookingModal()">AGENDAR VISITA</button>
+                    <!-- <button class="btn-secondary" onclick="startVirtualTour()">TOUR 360°</button> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="content-text">
+                <p>&emsp;&emsp;&emsp;O Museu Casa de Cultura Hermano José (MCCHJ) tem por missão preservar, conservar e difundir a obra e as coleções do artista plástico Hermano Guedes de Melo, conhecido artisticamente por Hermano José, e estimular a produção de conhecimento científico-cultural acerca das artes visuais, literatura, museologia e outros segmentos artístico-culturais, desenvolvendo ações e projetos nos campos da pesquisa, do ensino e da extensão. O MCCHJ é fruto da doação realizada ainda em vida por Hermano José à Universidade Federal da Paraíba (UFPB), instituição da qual foi docente e gestor cultural. A doação incluiu seu amplo acervo artístico, documental e bibliográfico, bem como sua residência-ateliê, transformada em museu pela UFPB.</p>
+                <p>&emsp;&emsp;&emsp;Em seu interior, o Museu abriga sete espaços destinados a exposições de curta e longa duração, além de uma biblioteca especializada em artes, cultura e humanidades. Em sua área externa, um palco permanente serve de espaço para apresentações artísticas das mais variadas linguagens (música, artes cênicas, audiovisual, literatura), além de um belo jardim que se impõe por sua beleza e vista ao mar.</p>
+            </div>
+            <div class="content-image">
+                <div class="museum-photo" style="background-image: url('./images/historia_museu_casa_hermano_2.jpg')"></div>
+            </div>
+        </div>
+        <div class="content-text">
+        </div>
+    <div class="container">
+        <!-- <h3 class="section-title">HISTÓRICO</h3> -->
+        <div class="content-grid">
+            <div class="content-image">
+                <div class="museum-photo" style="background-image: url('./images/historia_museu_casa_hermano_1.jpg')"></div>
+
+            </div>
+            <div class="content-text">
+                <p>&emsp;&emsp;&emsp;O museu possui uma arquitetura moderna, cujos traços iniciais foram concebidos pelo próprio Hermano José. À época de sua construção, a edificação tornou-se uma das primeiras residências do bairro, acompanhando o processo de expansão da cidade, mas demonstrando o pioneirismo de seu proprietário quanto a ocupação do território em questão. O MCCHJ destaca-se pela sua localização à beira-mar, em um local estratégico da praia do Bessa.</p>
+                <p>&emsp;&emsp;&emsp;Inaugurado em 2017, logo em seguida o Museu passou por uma ampla reforma, adequando todos os espaços às normas de acessibilidade e reconstituindo ambientes fundamentais para o equipamento cultural. Desde então, suas frentes de atuação têm compreendido: ações de conservação e catalogação do amplo acervo; ações formativas promovidas a partir de projetos de extensão; exposições em parceria com instituições culturais da cidade e da UFPB; ações de difusão da memória e legado de seu patrono, Hermano José. Atualmente o MCCHJ encontra-se aberto para visitação pública com acesso gratuito a todas as dependências do museu. </p>
+            </div>
+        </div>
+    </div>
+
+        <!-- Eventos e Programação -->
+        <section class="events-section">
+            <div class="container">
+                <h2 class="section-title">PROGRAMAÇÃO</h2>
+                
+                <!-- Próximos Eventos -->
+                <div class="upcoming-events">
+                    <h3>Próximos Eventos</h3>
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="day">10</span>
+                            <span class="month">JUL</span>
+                        </div>
+                        <div class="event-info">
+                            <h4>Exposição: Arte Digital</h4>
+                            <p>Uma mostra sobre as novas tecnologias na arte contemporânea</p>
+                            <button class="btn-register">Inscrever-se</button>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="day">22</span>
+                            <span class="month">AGO</span>
+                        </div>
+                        <div class="event-info">
+                            <h4>Workshop: Técnicas de Pintura</h4>
+                            <p>Oficina prática com artista renomado</p>
+                            <button class="btn-register">Inscrever-se</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    <!-- Localização e Contato -->
+    <section class="location-section">
+        <h3 class="section-title">VISITE NOSSAS REDES</h3>
+        <div class="social-buttons-section">
+            <button class="social-btn-section facebook-section" onclick="shareOnFacebook()"><i class="fab fa-facebook"></i></button>
+            <button class="social-btn-section instagram-section" onclick="shareOnInstagram()"><i class="fab fa-instagram"></i></button>
+            <button class="social-btn-section twitter-section" onclick="shareOnTwitter()"><i class="fab fa-twitter"></i></button>
+            <button class="social-btn-section whatsapp-section" onclick="shareOnWhatsApp()"><i class="fab fa-whatsapp"></i></button>
+        </div>
+
+        <div class="container">
+            <div class="location-grid">
+                <div class="location-info">
+                    <h3>ENDEREÇO:</h3>
+                    <p>Universidade Federal da Paraíba<br>
+                    Campus I - Castelo Branco<br>
+                    João Pessoa - PB, 58050-085</p>
+                    
+                    <h3>CONTATO:</h3>
+                    <p>Telefone: (83) 3216-7150<br>
+                    Email: contato@museu.ufpb.br</p>
+                </div>
+                
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.911677405338!2d-34.84593119999998!3d-7.136211899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7acc2bbd9eb7267%3A0xda09f87d80d441dc!2sUniversidade%20Federal%20da%20Para%C3%ADba%20-%20UFPB%20%2F%20Reitoria!5e0!3m2!1spt-BR!2sbr!4v1751854548387!5m2!1spt-BR!2sbr"
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Galeria de Obras Avançada -->
+        <section class="gallery-section">
+            <div class="container">
+            
+                <h2 class="section-title">ACERVO EM DESTAQUE</h2>
+                <!-- Swiper Carrossel de Obras -->
+                <div class="swiper-container obras-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 com 3 obras -->
+                        <div class="swiper-slide">
+                            <div class="works-grid" id="worksGrid1">
+                                <div class="work-card" data-period="sec20" data-type="pintura" data-highlight="destaque">
+                                    <div class="work-image" style="background-image: url('./images/museu_casa_hermano_1.jpg')">
+                                    </div>
+                                    <div class="work-info">
+                                        <h4>Maria Antonieta</h4>
+                                        <p>Artista - Ano</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="work-card" data-period="contemporaneo" data-type="escultura" data-highlight="recente">
+                                    <div class="work-image" style="background-image: url('./images/museu_casa_hermano_2.jpg')">
+                                    </div>
+                                    <div class="work-info">
+                                        <h4>Título da Obra 2</h4>
+                                        <p>Artista - Ano</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="work-card" data-type="pintura" data-highlight="destaque">
+                                    <div class="work-image" style="background-image: url('./images/museu_casa_hermano_3.jpg')">
+                                    </div>
+                                    <div class="work-info">
+                                        <h4>Título da Obra 3</h4>
+                                        <p>Artista - Ano</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 2 com 3 obras -->
+                        <div class="swiper-slide">
+                            <div class="works-grid" id="worksGrid2">
+                                <div class="work-card" data-period="sec20" data-type="pintura" data-highlight="destaque">
+                                    <div class="work-image" style="background-image: url('./images/museu_casa_hermano_4.jpg')">
+                                    </div>
+                                    <div class="work-info">
+                                        <h4>Título da Obra 4</h4>
+                                        <p>Artista - Ano</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="work-card" data-period="contemporaneo" data-type="escultura" data-highlight="recente">
+                                    <div class="work-image" style="background-image: url('./images/museu_casa_hermano_5.jpg')">
+                                    </div>
+                                    <div class="work-info">
+                                        <h4>Título da Obra 5</h4>
+                                        <p>Artista - Ano</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="work-card" data-period="sec19" data-type="pintura" data-highlight="destaque">
+                                    <div class="work-image" style="background-image: url('./images/museu_casa_hermano_6.jpg')">
+                                    </div>
+                                    <div class="work-info">
+                                        <h4>Título da Obra 6</h4>
+                                        <p>Artista - Ano</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 com 3 obras -->
+                        <div class="swiper-slide">
+                            <div class="works-grid" id="worksGrid2">
+                                <div class="work-card" data-period="sec20" data-type="pintura" data-highlight="destaque">
+                                    <div class="work-image" style="background-image: url('./images/museu_casa_hermano_7.jpg')">
+                                    </div>
+                                    <div class="work-info">
+                                        <h4>Título da Obra 7</h4>
+                                        <p>Artista - Ano</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="work-card" data-period="contemporaneo" data-type="escultura" data-highlight="recente">
+                                    <div class="work-image" style="background-image: url('./images/museu_casa_hermano_8.jpg')">
+                                    </div>
+                                    <div class="work-info">
+                                        <h4>Título da Obra 8</h4>
+                                        <p>Artista - Ano</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="work-card" data-period="sec19" data-type="pintura" data-highlight="destaque">
+                                    <div class="work-image" style="background-image: url('./images/museu_casa_hermano_9.jpg')">
+                                    </div>
+                                    <div class="work-info">
+                                        <h4>Título da Obra 9</h4>
+                                        <p>Artista - Ano</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Adicionar navegação do Swiper -->
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+
+            </div>
+        </section>
+
+
+
+            <!-- Repositório Digital -->
+            <div class="digital-repository">
+                <button class="btn-repository" onclick="openRepository()">
+                    <i class="fas fa-download"></i> ACESSE O REPOSITÓRIO DIGITAL
+                </button>
+            </div>
+
+            <div class="container">
+                <h2 class="section-title">DADOS DO ACERVO</h2>
+                <div class="acervo-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">250</div>
+                        <div class="stat-label">Obras Inventariadas</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Tipologias do Acervo</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Artistas no Acervo</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galeria de Obras Avançada -->
+        <section class="gallery-section">
+            <div class="container">
+            
+                <h2 class="section-title">EQUIPE TÉCNICA</h2>
+                <!-- Swiper Carrossel de Obras -->
+                <div class="swiper-container obras-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 com 3 obras -->
+                        <div class="swiper-slide">
+                            <div class="works-grid" id="worksGrid1">
+                                <div class="work-card" data-period="sec20" data-type="pintura" data-highlight="destaque">
+                                    <div class="work-image" style="background-image: url('./images/museologo.jpg')">
+                                    </div>
+                                    <div class="work-info">
+                                        <h4>Nome 1</h4>
+                                        <p>Cargo</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="work-card" data-period="contemporaneo" data-type="escultura" data-highlight="recente">
+                                    <div class="work-image" style="background-image: url('./images/museologo.jpg')">
+                                    </div>
+                                    <div class="work-info">
+                                        <h4>Título da Obra 2</h4>
+                                        <p>Artista - Ano</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="work-card" data-type="pintura" data-highlight="destaque">
+                                    <div class="work-image" style="background-image: url('./images/museologo.jpg')">
+                                    </div>
+                                    <div class="work-info">
+                                        <h4>Título da Obra 3</h4>
+                                        <p>Artista - Ano</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 2 com 3 obras -->
+                        <div class="swiper-slide">
+                            <div class="works-grid" id="worksGrid2">
+                                <div class="work-card" data-period="sec20" data-type="pintura" data-highlight="destaque">
+                                    <div class="work-image" style="background-image: url('./images/museologo.jpg')">
+                                    </div>
+                                    <div class="work-info">
+                                        <h4>Título da Obra 4</h4>
+                                        <p>Artista - Ano</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="work-card" data-period="contemporaneo" data-type="escultura" data-highlight="recente">
+                                    <div class="work-image" style="background-image: url('./images/museologo.jpg')">
+                                    </div>
+                                    <div class="work-info">
+                                        <h4>Título da Obra 5</h4>
+                                        <p>Artista - Ano</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="work-card" data-period="sec19" data-type="pintura" data-highlight="destaque">
+                                    <div class="work-image" style="background-image: url('./images/museologo.jpg')">
+                                    </div>
+                                    <div class="work-info">
+                                        <h4>Título da Obra 6</h4>
+                                        <p>Artista - Ano</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 com 3 obras -->
+                        <div class="swiper-slide">
+                            <div class="works-grid" id="worksGrid2">
+                                <div class="work-card" data-period="sec20" data-type="pintura" data-highlight="destaque">
+                                    <div class="work-image" style="background-image: url('./images/museologo.jpg')">
+                                    </div>
+                                    <div class="work-info">
+                                        <h4>Título da Obra 7</h4>
+                                        <p>Artista - Ano</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="work-card" data-period="contemporaneo" data-type="escultura" data-highlight="recente">
+                                    <div class="work-image" style="background-image: url('./images/museologo.jpg')">
+                                    </div>
+                                    <div class="work-info">
+                                        <h4>Título da Obra 8</h4>
+                                        <p>Artista - Ano</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="work-card" data-period="sec19" data-type="pintura" data-highlight="destaque">
+                                    <div class="work-image" style="background-image: url('./images/museologo.jpg')">
+                                    </div>
+                                    <div class="work-info">
+                                        <h4>Título da Obra 9</h4>
+                                        <p>Artista - Ano</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Adicionar navegação do Swiper -->
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+
+            </div>
+        </section>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-phone"></i> (83) 3216-7000</p>
+                    <p><i class="fas fa-envelope"></i> museus@ufpb.br</p>
+                    <p><i class="fas fa-map-marker-alt"></i> João Pessoa - PB</p>
+                </div>
+            <div class="footer-section">
+                <h4>Redes Sociais</h4>
+                <div class="social-buttons">
+                    <button class="social-btn facebook"><i class="fab fa-facebook"></i></button>
+                    <button class="social-btn instagram" onclick="shareOnInstagram()"><i class="fab fa-instagram"></i></button>
+                    
+                </div>
+                <div class="social-buttons">
+                    <button class="social-btn twitter" onclick="shareOnTwitter()"><i class="fab fa-twitter"></i></button>
+                    <button class="social-btn whatsapp" onclick="shareOnWhatsApp()"><i class="fab fa-whatsapp"></i></button>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Realização</h4>
+                <img src="images/proex_logo.png" alt="PROEX Logo" class="footer-logo">
+                <img src="images/ufpb_logo.png" alt="UFPB Logo" class="footer-logo">
+                <img src="images/ufpb_logo.png" alt="UFPB Logo" class="footer-logo">
+                <h4>Parceria</h4>
+                <img src="images/ufpb_logo.png" alt="UFPB Logo" class="footer-logo">
+                <img src="images/ufpb_logo.png" alt="UFPB Logo" class="footer-logo">
+            </div>
+        </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Universidade Federal da Paraíba - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modais -->
+    <!-- Modal de Agendamento -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" aria-label="Fechar modal">&times;</button>
+                <h2>Solicitar Visita</h2>
+                <h4>Este é o formulário de solicitação de visita ao Museu Casa de Cultura Hermano José (MCCHJ). Ao enviá-lo, sua visita ainda não estará confirmada. Para confirmação definitiva, aguarde o contato do Museu, que lhe retornará em breve.</h4>
+                <div class="progress-counter">
+                    <span class="filled" id="filledFields">0</span> / <span id="totalFields">0</span> campos preenchidos
+                </div>
+            </div>
+            <div class="modal-body">
+            
+            <form id="visitRequestForm" class="booking-form">
+                <div class="form-section">
+                    <h3 id="responsibleDataHeading">Dados do responsável</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="responsibleName">Nome completo do responsável</label>
+                            <input type="text" id="responsibleName" placeholder="Nome completo" required aria-required="true" aria-labelledby="responsibleDataHeading" aria-describedby="responsibleNameHint">
+                            <div id="responsibleNameHint" class="sr-only">Informe seu nome completo para contato</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="responsibleEmail">E-mail</label>
+                            <input type="email" id="responsibleEmail" placeholder="E-mail para contato" required aria-required="true" aria-labelledby="responsibleDataHeading" aria-describedby="responsibleEmailHint">
+                            <div id="responsibleEmailHint" class="sr-only">Informe um e-mail válido para contato</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="responsiblePhone">Telefone</label>
+                            <input type="tel" id="responsiblePhone" placeholder="(00) 00000-0000" required aria-required="true" aria-labelledby="responsibleDataHeading" aria-describedby="responsiblePhoneHint">
+                            <div id="responsiblePhoneHint" class="sr-only">Informe um telefone no formato (00) 00000-0000</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3 id="visitDataHeading">Dados da visita</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="visitDate">Data da visita</label>
+                            <input type="date" id="visitDate" required aria-required="true" aria-labelledby="visitDataHeading" aria-describedby="visitDateHint">
+                            <div id="visitDateHint" class="sr-only">Selecione a data desejada para a visita</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="visitTime">Horário</label>
+                            <select id="visitTime" required aria-required="true" aria-labelledby="visitDataHeading" aria-describedby="visitTimeHint">
+                                <option value="">Selecione o horário</option>
+                                <option value="09:00">09:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="16:00">16:00</option>
+                            </select>
+                            <div id="visitTimeHint" class="sr-only">Escolha um dos horários disponíveis para visita</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="groupType">Tipo de grupo</label>
+                            <select id="groupType" required aria-required="true" aria-labelledby="visitDataHeading" aria-describedby="groupTypeHint" aria-controls="conditionalGroupFields">
+                                <option value="">Selecione o tipo de grupo</option>
+                                <option value="academico">Acadêmico</option>
+                                <option value="escolar">Escolar</option>
+                                <option value="familiar">Familiar</option>
+                                <option value="turistico">Turístico</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                            <div id="groupTypeHint" class="sr-only">Sua seleção determinará quais campos adicionais serão exibidos</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="peopleCount">Quantidade de pessoas</label>
+                            <input type="number" id="peopleCount" min="1" placeholder="Número de visitantes" required aria-required="true" aria-labelledby="visitDataHeading" aria-describedby="peopleCountHint">
+                            <div id="peopleCountHint" class="sr-only">Informe o número total de visitantes</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Campos condicionais para Tipo de Grupo -->
+                    <div id="conditionalGroupFields" class="conditional-fields" role="region" aria-live="polite">
+                        <!-- Campos para Acadêmico e Escolar -->
+                        <div id="institutionField" class="form-group hidden" aria-hidden="true">
+                            <label for="institution">Instituição de origem</label>
+                            <input type="text" id="institution" placeholder="Nome da instituição" aria-labelledby="visitDataHeading" aria-describedby="institutionHint">
+                            <div id="institutionHint" class="sr-only">Informe o nome da instituição de origem</div>
+                        </div>
+                        
+                        <!-- Campos para Acadêmico, Escolar, Familiar e Turístico -->
+                        <div id="cityField" class="form-group hidden" aria-hidden="true">
+                            <label for="originCity">Cidade de origem</label>
+                            <input type="text" id="originCity" placeholder="Cidade de origem" aria-labelledby="visitDataHeading" aria-describedby="cityHint">
+                            <div id="cityHint" class="sr-only">Informe a cidade de origem do grupo</div>
+                        </div>
+                        
+                        <!-- Campos para Acadêmico, Escolar e Familiar -->
+                        <div id="neighborhoodField" class="form-group hidden" aria-hidden="true">
+                            <label for="neighborhood">Bairro</label>
+                            <input type="text" id="neighborhood" placeholder="Bairro" aria-labelledby="visitDataHeading" aria-describedby="neighborhoodHint">
+                            <div id="neighborhoodHint" class="sr-only">Informe o bairro de origem</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="disabilityType">Possui pessoa com deficiência?</label>
+                            <select id="disabilityType" required aria-required="true" aria-labelledby="visitDataHeading" aria-describedby="disabilityTypeHint" aria-controls="accessibilityField">
+                                <option value="">Selecione uma opção</option>
+                                <option value="nao">Não Possui</option>
+                                <option value="auditiva">Auditiva</option>
+                                <option value="fisica">Física</option>
+                                <option value="intelectual">Intelectual</option>
+                                <option value="mental">Mental</option>
+                                <option value="psicossocial">Psicossocial ou por Saúde Mental</option>
+                                <option value="visual">Visual</option>
+                                <option value="outra">Outra</option>
+                            </select>
+                            <div id="disabilityTypeHint" class="sr-only">Selecione se algum visitante possui necessidades especiais</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Campo condicional para Acessibilidade -->
+                    <div id="accessibilityField" class="form-group hidden" aria-hidden="true" role="region" aria-live="polite">
+                        <label for="accessibilityNotes">Observação sobre acessibilidade</label>
+                        <textarea id="accessibilityNotes" placeholder="Descreva as necessidades específicas de acessibilidade" aria-labelledby="visitDataHeading" aria-describedby="accessibilityNotesHint"></textarea>
+                        <div id="accessibilityNotesHint" class="sr-only">Descreva detalhes sobre as necessidades de acessibilidade</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="generalNotes">Observações gerais (opcional)</label>
+                        <textarea id="generalNotes" placeholder="Informações adicionais sobre a visita" aria-labelledby="visitDataHeading" aria-describedby="generalNotesHint"></textarea>
+                        <div id="generalNotesHint" class="sr-only">Informe detalhes adicionais que possam ser relevantes para a visita</div>
+                    </div>
+                </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" id="cancelBooking">Cancelar</button>
+                    <button type="submit" form="visitRequestForm" class="btn-submit" aria-label="Confirmar agendamento da visita">Confirmar Agendamento</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Visualização 3D -->
+    <div id="viewer3D" class="modal">
+        <div class="modal-content modal-3d">
+            <span class="close">&times;</span>
+            <div id="threejs-container"></div>
+        </div>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script src="museu-detalhes.js"></script>
+    <script>
+        // Script adicional para garantir que o swiper-wrapper seja exibido
+        document.addEventListener('DOMContentLoaded', function() {
+            // Forçar a exibição do swiper-wrapper após o carregamento completo da página
+            setTimeout(function() {
+                const swiperWrapper = document.querySelector('.swiper-container.obras-swiper .swiper-wrapper');
+                const swiperSlides = document.querySelectorAll('.swiper-container.obras-swiper .swiper-slide');
+                
+                if (swiperWrapper) {
+                    swiperWrapper.style.display = 'flex';
+                    swiperWrapper.style.opacity = '1';
+                    swiperWrapper.style.visibility = 'visible';
+                    swiperWrapper.style.overflow = 'visible';
+                    console.log('Swiper wrapper forçado a exibir');
+                }
+                
+                swiperSlides.forEach(slide => {
+                    slide.style.opacity = '1';
+                    slide.style.visibility = 'visible';
+                    console.log('Slide forçado a exibir');
+                });
+            }, 500);
+        });
+    </script>
+</body>
+</html>

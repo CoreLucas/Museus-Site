@@ -1,0 +1,264 @@
+/* Sobre Page Styles */
+
+/* Page Header */
+.page-header {
+    background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
+    color: white;
+    padding: 120px 0 60px;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Seções Principais */
+.sobre-section,
+.historia-section,
+.valores-section {
+    padding: 80px 0;
+}
+
+.sobre-section {
+    background: #f8f9fa;
+}
+
+.historia-section {
+    background: white;
+}
+
+.valores-section {
+    background: #f8f9fa;
+}
+
+/* Layout de Conteúdo */
+.sobre-content,
+.historia-content,
+.valores-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.historia-content {
+    grid-template-columns: 1fr 1fr;
+}
+
+.font-h2 {
+    font-size: 2.5rem;
+    color: #003366;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Texto das Seções */
+.sobre-text h2,
+.historia-text h2,
+.valores-text h2 {
+    font-size: 2.5rem;
+    color: #003366;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.sobre-text p,
+.historia-text p,
+.valores-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+/* Banner Images */
+.banner-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 51, 102, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.banner-image:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 51, 102, 0.3);
+}
+
+/* Fallback for banner placeholders */
+.banner-placeholder {
+    background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 51, 102, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.banner-placeholder:hover {
+    transform: translateY(-5px);
+}
+
+.banner-placeholder span {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Animações */
+.sobre-text,
+.historia-text,
+.valores-text {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: slideInLeft 0.8s ease forwards;
+}
+
+.sobre-banner,
+.historia-banner,
+.valores-banner {
+    opacity: 0;
+    transform: translateX(30px);
+    animation: slideInRight 0.8s ease forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .page-header {
+        padding: 100px 0 40px;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .page-subtitle {
+        font-size: 1rem;
+    }
+    
+    .sobre-content,
+    .historia-content,
+    .valores-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .sobre-text h2,
+    .historia-text h2,
+    .valores-text h2 {
+        font-size: 2rem;
+    }
+    
+    .sobre-text p,
+    .historia-text p,
+    .valores-text p {
+        font-size: 1rem;
+    }
+    
+    .banner-image {
+        height: 200px;
+    }
+    
+    .banner-placeholder {
+        height: 200px;
+    }
+    
+    .banner-placeholder span {
+        font-size: 1.2rem;
+    }
+    
+    .sobre-section,
+    .historia-section,
+    .valores-section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 1.8rem;
+    }
+    
+    .sobre-text h2,
+    .historia-text h2,
+    .valores-text h2 {
+        font-size: 1.8rem;
+    }
+    
+    .banner-image {
+        height: 150px;
+    }
+    
+    .banner-placeholder {
+        height: 150px;
+    }
+    
+    .banner-placeholder span {
+        font-size: 1rem;
+    }
+}
+
+/* Efeitos de Hover */
+.sobre-text,
+.historia-text,
+.valores-text {
+    transition: all 0.3s ease;
+}
+
+.sobre-text:hover,
+.historia-text:hover,
+.valores-text:hover {
+    transform: translateY(-2px);
+}
+
+/* Estilo para links no texto */
+.sobre-text a,
+.historia-text a,
+.valores-text a {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.sobre-text a:hover,
+.historia-text a:hover,
+.valores-text a:hover {
+    color: #003366;
+    text-decoration: underline;
+}

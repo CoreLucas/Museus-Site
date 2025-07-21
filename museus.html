@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curadoria Museus - UFPB</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="museus.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="logo-ufpb.png" alt="" class="logo-img">
+                <span class="logo-text">LOGO DA UFPB</span>
+            </div>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="./index.html" class="nav-link">INÍCIO</a></li>
+                    <li><a href="./museus.html" class="nav-link active">MUSEUS</a></li>
+                    <li class="nav-item-with-submenu">
+                        <a href="" class="nav-link">ACERVOS</a>
+                        <ul class="submenu">
+                            <li><a href="inventario.html">INVENTÁRIO</a></li>
+                            <li><a href="">ORIENTAÇÃO TÉCNICA</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="" class="nav-link">NOTÍCIAS</a></li>
+                    <li class="nav-item-with-submenu">
+                        <a href="" class="nav-link">SISMUS</a>
+                        <ul class="submenu">
+                            <li><a href="sobre.html">SOBRE</a></li>
+                            <li><a href="composicao.html">COMPOSIÇÃO</a></li>
+                            <li><a href="documentos.html">DOCUMENTOS</a></li>
+                            <li><a href="">FORMAÇÃO</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Título da Página -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">CURADORIA MUSEUS</h1>
+            <p class="page-subtitle">Conheça os museus vinculados à Universidade Federal da Paraíba</p>
+        </div>
+    </section>
+
+    <!-- Filtros e Busca -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-container">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Buscar museus..." class="search-input">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="arte">Arte</button>
+                    <button class="filter-btn" data-filter="historia">História</button>
+                    <button class="filter-btn" data-filter="ciencia">Ciência</button>
+                    <button class="filter-btn" data-filter="tecnologia">Tecnologia</button>
+                </div>
+                <div class="sort-options">
+                    <select id="sortSelect" class="sort-select">
+                        <option value="name">Ordenar por Nome</option>
+                        <option value="type">Ordenar por Tipo</option>
+                        <option value="location">Ordenar por Localização</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grid de Museus -->
+    <section class="museus-catalog">
+        <div class="container">
+            <div class="museus-grid" id="museusGrid">
+                <!-- Museu 1 -->
+                <div class="museu-card" data-category="artes" data-location="João Pessoa">
+                    <div class="museu-image" style="background-image: url('./images/banner_museu_casa_hermano.jpg')">
+                        <div class="museu-overlay">
+                            <div class="museu-tags">
+                                <span class="tag">Artes</span>
+                                <span class="tag">João Pessoa</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="museu-content">
+                        <h3 class="museu-title">Museu Casa de Cultura Hermano José (MCCHJ)</h3>
+                        <p class="museu-description">Vida e obra de Hermano José e outras ações culturais.</p>
+                        <a href="./museu-detalhes.html" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <!-- Museu 2 -->
+                <div class="museu-card" data-category="ciência" data-location="João Pessoa">
+                    <div class="museu-image" style="background-image: url('./images/Museu-Nacional.jpg')">
+                        <div class="museu-overlay">
+                            <div class="museu-tags">
+                                <span class="tag">Ciência</span>
+                                <span class="tag">João Pessoa</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="museu-content">
+                        <h3 class="museu-title">Casa da Ciência</h3>
+                        <p class="museu-description">Exposições de arte moderna e contemporânea com obras de artistas locais e nacionais.</p>
+                        <a href="museu-detalhes.html?id=1" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <!-- Museu 3 -->
+                <div class="museu-card" data-category="ciência" data-location="João Pessoa">
+                    <div class="museu-image">
+                        <div class="museu-overlay">
+                            <div class="museu-tags">
+                                <span class="tag">Ciência</span>
+                                <span class="tag">João Pessoa</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="museu-content">
+                        <h3 class="museu-title">Coleção Científico-Didática de Lixo Marinho</h3>
+                        <p class="museu-description">Coleção permanente de pinturas e esculturas de artistas paraibanos e brasileiros.</p>
+                        <a href="museu-detalhes.html?id=5" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                </div>
+
+                
+                <!-- Museu 4 -->
+                <div class="museu-card" data-category="Patrimônio Cultural" data-location="Rio Tinto">
+                    <div class="museu-image">
+                        <div class="museu-overlay">
+                            <div class="museu-tags">
+                                <span class="tag">Patrimônio Cultural</span>
+                                <span class="tag">João Pessoa</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="museu-content">
+                        <h3 class="museu-title">Galeria Arandu</h3>
+                        <p class="museu-description">Acervo dedicado à fauna, flora e história natural da região nordeste do Brasil.</p>
+                        <a href="museu-detalhes.html?id=2" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <!-- Museu 4 -->
+                <div class="museu-card" data-category="arte" data-location="João Pessoa">
+                    <div class="museu-image">
+                        <div class="museu-overlay">
+                            <div class="museu-tags">
+                                <span class="tag">Artes</span>
+                                <span class="tag">João Pessoa</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="museu-content">
+                        <h3 class="museu-title">Galeria Lavandeira</h3>
+                        <p class="museu-description">Acervo dedicado à fauna, flora e história natural da região nordeste do Brasil.</p>
+                        <a href="museu-detalhes.html?id=2" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <!-- Museu 5 -->
+                <div class="museu-card" data-category="arte" data-location="João Pessoa">
+                    <div class="museu-image">
+                        <div class="museu-overlay">
+                            <div class="museu-tags">
+                                <span class="tag">Artes</span>
+                                <span class="tag">João Pessoa</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="museu-content">
+                        <h3 class="museu-title">LaborAtelier</h3>
+                        <p class="museu-description">Exposições interativas sobre matemática, física e química com experimentos práticos.</p>
+                        <a href="museu-detalhes.html?id=3" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <!-- Museu 6 -->
+                <div class="museu-card" data-category="Patrimônio Cultural" data-location="Bananeiras">
+                    <div class="museu-image">
+                        <div class="museu-overlay">
+                            <div class="museu-tags">
+                                <span class="tag">Patrimônicio Cultural</span>
+                                <span class="tag">Bananeiras</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="museu-content">
+                        <h3 class="museu-title">Memorial CAVN</h3>
+                        <p class="museu-description">História da tecnologia e inovações desenvolvidas na UFPB ao longo dos anos.</p>
+                        <a href="museu-detalhes.html?id=4" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <!-- Museu 7 -->
+                <div class="museu-card" data-category="ciência" data-location="João Pessoa">
+                    <div class="museu-image">
+                        <div class="museu-overlay">
+                            <div class="museu-tags">
+                                <span class="tag">Ciência</span>
+                                <span class="tag">João Pessoa</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="museu-content">
+                        <h3 class="museu-title">Museu da Biodiversidade - Coleções biológicas</h3>
+                        <p class="museu-description">Coleção permanente de pinturas e esculturas de artistas paraibanos e brasileiros.</p>
+                        <a href="museu-detalhes.html?id=5" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <!-- Museu 8 -->
+                <div class="museu-card" data-category="ciência" data-location="João Pessoa">
+                    <div class="museu-image">
+                        <div class="museu-overlay">
+                            <div class="museu-tags">
+                                <span class="tag">Ciência</span>
+                                <span class="tag">João Pessoa</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="museu-content">
+                        <h3 class="museu-title">Museu de Ciências Morfológicas (MCM)</h3>
+                        <p class="museu-description">Coleção permanente de pinturas e esculturas de artistas paraibanos e brasileiros.</p>
+                        <a href="museu-detalhes.html?id=5" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <!-- Museu 9 -->
+                <div class="museu-card" data-category="ciência" data-location="João Pessoa">
+                    <div class="museu-image">
+                        <div class="museu-overlay">
+                            <div class="museu-tags">
+                                <span class="tag">Ciência</span>
+                                <span class="tag">João Pessoa</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="museu-content">
+                        <h3 class="museu-title">Museu de Paleontologia</h3>
+                        <p class="museu-description">Coleção permanente de pinturas e esculturas de artistas paraibanos e brasileiros.</p>
+                        <a href="museu-detalhes.html?id=5" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <!-- Museu 10 -->
+                <div class="museu-card" data-category="Patrimônio Cultural" data-location="Areia">
+                    <div class="museu-image">
+                        <div class="museu-overlay">
+                            <div class="museu-tags">
+                                <span class="tag">Patrimônico Cultural</span>
+                                <span class="tag">Areia</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="museu-content">
+                        <h3 class="museu-title">Museu do Brejo</h3>
+                        <p class="museu-description">Coleção permanente de pinturas e esculturas de artistas paraibanos e brasileiros.</p>
+                        <a href="museu-detalhes.html?id=5" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <!-- Museu 11 -->
+                <div class="museu-card" data-category="Patrimônio Cultural" data-location="João Pessoa">
+                    <div class="museu-image">
+                        <div class="museu-overlay">
+                            <div class="museu-tags">
+                                <span class="tag">Patrimônio Cultural</span>
+                                <span class="tag">João Pessoa</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="museu-content">
+                        <h3 class="museu-title">Museu de Paleontologia</h3>
+                        <p class="museu-description">Coleção permanente de pinturas e esculturas de artistas paraibanos e brasileiros.</p>
+                        <a href="museu-detalhes.html?id=5" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <!-- Museu 12 -->
+                <div class="museu-card" data-category="arte" data-location="João Pessoa">
+                    <div class="museu-image">
+                        <div class="museu-overlay">
+                            <div class="museu-tags">
+                                <span class="tag">Artes</span>
+                                <span class="tag">João Pessoa</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="museu-content">
+                        <h3 class="museu-title">Núcleo de Arte Contemporânea (NAC)</h3>
+                        <p class="museu-description">Coleção permanente de pinturas e esculturas de artistas paraibanos e brasileiros.</p>
+                        <a href="museu-detalhes.html?id=5" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <!-- Museu 13 -->
+                <div class="museu-card" data-category="audiovisual" data-location="João Pessoa">
+                    <div class="museu-image">
+                        <div class="museu-overlay">
+                            <div class="museu-tags">
+                                <span class="tag">Audiovisual</span>
+                                <span class="tag">João Pessoa</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="museu-content">
+                        <h3 class="museu-title">Núcleo de Documentação Cinematográfica (NUDOC)</h3>
+                        <p class="museu-description">Coleção permanente de pinturas e esculturas de artistas paraibanos e brasileiros.</p>
+                        <a href="museu-detalhes.html?id=5" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <!-- Museu 14 -->
+                <div class="museu-card" data-category="história" data-location="João Pessoa">
+                    <div class="museu-image">
+                        <div class="museu-overlay">
+                            <div class="museu-tags">
+                                <span class="tag">História</span>
+                                <span class="tag">João Pessoa</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="museu-content">
+                        <h3 class="museu-title">Núcleo de Documentação e Informação Histórica Regional (NDIHR)</h3>
+                        <p class="museu-description">Coleção permanente de pinturas e esculturas de artistas paraibanos e brasileiros.</p>
+                        <a href="museu-detalhes.html?id=5" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <!-- Museu 15 -->
+                <div class="museu-card" data-category="ciência" data-location="João Pessoa">
+                    <div class="museu-image">
+                        <div class="museu-overlay">
+                            <div class="museu-tags">
+                                <span class="tag">Ciência</span>
+                                <span class="tag">João Pessoa</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="museu-content">
+                        <h3 class="museu-title">Núcleo de Pesquisa e Documentação da Cultura Popular (NUPPO)</h3>
+                        <p class="museu-description">Coleção permanente de pinturas e esculturas de artistas paraibanos e brasileiros.</p>
+                        <a href="museu-detalhes.html?id=5" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <!-- Museu 16 -->
+                <div class="museu-card" data-category="arte" data-location="João Pessoa">
+                    <div class="museu-image">
+                        <div class="museu-overlay">
+                            <div class="museu-tags">
+                                <span class="tag">Artes</span>
+                                <span class="tag">João Pessoa</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="museu-content">
+                        <h3 class="museu-title">Pinacoteca</h3>
+                        <p class="museu-description">Coleção permanente de pinturas e esculturas de artistas paraibanos e brasileiros.</p>
+                        <a href="museu-detalhes.html?id=5" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <!-- Museu 17 -->
+                <div class="museu-card" data-category="arte" data-location="João Pessoa">
+                    <div class="museu-image">
+                        <div class="museu-overlay">
+                            <div class="museu-tags">
+                                <span class="tag">Artes</span>
+                                <span class="tag">João Pessoa</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="museu-content">
+                        <h3 class="museu-title">Sala Hermano José</h3>
+                        <p class="museu-description">Coleção permanente de pinturas e esculturas de artistas paraibanos e brasileiros.</p>
+                        <a href="museu-detalhes.html?id=5" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mensagem quando não há resultados -->
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>Nenhum museu encontrado</h3>
+                <p>Tente ajustar os filtros ou termos de busca.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-phone"></i> (83) 3216-7000</p>
+                    <p><i class="fas fa-envelope"></i> museus@ufpb.br</p>
+                    <p><i class="fas fa-map-marker-alt"></i> João Pessoa - PB</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-buttons">
+                        <button class="social-btn facebook"><i class="fab fa-facebook"></i></button>
+                        <button class="social-btn instagram" onclick="shareOnInstagram()"><i class="fab fa-instagram"></i></button>
+                        
+                    </div>
+                    <div class="social-buttons">
+                        <button class="social-btn twitter" onclick="shareOnTwitter()"><i class="fab fa-twitter"></i></button>
+                        <button class="social-btn whatsapp" onclick="shareOnWhatsApp()"><i class="fab fa-whatsapp"></i></button>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Realização</h4>
+                    <img src="images/proex_logo.png" alt="PROEX Logo" class="footer-logo">
+                    <img src="images/ufpb_logo.png" alt="UFPB Logo" class="footer-logo">
+                    <img src="images/ufpb_logo.png" alt="UFPB Logo" class="footer-logo">
+                    <h4>Parceria</h4>
+                    <img src="images/ufpb_logo.png" alt="UFPB Logo" class="footer-logo">
+                    <img src="images/ufpb_logo.png" alt="UFPB Logo" class="footer-logo">
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Universidade Federal da Paraíba - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="museus.js"></script>
+</body>
+</html>

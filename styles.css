@@ -1,0 +1,591 @@
+/* Reset e Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background: #003366;
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ffd700;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* SUBMENU */
+.nav-item-with-submenu {
+    position: relative;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #003366;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    list-style: none;
+    padding: 0;
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+}
+
+.submenu li {
+    padding: 0;
+}
+
+.submenu a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s;
+}
+
+.submenu a:hover {
+    background: #0066cc;
+}
+
+.nav-item-with-submenu:hover .submenu {
+    display: block;
+}
+
+/* Ajuste para o link principal quando há submenu */
+.nav-item-with-submenu > .nav-link::after {
+    content: ' ▼';
+    font-size: 0.8em;
+}
+
+/* Banner */
+.banner {
+    height: 60vh;
+    background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    margin-top: 80px;
+}
+
+.banner-content {
+    z-index: 2;
+}
+
+.banner-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.banner-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    max-width: 600px;
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+}
+/* Hero Section Dinâmica */
+.hero-section {
+    height: 70vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+}
+
+.hero-text {
+    text-align: center;
+    color: white;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* Seção de Propagandas */
+.propaganda-section {
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+.propaganda-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.propaganda-item {
+    height: 200px;
+    background: #666;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    justify-content: center;
+    color: white;
+    font-weight: 500;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.propaganda-item h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+/* Museus em Destaque */
+.museus-destaque {
+    padding: 4rem 0;
+    background: white;
+}
+
+.section-title {
+    text-align: center;
+    margin: 2.5rem 0;
+    color: #1a1a1a;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #c0392b, #e74c3c);
+    border-radius: 3px;
+}
+
+.museus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.museu-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.museu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.museu-image {
+    height: 200px;
+    background: #666;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 500;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.museu-card h3 {
+    padding: 1.5rem;
+    font-size: 1.3rem;
+    color: #003366;
+    text-align: center;
+}
+
+.btn-ver-mais {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 1.5rem;
+    padding: 0.8rem 2rem;
+    background: #003366;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.btn-ver-mais:hover {
+    background: #0066cc;
+}
+
+/* Notícias */
+.noticias {
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+.noticias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.noticia-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.noticia-card:hover {
+    transform: translateY(-3px);
+}
+
+.noticia-image {
+    height: 150px;
+    background: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 500;
+}
+
+.noticia-card h3 {
+    padding: 1rem 1.5rem 0.5rem;
+    color: #003366;
+    font-size: 1.2rem;
+}
+
+.noticia-card p {
+    padding: 0 1.5rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.btn-ler-mais {
+    display: inline-block;
+    margin: 1rem 1.5rem 1.5rem;
+    padding: 0.6rem 1.5rem;
+    background: #003366;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.btn-ler-mais:hover {
+    background: #0066cc;
+}
+
+/* Footer */
+.footer {
+    background: #003366;
+    color: white;
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+    margin-bottom: 1rem;
+    color: #ffd700;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section p {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #ffd700;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    padding: 10px;
+}
+
+.social-links a {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background: #0066cc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.social-links a:hover {
+    background: #ffd700;
+    color: #003366;
+}
+
+.social-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+}
+
+.social-btn {
+    width: 80px;
+    height: 80px;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+
+.social-btn.facebook { background: #1877f2; }
+.social-btn.instagram { background: #e4405f; }
+.social-btn.twitter { background: #1da1f2; }
+.social-btn.whatsapp { background: #25d366; }
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #0066cc;
+    color: #ccc;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #003366;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    .banner-title {
+        font-size: 2rem;
+    }
+    
+    .banner-subtitle {
+        font-size: 1rem;
+    }
+    
+    .propaganda-section .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .museus-grid,
+    .noticias-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .banner {
+        height: 50vh;
+    }
+    
+    .banner-title {
+        font-size: 1.8rem;
+    }
+    
+    .propaganda-item {
+        padding: 2rem;
+        min-height: 150px;
+    }
+    
+    .propaganda-item h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Estilos para logos no footer */
+.footer-section.logos {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-logo {
+    height: 100px;
+    width: auto;
+}
+
+@media (max-width: 768px) {
+    .footer-section.logos {
+        justify-content: center;
+    }
+}

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventário - SISMUS UFPB</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="inventario.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="logo-ufpb.png" alt="" class="logo-img">
+                <span class="logo-text">LOGO DA UFPB</span>
+            </div>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">INÍCIO</a></li>
+                    <li><a href="museus.html" class="nav-link">MUSEUS</a></li>
+                    <li class="nav-item-with-submenu">
+                        <a href="" class="nav-link">ACERVOS</a>
+                        <ul class="submenu">
+                            <li><a href="inventario.html">INVENTÁRIO</a></li>
+                            <li><a href="">ORIENTAÇÃO TÉCNICA</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="" class="nav-link">NOTÍCIAS</a></li>
+                    <li class="nav-item-with-submenu">
+                        <a href="" class="nav-link">SISMUS</a>
+                        <ul class="submenu">
+                            <li><a href="sobre.html">SOBRE</a></li>
+                            <li><a href="composicao.html">COMPOSIÇÃO</a></li>
+                            <li><a href="documentos.html">DOCUMENTOS</a></li>
+                            <li><a href="">FORMAÇÃO</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-overlay"></div>
+            <div class="hero-text">
+                <h1 class="hero-title">INVENTÁRIO</h1>
+                <p class="hero-subtitle">Explore o acervo completo dos museus da UFPB</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <span>Home</span> / <span>Inventário</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Statistics Section -->
+            <section class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">2.847</div>
+                        <div class="stat-label">Itens catalogados</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Museus integrados</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">127</div>
+                        <div class="stat-label">Autores registrados</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Categorias</div>
+                    </div>
+                </div>
+                <p class="stats-description">
+                    Existem aproximadamente 2.847 itens de 5 museus integrados no Sistema de Museus da UFPB
+                </p>
+            </section>
+
+            <!-- Filters Section -->
+            <section class="filters-section">
+                <h2 class="section-title">Explore o Acervo</h2>
+                
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" placeholder="Buscar no acervo..." class="search-input">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+
+                <!-- Filter Categories -->
+                <div class="filter-categories">
+                    <h3>Filtrar por Categoria</h3>
+                    <div class="category-grid">
+                        <div class="category-card" data-category="pintura">
+                            <div class="category-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <h4>Pinturas</h4>
+                            <span class="category-count">(342)</span>
+                        </div>
+                        <div class="category-card" data-category="escultura">
+                            <div class="category-icon">
+                                <i class="fas fa-chess-rook"></i>
+                            </div>
+                            <h4>Esculturas</h4>
+                            <span class="category-count">(156)</span>
+                        </div>
+                        <div class="category-card" data-category="fotografia">
+                            <div class="category-icon">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <h4>Fotografias</h4>
+                            <span class="category-count">(789)</span>
+                        </div>
+                        <div class="category-card" data-category="documento">
+                            <div class="category-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h4>Documentos</h4>
+                            <span class="category-count">(523)</span>
+                        </div>
+                        <div class="category-card" data-category="ceramica">
+                            <div class="category-icon">
+                                <i class="fas fa-vase"></i>
+                            </div>
+                            <h4>Cerâmicas</h4>
+                            <span class="category-count">(234)</span>
+                        </div>
+                        <div class="category-card" data-category="mobiliario">
+                            <div class="category-icon">
+                                <i class="fas fa-chair"></i>
+                            </div>
+                            <h4>Mobiliário</h4>
+                            <span class="category-count">(187)</span>
+                        </div>
+                        <div class="category-card" data-category="textil">
+                            <div class="category-icon">
+                                <i class="fas fa-tshirt"></i>
+                            </div>
+                            <h4>Têxteis</h4>
+                            <span class="category-count">(98)</span>
+                        </div>
+                        <div class="category-card" data-category="outros">
+                            <div class="category-icon">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <h4>Outros</h4>
+                            <span class="category-count">(518)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Museum Filter -->
+                <div class="museum-filter">
+                    <h3>Filtrar por Museu</h3>
+                    <div class="museum-grid">
+                        <div class="museum-card" data-museum="casa-hermano">
+                            <div class="museum-image" style="background-image: url('./images/museu-fachada.jpg')"></div>
+                            <div class="museum-info">
+                                <h4>Museu Casa Hermano José</h4>
+                                <span class="museum-count">(1.245 itens)</span>
+                            </div>
+                        </div>
+                        <div class="museum-card" data-museum="pinacoteca">
+                            <div class="museum-image"></div>
+                            <div class="museum-info">
+                                <h4>Pinacoteca UFPB</h4>
+                                <span class="museum-count">(687 itens)</span>
+                            </div>
+                        </div>
+                        <div class="museum-card" data-museum="arqueologia">
+                            <div class="museum-image"></div>
+                            <div class="museum-info">
+                                <h4>Museu de Arqueologia</h4>
+                                <span class="museum-count">(423 itens)</span>
+                            </div>
+                        </div>
+                        <div class="museum-card" data-museum="historia">
+                            <div class="museum-image"></div>
+                            <div class="museum-info">
+                                <h4>Museu de História</h4>
+                                <span class="museum-count">(312 itens)</span>
+                            </div>
+                        </div>
+                        <div class="museum-card" data-museum="ciencias">
+                            <div class="museum-image"></div>
+                            <div class="museum-info">
+                                <h4>Museu de Ciências</h4>
+                                <span class="museum-count">(180 itens)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section">
+                <div class="results-header">
+                    <h3>Resultados da Busca</h3>
+                    <div class="results-controls">
+                        <select class="sort-select">
+                            <option value="relevance">Relevância</option>
+                            <option value="date">Data</option>
+                            <option value="title">Título</option>
+                            <option value="author">Autor</option>
+                        </select>
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+                            <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="items-grid" id="itemsGrid">
+                    <!-- Sample Items -->
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('./images/Maria_isabel.jpg')"></div>
+                        <div class="item-info">
+                            <h4>Maria Antonieta</h4>
+                            <p class="item-author">Artista Desconhecido</p>
+                            <p class="item-date">Século XIX</p>
+                            <p class="item-museum">Museu Casa Hermano José</p>
+                            <div class="item-tags">
+                                <span class="tag">Pintura</span>
+                                <span class="tag">Retrato</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('./images/Obras_de_arte.jpg')"></div>
+                        <div class="item-info">
+                            <h4>Paisagem Urbana</h4>
+                            <p class="item-author">João Silva</p>
+                            <p class="item-date">1985</p>
+                            <p class="item-museum">Pinacoteca UFPB</p>
+                            <div class="item-tags">
+                                <span class="tag">Pintura</span>
+                                <span class="tag">Paisagem</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('./images/Johannes_Vermeer.jpg')"></div>
+                        <div class="item-info">
+                            <h4>Cerâmica Indígena</h4>
+                            <p class="item-author">Cultura Tupinambá</p>
+                            <p class="item-date">Século XVI</p>
+                            <p class="item-museum">Museu de Arqueologia</p>
+                            <div class="item-tags">
+                                <span class="tag">Cerâmica</span>
+                                <span class="tag">Arqueologia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item-card">
+                        <div class="item-image"></div>
+                        <div class="item-info">
+                            <h4>Documento Histórico</h4>
+                            <p class="item-author">Arquivo UFPB</p>
+                            <p class="item-date">1962</p>
+                            <p class="item-museum">Museu de História</p>
+                            <div class="item-tags">
+                                <span class="tag">Documento</span>
+                                <span class="tag">História</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item-card">
+                        <div class="item-image"></div>
+                        <div class="item-info">
+                            <h4>Espécime Botânico</h4>
+                            <p class="item-author">Herbário UFPB</p>
+                            <p class="item-date">2010</p>
+                            <p class="item-museum">Museu de Ciências</p>
+                            <div class="item-tags">
+                                <span class="tag">Botânica</span>
+                                <span class="tag">Ciência</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item-card">
+                        <div class="item-image"></div>
+                        <div class="item-info">
+                            <h4>Mobiliário Colonial</h4>
+                            <p class="item-author">Artesão Anônimo</p>
+                            <p class="item-date">Século XVIII</p>
+                            <p class="item-museum">Museu Casa Hermano José</p>
+                            <div class="item-tags">
+                                <span class="tag">Mobiliário</span>
+                                <span class="tag">Colonial</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="page-btn prev" disabled><i class="fas fa-chevron-left"></i></button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <span class="page-dots">...</span>
+                    <button class="page-btn">15</button>
+                    <button class="page-btn next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-phone"></i> (83) 3216-7000</p>
+                    <p><i class="fas fa-envelope"></i> museus@ufpb.br</p>
+                    <p><i class="fas fa-map-marker-alt"></i> João Pessoa - PB</p>
+                </div>
+            <div class="footer-section">
+                <h4>Redes Sociais</h4>
+                <div class="social-buttons">
+                    <button class="social-btn facebook"><i class="fab fa-facebook"></i></button>
+                    <button class="social-btn instagram" onclick="shareOnInstagram()"><i class="fab fa-instagram"></i></button>
+                    
+                </div>
+                <div class="social-buttons">
+                    <button class="social-btn twitter" onclick="shareOnTwitter()"><i class="fab fa-twitter"></i></button>
+                    <button class="social-btn whatsapp" onclick="shareOnWhatsApp()"><i class="fab fa-whatsapp"></i></button>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Realização</h4>
+                <img src="images/proex_logo.png" alt="PROEX Logo" class="footer-logo">
+                <img src="images/ufpb_logo.png" alt="UFPB Logo" class="footer-logo">
+                <img src="images/ufpb_logo.png" alt="UFPB Logo" class="footer-logo">
+                <h4>Parceria</h4>
+                <img src="images/ufpb_logo.png" alt="UFPB Logo" class="footer-logo">
+                <img src="images/ufpb_logo.png" alt="UFPB Logo" class="footer-logo">
+            </div>
+        </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Universidade Federal da Paraíba - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="inventario.js"></script>
+</body>
+</html>

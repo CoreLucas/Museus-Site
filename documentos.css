@@ -1,0 +1,312 @@
+/* Estilos específicos para a página de documentos */
+
+/* Hero Section */
+.hero-section {
+    height: 60vh;
+    position: relative;
+    overflow: hidden;
+    margin-top: 80px;
+}
+
+.hero-content {
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 51, 102, 0.7);
+}
+
+.hero-text {
+    text-align: center;
+    color: white;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* Seção de Documentos */
+.documents-section {
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+.documents-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #003366;
+    margin-bottom: 1rem;
+}
+
+.section-description {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Grid de Documentos */
+.documents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Card de Documento */
+.document-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-left: 4px solid #003366;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.document-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Ícone do Documento */
+.document-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #003366, #0066cc);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* Conteúdo do Documento */
+.document-content {
+    flex: 1;
+}
+
+.document-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #003366;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.document-description {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+    font-size: 0.95rem;
+}
+
+/* Meta informações */
+.document-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.document-date,
+.document-type {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.document-date i,
+.document-type i {
+    color: #003366;
+}
+
+/* Botão de Download */
+.btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #003366, #0066cc);
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.btn-download:hover {
+    background: linear-gradient(135deg, #0066cc, #0099ff);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+}
+
+.btn-download i {
+    font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .documents-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .document-card {
+        padding: 1.5rem;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .document-icon {
+        align-self: center;
+    }
+    
+    .document-meta {
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .documents-section {
+        padding: 3rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .document-card {
+        padding: 1rem;
+    }
+    
+    .document-title {
+        font-size: 1.1rem;
+    }
+    
+    .document-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .btn-download {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Animações */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.document-card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.document-card:nth-child(1) { animation-delay: 0.1s; }
+.document-card:nth-child(2) { animation-delay: 0.2s; }
+.document-card:nth-child(3) { animation-delay: 0.3s; }
+.document-card:nth-child(4) { animation-delay: 0.4s; }
+.document-card:nth-child(5) { animation-delay: 0.5s; }
+.document-card:nth-child(6) { animation-delay: 0.6s; }
+.document-card:nth-child(7) { animation-delay: 0.7s; }
+.document-card:nth-child(8) { animation-delay: 0.8s; }
+
+/* Estados de carregamento */
+.document-card {
+    opacity: 0;
+}
+
+/* Acessibilidade */
+.btn-download:focus {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+}
+
+.document-card:focus-within {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+}
+
+/* Alto contraste */
+@media (prefers-contrast: high) {
+    .document-card {
+        border: 2px solid #000;
+    }
+    
+    .btn-download {
+        border: 2px solid #000;
+    }
+}
+
+/* Redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+    .document-card {
+        animation: none;
+        opacity: 1;
+    }
+    
+    .document-card:hover {
+        transform: none;
+    }
+    
+    .btn-download:hover {
+        transform: none;
+    }
+}
