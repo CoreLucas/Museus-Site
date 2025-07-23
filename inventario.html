@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="inventario.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
 </head>
 <body>
     <!-- Header -->
@@ -59,18 +60,10 @@
         </div>
     </section>
 
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-        <div class="container">
-            <span>Home</span> / <span>Inventário</span>
-        </div>
-    </div>
-
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
 
-            <!-- <h2 class="section-title">TAINACAN UFPB</h2> -->
             <p class="stats-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 
 
@@ -161,47 +154,220 @@
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <!-- Museum Filter -->
-                <div class="museum-filter">
-                    <h3>Filtrar por Museu</h3>
-                    <div class="museum-grid">
-                        <div class="museum-card" data-museum="casa-hermano">
-                            <div class="museum-image" style="background-image: url('./images/museu-fachada.jpg')"></div>
-                            <div class="museum-info">
-                                <h4>Museu Casa Hermano José</h4>
-                                <span class="museum-count">(1.245 itens)</span>
+            
+            <section class="gallery-section">
+                <div class="container">
+                    <!-- Museum Filter -->
+                    <div class="museum-filter">
+                        <h3>Filtrar por Museu</h3>
+                        <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <!-- Slide 1 - Museus 1-6 -->
+                            <div class="swiper-slide">
+                                <div class="museum-grid">
+                                    <div class="museum-card" data-museum="casa-hermano">
+                                        <div class="museum-image" style="background-image: url('./images/banner_museu_casa_hermano.jpg')"></div>
+                                        <div class="museum-info">
+                                            <div class="museum-header">
+                                                <h4 class="museum-title">Museu Casa de Cultura Hermano José (MCCHJ)</h4>
+                                            </div>
+                                            <span class="museum-count">1.245 itens</span>
+                                        </div>
+                                        <a href="museu-detalhes.html?id=1" class="museum-btn-compact">Ver mais</a>
+                                    </div>
+                                    <div class="museum-card" data-museum="casa-ciencia">
+                                        <div class="museum-image" style="background-image: url('./images/Museu-Nacional.jpg')"></div>
+                                        <div class="museum-info">
+                                            <div class="museum-header">
+                                                <h4 class="museum-title">Casa da Ciência</h4>
+                                            </div>
+                                            <span class="museum-count">687 itens</span>
+                                        </div>
+                                        <a href="museu-detalhes.html?id=2" class="museum-btn-compact">Ver mais</a>
+                                    </div>
+                                    <div class="museum-card" data-museum="lixo-marinho">
+                                        <div class="museum-image"></div>
+                                        <div class="museum-info">
+                                            <div class="museum-header">
+                                                <h4 class="museum-title">Coleção Científico-Didática de Lixo Marinho</h4>
+                                            </div>
+                                            <span class="museum-count">423 itens</span>
+                                        </div>
+                                        <a href="museu-detalhes.html?id=3" class="museum-btn-compact">Ver mais</a>
+                                    </div>
+                                    <div class="museum-card" data-museum="galeria-arandu">
+                                        <div class="museum-image"></div>
+                                        <div class="museum-info">
+                                            <div class="museum-header">
+                                                <h4 class="museum-title">Galeria Arandu</h4>
+                                                <span class="museum-count">312 itens</span>
+                                                <a href="museu-detalhes.html?id=4" class="museum-btn-compact">Ver mais</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="museum-card" data-museum="galeria-lavandeira">
+                                        <div class="museum-image"></div>
+                                        <div class="museum-info">
+                                            <div class="museum-header">
+                                                <h4 class="museum-title">Galeria Lavandeira</h4>
+                                                <span class="museum-count">180 itens</span>
+                                                <a href="museu-detalhes.html?id=5" class="museum-btn-compact">Ver mais</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="museum-card" data-museum="laboratelier">
+                                        <div class="museum-image"></div>
+                                        <div class="museum-info">
+                                            <div class="museum-header">
+                                                <h4 class="museum-title">LaborAtelier</h4>
+                                                <span class="museum-count">156 itens</span>
+                                                <a href="museu-detalhes.html?id=6" class="museum-btn-compact">Ver mais</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Slide 2 - Museus 7-12 -->
+                            <div class="swiper-slide">
+                                <div class="museum-grid">
+                                    <div class="museum-card" data-museum="memorial-cavn">
+                                        <div class="museum-image"></div>
+                                        <div class="museum-info">
+                                            <div class="museum-header">
+                                                <h4 class="museum-title">Memorial CAVN</h4>
+                                                <span class="museum-count">234 itens</span>
+                                                <a href="museu-detalhes.html?id=7" class="museum-btn-compact">Ver mais</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="museum-card" data-museum="biodiversidade">
+                                        <div class="museum-image"></div>
+                                        <div class="museum-info">
+                                            <div class="museum-header">
+                                                <h4 class="museum-title">Museu da Biodiversidade - Coleções biológicas</h4>
+                                                <span class="museum-count">567 itens</span>
+                                                <a href="museu-detalhes.html?id=8" class="museum-btn-compact">Ver mais</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="museum-card" data-museum="ciencias-morfologicas">
+                                        <div class="museum-image"></div>
+                                        <div class="museum-info">
+                                            <div class="museum-header">
+                                                <h4 class="museum-title">Museu de Ciências Morfológicas (MCM)</h4>
+                                                <span class="museum-count">345 itens</span>
+                                                <a href="museu-detalhes.html?id=9" class="museum-btn-compact">Ver mais</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="museum-card" data-museum="paleontologia">
+                                        <div class="museum-image"></div>
+                                        <div class="museum-info">
+                                            <div class="museum-header">
+                                                <h4 class="museum-title">Museu de Paleontologia</h4>
+                                                <span class="museum-count">289 itens</span>
+                                                <a href="museu-detalhes.html?id=10" class="museum-btn-compact">Ver mais</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="museum-card" data-museum="museu-brejo">
+                                        <div class="museum-image"></div>
+                                        <div class="museum-info">
+                                            <div class="museum-header">
+                                                <h4 class="museum-title">Museu do Brejo</h4>
+                                                <span class="museum-count">198 itens</span>
+                                                <a href="museu-detalhes.html?id=11" class="museum-btn-compact">Ver mais</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="museum-card" data-museum="nac">
+                                        <div class="museum-image"></div>
+                                        <div class="museum-info">
+                                            <div class="museum-header">
+                                                <h4 class="museum-title">Núcleo de Arte Contemporânea (NAC)</h4>
+                                                <span class="museum-count">456 itens</span>
+                                                <a href="museu-detalhes.html?id=12" class="museum-btn-compact">Ver mais</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Slide 3 - Museus 13-17 -->
+                            <div class="swiper-slide">
+                                <div class="museum-grid">
+                                    <div class="museum-card" data-museum="nudoc">
+                                        <div class="museum-image"></div>
+                                        <div class="museum-info">
+                                            <div class="museum-header">
+                                                <h4 class="museum-title">Núcleo de Documentação Cinematográfica (NUDOC)</h4>
+                                                <span class="museum-count">123 itens</span>
+                                                <a href="museu-detalhes.html?id=13" class="museum-btn-compact">Ver mais</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="museum-card" data-museum="ndihr">
+                                        <div class="museum-image"></div>
+                                        <div class="museum-info">
+                                            <div class="museum-header">
+                                                <h4 class="museum-title">Núcleo de Documentação e Informação Histórica Regional (NDIHR)</h4>
+                                                <span class="museum-count">234 itens</span>
+                                                <a href="museu-detalhes.html?id=14" class="museum-btn-compact">Ver mais</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="museum-card" data-museum="nuppo">
+                                        <div class="museum-image"></div>
+                                        <div class="museum-info">
+                                            <div class="museum-header">
+                                                <h4 class="museum-title">Núcleo de Pesquisa e Documentação da Cultura Popular (NUPPO)</h4>
+                                                <span class="museum-count">167 itens</span>
+                                                <a href="museu-detalhes.html?id=15" class="museum-btn-compact">Ver mais</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="museum-card" data-museum="pinacoteca">
+                                        <div class="museum-image"></div>
+                                        <div class="museum-info">
+                                            <div class="museum-header">
+                                                <h4 class="museum-title">Pinacoteca</h4>
+                                                <span class="museum-count">789 itens</span>
+                                                <a href="museu-detalhes.html?id=16" class="museum-btn-compact">Ver mais</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="museum-card" data-museum="sala-hermano">
+                                        <div class="museum-image"></div>
+                                        <div class="museum-info">
+                                            <div class="museum-header">
+                                                <h4 class="museum-title">Sala Hermano José</h4>
+                                                <span class="museum-count">145 itens</span>
+                                                <a href="museu-detalhes.html?id=17" class="museum-btn-compact">Ver mais</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="museum-card" data-museum="placeholder">
+                                        <div class="museum-image"></div>
+                                        <div class="museum-info">
+                                            <h4></h4>
+                                            <span class="museum-count"></span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="museum-card" data-museum="pinacoteca">
-                            <div class="museum-image"></div>
-                            <div class="museum-info">
-                                <h4>Pinacoteca UFPB</h4>
-                                <span class="museum-count">(687 itens)</span>
-                            </div>
-                        </div>
-                        <div class="museum-card" data-museum="arqueologia">
-                            <div class="museum-image"></div>
-                            <div class="museum-info">
-                                <h4>Museu de Arqueologia</h4>
-                                <span class="museum-count">(423 itens)</span>
-                            </div>
-                        </div>
-                        <div class="museum-card" data-museum="historia">
-                            <div class="museum-image"></div>
-                            <div class="museum-info">
-                                <h4>Museu de História</h4>
-                                <span class="museum-count">(312 itens)</span>
-                            </div>
-                        </div>
-                        <div class="museum-card" data-museum="ciencias">
-                            <div class="museum-image"></div>
-                            <div class="museum-info">
-                                <h4>Museu de Ciências</h4>
-                                <span class="museum-count">(180 itens)</span>
-                            </div>
-                        </div>
+                        
+                        <!-- Navigation buttons -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        
+                        <!-- Pagination -->
+                        <div class="swiper-pagination"></div>
                     </div>
+                </div>
                 </div>
             </section>
 
@@ -356,6 +522,7 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="inventario.js"></script>
 </body>
 </html>

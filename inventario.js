@@ -7,7 +7,66 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeViewToggle();
     initializePagination();
     initializeItemInteractions();
+    initializeSwiper();
 });
+
+// Initialize Swiper for museum cards
+function initializeSwiper() {
+    const swiper = new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: false,
+        speed: 600,
+        effect: 'slide',
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            dynamicBullets: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        keyboard: {
+            enabled: true,
+            onlyInViewport: true,
+        },
+        a11y: {
+            prevSlideMessage: 'Slide anterior',
+            nextSlideMessage: 'Próximo slide',
+            firstSlideMessage: 'Este é o primeiro slide',
+            lastSlideMessage: 'Este é o último slide',
+        },
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+            },
+            768: {
+                slidesPerView: 1,
+                spaceBetween: 30,
+            },
+            1024: {
+                slidesPerView: 1,
+                spaceBetween: 40,
+            },
+        },
+    });
+    
+    // Add ARIA labels to navigation buttons
+    const nextBtn = document.querySelector('.swiper-button-next');
+    const prevBtn = document.querySelector('.swiper-button-prev');
+    
+    if (nextBtn) {
+        nextBtn.setAttribute('aria-label', 'Próximo slide de museus');
+        nextBtn.setAttribute('title', 'Próximo slide');
+    }
+    
+    if (prevBtn) {
+        prevBtn.setAttribute('aria-label', 'Slide anterior de museus');
+        prevBtn.setAttribute('title', 'Slide anterior');
+    }
+}
 
 // Search functionality
 function initializeSearch() {
