@@ -8,7 +8,8 @@
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: #523827; /* Marrom profundo para texto */
+    background-color: #fff3d8; /* Creme suave para fundo principal */
 }
 
 .container {
@@ -17,9 +18,9 @@ body {
     padding: 0 20px;
 }
 
-/* Header */
+/* Header - Mesma cor do footer */
 .header {
-    background: #003366;
+    background: #2c3e50; /* Azul petróleo escuro para header e footer */
     color: white;
     padding: 1rem 0;
     position: fixed;
@@ -66,7 +67,7 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-    color: #ffd700;
+    color: #ffe63d; /* Amarelo vibrante para destaque */
 }
 
 .hamburger {
@@ -93,7 +94,7 @@ body {
     position: absolute;
     top: 100%;
     left: 0;
-    background: #003366;
+    background: #2c3e50; /* Azul petróleo escuro para submenu */
     min-width: 200px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     z-index: 1;
@@ -116,7 +117,7 @@ body {
 }
 
 .submenu a:hover {
-    background: #0066cc;
+    background: #4b6a88; /* Azul acinzentado médio para hover */
 }
 
 .nav-item-with-submenu:hover .submenu {
@@ -132,7 +133,7 @@ body {
 /* Banner */
 .banner {
     height: 60vh;
-    background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
+    background: linear-gradient(135deg, #2c3e50 0%, #4b6a88 100%); /* Gradiente de azul petróleo para azul acinzentado */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -166,21 +167,12 @@ body {
     bottom: 0;
     background: rgba(0,0,0,0.3);
 }
+
 /* Hero Section Dinâmica */
 .hero-section {
     height: 70vh;
     position: relative;
     overflow: hidden;
-}
-
-.hero-content {
-    height: 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    background-position: center;
 }
 
 .hero-content {
@@ -226,7 +218,7 @@ body {
 /* Seção de Propagandas */
 .propaganda-section {
     padding: 4rem 0;
-    background: #f8f9fa;
+    background: #fff3d8; /* Creme suave para fundo */
 }
 
 .propaganda-section .container {
@@ -237,13 +229,13 @@ body {
 
 .propaganda-item {
     height: 200px;
-    background: #666;
+    background: #ecba78; /* Dourado claro para fundo dos itens */
     position: relative;
     display: flex;
     align-items: center;
     border-radius: 8px;
     justify-content: center;
-    color: white;
+    color: #523827; /* Marrom profundo para texto */
     font-weight: 500;
     overflow: hidden;
     background-size: cover;
@@ -259,13 +251,13 @@ body {
 /* Museus em Destaque */
 .museus-destaque {
     padding: 4rem 0;
-    background: white;
+    background: #fff3d8; /* Creme suave para fundo */
 }
 
 .section-title {
     text-align: center;
     margin: 2.5rem 0;
-    color: #1a1a1a;
+    color: #523827; /* Marrom profundo para títulos */
     font-size: 2.2rem;
     font-weight: 700;
     letter-spacing: 1px;
@@ -282,7 +274,7 @@ body {
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background: linear-gradient(90deg, #c0392b, #e74c3c);
+    background: linear-gradient(90deg, #9f643d, #cb8659); /* Gradiente de marrom médio para marrom-alaranjado */
     border-radius: 3px;
 }
 
@@ -307,12 +299,12 @@ body {
 
 .museu-image {
     height: 200px;
-    background: #666;
+    background: #ecba78; /* Dourado claro para fundo das imagens */
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: #523827; /* Marrom profundo para texto */
     font-weight: 500;
     overflow: hidden;
     background-size: cover;
@@ -323,7 +315,7 @@ body {
 .museu-card h3 {
     padding: 1.5rem;
     font-size: 1.3rem;
-    color: #003366;
+    color: #523827; /* Marrom profundo para títulos */
     text-align: center;
 }
 
@@ -332,7 +324,7 @@ body {
     width: fit-content;
     margin: 0 auto 1.5rem;
     padding: 0.8rem 2rem;
-    background: #003366;
+    background: #9f643d; /* Marrom médio para botões */
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -340,13 +332,13 @@ body {
 }
 
 .btn-ver-mais:hover {
-    background: #0066cc;
+    background: #cb8659; /* Marrom-alaranjado para hover */
 }
 
 /* Notícias */
 .noticias {
     padding: 4rem 0;
-    background: #f8f9fa;
+    background: #ecba78; /* Dourado claro para fundo */
 }
 
 .noticias-grid {
@@ -369,7 +361,7 @@ body {
 
 .noticia-image {
     height: 150px;
-    background: #333;
+    background: #9f643d; /* Marrom médio para fundo das imagens */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -379,13 +371,13 @@ body {
 
 .noticia-card h3 {
     padding: 1rem 1.5rem 0.5rem;
-    color: #003366;
+    color: #523827; /* Marrom profundo para títulos */
     font-size: 1.2rem;
 }
 
 .noticia-card p {
     padding: 0 1.5rem;
-    color: #666;
+    color: #634b43; /* Marrom acinzentado para texto */
     line-height: 1.6;
 }
 
@@ -393,7 +385,7 @@ body {
     display: inline-block;
     margin: 1rem 1.5rem 1.5rem;
     padding: 0.6rem 1.5rem;
-    background: #003366;
+    background: #9f643d; /* Marrom médio para botões */
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -402,12 +394,12 @@ body {
 }
 
 .btn-ler-mais:hover {
-    background: #0066cc;
+    background: #cb8659; /* Marrom-alaranjado para hover */
 }
 
 /* Footer */
 .footer {
-    background: #003366;
+    background: #2c3e50; /* Azul petróleo escuro para footer */
     color: white;
     padding: 3rem 0 1rem;
 }
@@ -421,7 +413,7 @@ body {
 
 .footer-section h4 {
     margin-bottom: 1rem;
-    color: #ffd700;
+    color: #ffe63d; /* Amarelo vibrante para títulos do footer */
 }
 
 .footer-section ul {
@@ -444,7 +436,7 @@ body {
 }
 
 .footer-section a:hover {
-    color: #ffd700;
+    color: #ffe63d; /* Amarelo vibrante para hover */
 }
 
 .social-links {
@@ -457,7 +449,7 @@ body {
     display: inline-block;
     width: 100px;
     height: 100px;
-    background: #0066cc;
+    background: #4b6a88; /* Azul acinzentado médio para ícones */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -466,8 +458,8 @@ body {
 }
 
 .social-links a:hover {
-    background: #ffd700;
-    color: #003366;
+    background: #ffe63d; /* Amarelo vibrante para hover */
+    color: #2c3e50; /* Azul petróleo escuro para texto no hover */
 }
 
 .social-buttons {
@@ -491,17 +483,22 @@ body {
     font-size: 2.5rem;
 }
 
+/* Cores originais para botões sociais */
+.social-btn.facebook { background: #1877f2; } /* Azul Facebook */
+.social-btn.instagram { background: #e4405f; } /* Rosa Instagram */
+.social-btn.twitter { background: #1da1f2; } /* Azul Twitter */
+.social-btn.whatsapp { background: #25d366; } /* Verde WhatsApp */
 
-.social-btn.facebook { background: #1877f2; }
-.social-btn.instagram { background: #e4405f; }
-.social-btn.twitter { background: #1da1f2; }
-.social-btn.whatsapp { background: #25d366; }
+.social-btn:hover {
+    background: #ffe63d; /* Amarelo vibrante para hover */
+    color: #2c3e50; /* Azul petróleo escuro para texto no hover */
+}
 
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid #0066cc;
-    color: #ccc;
+    border-top: 1px solid #4b6a88; /* Azul acinzentado médio para borda */
+    color: #ecba78; /* Dourado claro para texto */
 }
 
 /* Responsividade */
@@ -516,7 +513,7 @@ body {
         top: 100%;
         left: 0;
         width: 100%;
-        background: #003366;
+        background: #2c3e50; /* Azul petróleo escuro para menu mobile */
         flex-direction: column;
         padding: 1rem;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);

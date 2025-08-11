@@ -46,11 +46,8 @@ window.addEventListener('scroll', () => {
 // Header Background on Scroll
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
-    if (window.scrollY > 100) {
-        header.style.background = 'rgba(0, 51, 102, 0.95)';
-    } else {
-        header.style.background = '#003366';
-    }
+    // Mantém a cor padrão do header independentemente da rolagem
+    header.style.background = '#2c3e50';
 });
 
 // Animações de Entrada
