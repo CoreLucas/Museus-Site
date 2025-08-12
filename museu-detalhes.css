@@ -17,7 +17,7 @@ html {
 
 /* Header Aprimorado */
 .header {
-    background: #642d39; /* Azul petróleo escuro padronizado com index */
+    background: #873b4b; /* Azul petróleo escuro padronizado com index */
     color: white;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -1292,7 +1292,6 @@ html {
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid #4b6a88; /* Azul acinzentado médio para borda - padronizado */
     color: #ecba78; /* Dourado claro para texto - padronizado */
 }
 
@@ -1302,7 +1301,7 @@ html {
 
 /* Footer Aprimorado */ 
 .footer {
-    background: #642d39; /* Azul petróleo escuro padronizado com index */
+    background: #873b4b; /* Azul petróleo escuro padronizado com index */
     color: white;
     padding: 3rem 0 1rem;
     box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
