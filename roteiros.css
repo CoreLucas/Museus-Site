@@ -1,0 +1,449 @@
+/* Roteiros Page Styles */
+
+/* Page Header */
+.page-header {
+    background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
+    color: white;
+    padding: 120px 0 60px;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Seção Principal */
+.roteiros-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.roteiros-intro {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.roteiros-intro h2 {
+    font-size: 2.5rem;
+    color: #003366;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.roteiros-intro p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Accordion Container */
+.accordion-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Accordion Items */
+.accordion-item {
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 51, 102, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.accordion-item:hover {
+    box-shadow: 0 8px 25px rgba(0, 51, 102, 0.15);
+    transform: translateY(-2px);
+}
+
+.accordion-item.active {
+    box-shadow: 0 10px 30px rgba(0, 51, 102, 0.2);
+}
+
+/* Accordion Header */
+.accordion-header {
+    padding: 25px 30px;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.accordion-header:hover {
+    background: #f8f9fa;
+}
+
+.accordion-item.active .accordion-header {
+    background: #003366;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.accordion-header h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+    color: #003366;
+    transition: color 0.3s ease;
+}
+
+.accordion-item.active .accordion-header h3 {
+    color: white;
+}
+
+/* Accordion Icon */
+.accordion-icon {
+    font-size: 1.2rem;
+    color: #0066cc;
+    transition: all 0.3s ease;
+}
+
+.accordion-item.active .accordion-icon {
+    color: white;
+    transform: rotate(180deg);
+}
+
+/* Accordion Content */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background: white;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 2000px;
+}
+
+.content-wrapper {
+    padding: 30px;
+    border-top: 1px solid #eee;
+}
+
+.content-wrapper p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.content-wrapper ul {
+    margin: 1.5rem 0;
+    padding-left: 20px;
+}
+
+.content-wrapper li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.content-wrapper li strong {
+    color: #003366;
+}
+
+/* Support Channels */
+.support-channels {
+    margin: 2rem 0;
+}
+
+.support-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #0066cc;
+}
+
+.support-item i {
+    font-size: 1.5rem;
+    color: #0066cc;
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+.support-item h4 {
+    font-size: 1.1rem;
+    color: #003366;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.support-item p {
+    margin: 0;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Steps Container */
+.steps-container {
+    margin: 2rem 0;
+}
+
+.step-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    position: relative;
+}
+
+.step-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 27px;
+    bottom: -20px;
+    width: 2px;
+    height: 20px;
+    background: #ddd;
+}
+
+.step-number {
+    background: #0066cc;
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.step-content h4 {
+    font-size: 1.1rem;
+    color: #003366;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.step-content p {
+    margin: 0;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Important Note */
+.important-note {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 2rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.important-note i {
+    color: #856404;
+    font-size: 1.2rem;
+    margin-right: 10px;
+    margin-top: 2px;
+}
+
+.important-note p {
+    margin: 0;
+    color: #856404;
+    line-height: 1.5;
+}
+
+/* Links Section */
+.links-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.links-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #003366;
+    margin-bottom: 3rem;
+    font-weight: 700;
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.link-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 51, 102, 0.1);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    text-align: center;
+}
+
+.link-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 51, 102, 0.2);
+    border-color: #0066cc;
+    text-decoration: none;
+    color: inherit;
+}
+
+.link-card i {
+    font-size: 2.5rem;
+    color: #0066cc;
+    margin-bottom: 1rem;
+}
+
+.link-card h3 {
+    font-size: 1.3rem;
+    color: #003366;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.link-card p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Animações */
+.accordion-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.accordion-item:nth-child(1) { animation-delay: 0.1s; }
+.accordion-item:nth-child(2) { animation-delay: 0.2s; }
+.accordion-item:nth-child(3) { animation-delay: 0.3s; }
+.accordion-item:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .page-header {
+        padding: 100px 0 40px;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .page-subtitle {
+        font-size: 1rem;
+    }
+    
+    .roteiros-intro h2 {
+        font-size: 2rem;
+    }
+    
+    .accordion-header {
+        padding: 20px;
+    }
+    
+    .accordion-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .content-wrapper {
+        padding: 20px;
+    }
+    
+    .support-item,
+    .step-item {
+        padding: 15px;
+    }
+    
+    .links-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .link-card {
+        padding: 25px 20px;
+    }
+    
+    .roteiros-section,
+    .links-section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 1.8rem;
+    }
+    
+    .accordion-header {
+        padding: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .accordion-icon {
+        align-self: flex-end;
+        margin-top: -30px;
+    }
+    
+    .content-wrapper {
+        padding: 15px;
+    }
+    
+    .step-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .step-number {
+        margin: 0 auto 15px auto;
+    }
+    
+    .step-item:not(:last-child)::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* Active Navigation Link */
+.nav-link.active {
+    color: #0066cc !important;
+    font-weight: 600;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
