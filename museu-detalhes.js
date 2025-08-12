@@ -274,7 +274,7 @@ function initializeChart() {
             labels: ['Pinturas', 'Esculturas', 'Fotografias', 'Instalações'],
             datasets: [{
                 data: [45, 25, 20, 10],
-                backgroundColor: ['#003366', '#ffd700', '#ff6b6b', '#4ecdc4']
+                backgroundColor: ['#2c3e50', '#ffe63d', '#cb8659', '#9f643d']
             }]
         },
         options: {

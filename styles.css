@@ -20,7 +20,7 @@ body {
 
 /* Header - Mesma cor do footer */
 .header {
-    background: #2c3e50; /* Azul petróleo escuro para header e footer */
+    background: #642d39;
     color: white;
     padding: 1rem 0;
     position: fixed;
@@ -43,8 +43,9 @@ body {
 }
 
 .logo-img {
-    height: 40px;
+    height: 80px;
     width: auto;
+    margin: 0px;
 }
 
 .logo-text {
@@ -94,7 +95,7 @@ body {
     position: absolute;
     top: 100%;
     left: 0;
-    background: #2c3e50; /* Azul petróleo escuro para submenu */
+    background: #642d39; /* Azul petróleo escuro para submenu */
     min-width: 200px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     z-index: 1;
@@ -133,7 +134,7 @@ body {
 /* Banner */
 .banner {
     height: 60vh;
-    background: linear-gradient(135deg, #2c3e50 0%, #4b6a88 100%); /* Gradiente de azul petróleo para azul acinzentado */
+    background: linear-gradient(135deg, #642d39 0%, #4b6a88 100%); /* Gradiente de azul petróleo para azul acinzentado */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -256,7 +257,7 @@ body {
 
 .section-title {
     text-align: center;
-    margin: 2.5rem 0;
+    margin: 0 0 2.5rem 0;
     color: #523827; /* Marrom profundo para títulos */
     font-size: 2.2rem;
     font-weight: 700;
@@ -399,7 +400,14 @@ body {
 
 /* Footer */
 .footer {
-    background: #2c3e50; /* Azul petróleo escuro para footer */
+    background: #642d39; /* Azul petróleo escuro para footer */
+    color: white;
+    padding: 3rem 0 1rem;
+}
+
+/* Footer-marcas */
+.footer-marcas {
+    background: #fff3d8; /* Azul petróleo escuro para footer */
     color: white;
     padding: 3rem 0 1rem;
 }
@@ -459,7 +467,7 @@ body {
 
 .social-links a:hover {
     background: #ffe63d; /* Amarelo vibrante para hover */
-    color: #2c3e50; /* Azul petróleo escuro para texto no hover */
+    color: #642d39; /* Azul petróleo escuro para texto no hover */
 }
 
 .social-buttons {
@@ -491,13 +499,12 @@ body {
 
 .social-btn:hover {
     background: #ffe63d; /* Amarelo vibrante para hover */
-    color: #2c3e50; /* Azul petróleo escuro para texto no hover */
+    color: #642d39; /* Azul petróleo escuro para texto no hover */
 }
 
 .footer-bottom {
     text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid #4b6a88; /* Azul acinzentado médio para borda */
+    /* padding-top: 1rem; */
     color: #ecba78; /* Dourado claro para texto */
 }
 
@@ -513,7 +520,7 @@ body {
         top: 100%;
         left: 0;
         width: 100%;
-        background: #2c3e50; /* Azul petróleo escuro para menu mobile */
+        background: #642d39; /* Azul petróleo escuro para menu mobile */
         flex-direction: column;
         padding: 1rem;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);

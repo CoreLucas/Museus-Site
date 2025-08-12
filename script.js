@@ -47,7 +47,7 @@ window.addEventListener('scroll', () => {
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
     // Mantém a cor padrão do header independentemente da rolagem
-    header.style.background = '#2c3e50';
+    header.style.background = '#642d39';
 });
 
 // Animações de Entrada
