@@ -178,22 +178,26 @@ body {
 /* Hero Section Dinâmica */
 .hero-section {
     position: relative;
-    margin-top: 100px;
-    /* Compensa a altura do header fixo */
+    margin-top: 100px; /* Compensa a altura do header fixo */
+    width: 100%;
+    height: auto; /* Altura automática baseada na imagem */
+    max-height: 70vh; /* Controla a altura máxima em monitores ultrawide */
+    overflow: hidden;
 }
 
 .hero-content {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
+    width: 100%;
 }
 
 .hero-image {
     width: 100%;
     height: auto;
     display: block;
-    max-width: 100%;
+    max-height: 70vh; /* Altura máxima para controlar em ultrawide */
+    object-fit: cover; /* Preenche largura mantendo proporção */
+    object-position: center; /* Centraliza o foco da imagem */
 }
 
 .hero-overlay {
@@ -254,6 +258,37 @@ body {
 
     .hero-subtitle {
         font-size: 1rem;
+    }
+}
+
+/* Controle para diferentes resoluções */
+@media (min-width: 1920px) {
+    .hero-section {
+        max-height: 60vh; /* Reduz altura em telas grandes */
+    }
+    
+    .hero-image {
+        max-height: 60vh;
+    }
+}
+
+@media (min-width: 2560px) {
+    .hero-section {
+        max-height: 50vh; /* Ainda menor em monitores 2K+ */
+    }
+    
+    .hero-image {
+        max-height: 50vh;
+    }
+}
+
+@media (min-width: 3440px) {
+    .hero-section {
+        max-height: 45vh; /* Controle máximo para ultrawide 21:9+ */
+    }
+    
+    .hero-image {
+        max-height: 45vh;
     }
 }
 
