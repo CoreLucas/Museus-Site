@@ -110,6 +110,7 @@ html {
     height: 70vh;
     position: relative;
     overflow: hidden;
+    margin-top: 100px;
 }
 
 .hero-slider {

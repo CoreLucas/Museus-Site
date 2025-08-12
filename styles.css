@@ -8,8 +8,10 @@
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    color: #523827; /* Marrom profundo para texto */
-    background-color: #fff3d8; /* Creme suave para fundo principal */
+    color: #523827;
+    /* Marrom profundo para texto */
+    background-color: #fff3d8;
+    /* Creme suave para fundo principal */
 }
 
 .container {
@@ -27,7 +29,7 @@ body {
     top: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .header .container {
@@ -68,7 +70,8 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-    color: #ffe63d; /* Amarelo vibrante para destaque */
+    color: #ffe63d;
+    /* Amarelo vibrante para destaque */
 }
 
 .hamburger {
@@ -95,9 +98,10 @@ body {
     position: absolute;
     top: 100%;
     left: 0;
-    background: #873b4b; /* Azul petróleo escuro para submenu */
+    background: #873b4b;
+    /* Azul petróleo escuro para submenu */
     min-width: 200px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
     list-style: none;
     padding: 0;
@@ -118,7 +122,8 @@ body {
 }
 
 .submenu a:hover {
-    background: #4b6a88; /* Azul acinzentado médio para hover */
+    background: #4b6a88;
+    /* Azul acinzentado médio para hover */
 }
 
 .nav-item-with-submenu:hover .submenu {
@@ -126,7 +131,7 @@ body {
 }
 
 /* Ajuste para o link principal quando há submenu */
-.nav-item-with-submenu > .nav-link::after {
+.nav-item-with-submenu>.nav-link::after {
     content: ' ▼';
     font-size: 0.8em;
 }
@@ -134,7 +139,8 @@ body {
 /* Banner */
 .banner {
     height: 60vh;
-    background: linear-gradient(135deg, #873b4b 0%, #4b6a88 100%); /* Gradiente de azul petróleo para azul acinzentado */
+    background: linear-gradient(135deg, #873b4b 0%, #4b6a88 100%);
+    /* Gradiente de azul petróleo para azul acinzentado */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -166,24 +172,28 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
 }
 
 /* Hero Section Dinâmica */
 .hero-section {
-    height: 70vh;
     position: relative;
-    overflow: hidden;
+    margin-top: 100px;
+    /* Compensa a altura do header fixo */
 }
 
 .hero-content {
-    height: 100%;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-size: cover;
-    background-position: center;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 100%;
 }
 
 .hero-overlay {
@@ -192,10 +202,15 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     color: white;
     z-index: 2;
@@ -207,7 +222,7 @@ body {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-subtitle {
@@ -216,10 +231,37 @@ body {
     opacity: 0.9;
 }
 
+/* Responsividade do Hero */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .hero-text {
+        padding: 0 1rem;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+}
+
 /* Seção de Propagandas */
 .propaganda-section {
     padding: 4rem 0;
-    background: #fff3d8; /* Creme suave para fundo */
+    background: #fff3d8;
+    /* Creme suave para fundo */
 }
 
 .propaganda-section .container {
@@ -230,13 +272,15 @@ body {
 
 .propaganda-item {
     height: 200px;
-    background: #ecba78; /* Dourado claro para fundo dos itens */
+    background: #ecba78;
+    /* Dourado claro para fundo dos itens */
     position: relative;
     display: flex;
     align-items: center;
     border-radius: 8px;
     justify-content: center;
-    color: #523827; /* Marrom profundo para texto */
+    color: #523827;
+    /* Marrom profundo para texto */
     font-weight: 500;
     overflow: hidden;
     background-size: cover;
@@ -252,13 +296,15 @@ body {
 /* Museus em Destaque */
 .museus-destaque {
     padding: 4rem 0;
-    background: #fff3d8; /* Creme suave para fundo */
+    background: #fff3d8;
+    /* Creme suave para fundo */
 }
 
 .section-title {
     text-align: center;
     margin: 0 0 2.5rem 0;
-    color: #523827; /* Marrom profundo para títulos */
+    color: #523827;
+    /* Marrom profundo para títulos */
     font-size: 2.2rem;
     font-weight: 700;
     letter-spacing: 1px;
@@ -275,7 +321,8 @@ body {
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background: linear-gradient(90deg, #9f643d, #cb8659); /* Gradiente de marrom médio para marrom-alaranjado */
+    background: linear-gradient(90deg, #9f643d, #cb8659);
+    /* Gradiente de marrom médio para marrom-alaranjado */
     border-radius: 3px;
 }
 
@@ -288,24 +335,26 @@ body {
 .museu-card {
     background: white;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .museu-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .museu-image {
     height: 200px;
-    background: #ecba78; /* Dourado claro para fundo das imagens */
+    background: #ecba78;
+    /* Dourado claro para fundo das imagens */
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #523827; /* Marrom profundo para texto */
+    color: #523827;
+    /* Marrom profundo para texto */
     font-weight: 500;
     overflow: hidden;
     background-size: cover;
@@ -316,7 +365,8 @@ body {
 .museu-card h3 {
     padding: 1.5rem;
     font-size: 1.3rem;
-    color: #523827; /* Marrom profundo para títulos */
+    color: #523827;
+    /* Marrom profundo para títulos */
     text-align: center;
 }
 
@@ -325,7 +375,8 @@ body {
     width: fit-content;
     margin: 0 auto 1.5rem;
     padding: 0.8rem 2rem;
-    background: #9f643d; /* Marrom médio para botões */
+    background: #9f643d;
+    /* Marrom médio para botões */
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -333,13 +384,15 @@ body {
 }
 
 .btn-ver-mais:hover {
-    background: #cb8659; /* Marrom-alaranjado para hover */
+    background: #cb8659;
+    /* Marrom-alaranjado para hover */
 }
 
 /* Notícias */
 .noticias {
     padding: 4rem 0;
-    background: #ecba78; /* Dourado claro para fundo */
+    background: #ecba78;
+    /* Dourado claro para fundo */
 }
 
 .noticias-grid {
@@ -351,7 +404,7 @@ body {
 .noticia-card {
     background: white;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s;
 }
@@ -362,7 +415,8 @@ body {
 
 .noticia-image {
     height: 150px;
-    background: #9f643d; /* Marrom médio para fundo das imagens */
+    background: #9f643d;
+    /* Marrom médio para fundo das imagens */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -372,13 +426,15 @@ body {
 
 .noticia-card h3 {
     padding: 1rem 1.5rem 0.5rem;
-    color: #523827; /* Marrom profundo para títulos */
+    color: #523827;
+    /* Marrom profundo para títulos */
     font-size: 1.2rem;
 }
 
 .noticia-card p {
     padding: 0 1.5rem;
-    color: #634b43; /* Marrom acinzentado para texto */
+    color: #634b43;
+    /* Marrom acinzentado para texto */
     line-height: 1.6;
 }
 
@@ -386,7 +442,8 @@ body {
     display: inline-block;
     margin: 1rem 1.5rem 1.5rem;
     padding: 0.6rem 1.5rem;
-    background: #9f643d; /* Marrom médio para botões */
+    background: #9f643d;
+    /* Marrom médio para botões */
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -395,19 +452,22 @@ body {
 }
 
 .btn-ler-mais:hover {
-    background: #cb8659; /* Marrom-alaranjado para hover */
+    background: #cb8659;
+    /* Marrom-alaranjado para hover */
 }
 
 /* Footer */
 .footer {
-    background: #873b4b; /* Azul petróleo escuro para footer */
+    background: #873b4b;
+    /* Azul petróleo escuro para footer */
     color: white;
     padding: 3rem 0 1rem;
 }
 
 /* Footer-marcas */
 .footer-marcas {
-    background: #fff3d8; /* Azul petróleo escuro para footer */
+    background: #fff3d8;
+    /* Azul petróleo escuro para footer */
     color: white;
     padding: 3rem 0 1rem;
 }
@@ -421,7 +481,8 @@ body {
 
 .footer-section h4 {
     margin-bottom: 1rem;
-    color: #ffe63d; /* Amarelo vibrante para títulos do footer */
+    color: #ffe63d;
+    /* Amarelo vibrante para títulos do footer */
 }
 
 .footer-section ul {
@@ -444,7 +505,8 @@ body {
 }
 
 .footer-section a:hover {
-    color: #ffe63d; /* Amarelo vibrante para hover */
+    color: #ffe63d;
+    /* Amarelo vibrante para hover */
 }
 
 .social-links {
@@ -457,7 +519,8 @@ body {
     display: inline-block;
     width: 100px;
     height: 100px;
-    background: #4b6a88; /* Azul acinzentado médio para ícones */
+    background: #4b6a88;
+    /* Azul acinzentado médio para ícones */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -466,7 +529,8 @@ body {
 }
 
 .social-links a:hover {
-    background: #ffe63d; /* Amarelo vibrante para hover */
+    background: #ffe63d;
+    /* Amarelo vibrante para hover */
     color: #873b4b;
 }
 
@@ -492,20 +556,39 @@ body {
 }
 
 /* Cores originais para botões sociais */
-.social-btn.facebook { background: #1877f2; } /* Azul Facebook */
-.social-btn.instagram { background: #e4405f; } /* Rosa Instagram */
-.social-btn.twitter { background: #1da1f2; } /* Azul Twitter */
-.social-btn.whatsapp { background: #25d366; } /* Verde WhatsApp */
+.social-btn.facebook {
+    background: #1877f2;
+}
+
+/* Azul Facebook */
+.social-btn.instagram {
+    background: #e4405f;
+}
+
+/* Rosa Instagram */
+.social-btn.twitter {
+    background: #1da1f2;
+}
+
+/* Azul Twitter */
+.social-btn.whatsapp {
+    background: #25d366;
+}
+
+/* Verde WhatsApp */
 
 .social-btn:hover {
-    background: #ffe63d; /* Amarelo vibrante para hover */
-    color: #873b4b; /* Azul petróleo escuro para texto no hover */
+    background: #ffe63d;
+    /* Amarelo vibrante para hover */
+    color: #873b4b;
+    /* Azul petróleo escuro para texto no hover */
 }
 
 .footer-bottom {
     text-align: center;
     /* padding-top: 1rem; */
-    color: #ecba78; /* Dourado claro para texto */
+    color: #ecba78;
+    /* Dourado claro para texto */
 }
 
 /* Responsividade */
@@ -513,39 +596,40 @@ body {
     .hamburger {
         display: flex;
     }
-    
+
     .nav-menu {
         display: none;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background: #873b4b; /* Azul petróleo escuro para menu mobile */
+        background: #873b4b;
+        /* Azul petróleo escuro para menu mobile */
         flex-direction: column;
         padding: 1rem;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-    
+
     .nav-menu.active {
         display: flex;
     }
-    
+
     .banner-title {
         font-size: 2rem;
     }
-    
+
     .banner-subtitle {
         font-size: 1rem;
     }
-    
+
     .propaganda-section .container {
         grid-template-columns: 1fr;
     }
-    
+
     .section-title {
         font-size: 1.5rem;
     }
-    
+
     .museus-grid,
     .noticias-grid {
         grid-template-columns: 1fr;
@@ -556,20 +640,20 @@ body {
     .container {
         padding: 0 15px;
     }
-    
+
     .banner {
         height: 50vh;
     }
-    
+
     .banner-title {
         font-size: 1.8rem;
     }
-    
+
     .propaganda-item {
         padding: 2rem;
         min-height: 150px;
     }
-    
+
     .propaganda-item h3 {
         font-size: 1.2rem;
     }
