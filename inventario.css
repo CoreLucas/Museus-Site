@@ -195,31 +195,9 @@
     border-radius: 15px;
     padding: 1.5rem;
     text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    cursor: default;
     position: relative;
-    overflow: hidden;
-}
-
-.category-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(42, 82, 152, 0.1), transparent);
-    transition: left 0.5s ease;
-}
-
-.category-card:hover::before {
-    left: 100%;
-}
-
-.category-card:hover {
-    border-color: #2a5298;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .category-icon {
@@ -296,13 +274,234 @@
 }
 
 .museum-count {
-    color: #6c757d;
-    font-size: 0.9rem;
+    color: #0066cc;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 8px;
+    display: block;
+}
+
+/* Section Headers */
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-main-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #003366;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.filter-section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.filter-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #003366;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.filter-title i {
+    color: #0066cc;
+    font-size: 1.6rem;
+}
+
+.filter-description {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
 }
 
 /* Results Section */
 .results-section {
     margin-top: 3rem;
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+/* Authors Grid */
+.authors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Author Cards */
+.author-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.author-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.author-image {
+    height: 180px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.author-info {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.author-info h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+    min-height: 2.6rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.author-specialty {
+    color: #0066cc;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+}
+
+.author-period {
+    color: #666;
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+}
+
+.author-works {
+    color: #28a745;
+    font-weight: 500;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.author-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: auto;
+}
+
+/* Author Card Animations */
+.author-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.author-card:nth-child(1) { animation-delay: 0.1s; }
+.author-card:nth-child(2) { animation-delay: 0.2s; }
+.author-card:nth-child(3) { animation-delay: 0.3s; }
+.author-card:nth-child(4) { animation-delay: 0.4s; }
+.author-card:nth-child(5) { animation-delay: 0.5s; }
+.author-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Responsive Design for Authors Grid */
+@media (max-width: 1024px) {
+    .authors-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .author-card {
+        height: 380px;
+    }
+    
+    .author-image {
+        height: 160px;
+    }
+}
+
+@media (max-width: 768px) {
+    .authors-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .author-card {
+        height: 360px;
+    }
+    
+    .author-image {
+        height: 140px;
+    }
+    
+    .author-info {
+        padding: 1rem;
+    }
+    
+    .author-info h4 {
+        font-size: 1.1rem;
+        min-height: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .authors-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .author-card {
+        height: 340px;
+    }
+    
+    .author-image {
+        height: 120px;
+    }
+    
+    .author-info h4 {
+        font-size: 1rem;
+        min-height: 2rem;
+    }
 }
 
 .results-header {
@@ -701,133 +900,447 @@
 }
 
 /* Museum Grid - Limitando a 6 cards (2x3) */
-/* Grid Responsivo Refinado */
 .museum-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: 24px;
+    gap: 20px;
     width: 100%;
-    max-width: 1200px;
-    padding: 20px;
-    opacity: 1;
-    visibility: visible;
+    max-width: 1000px;
+    padding: 0;
     margin: 0 auto;
-    justify-content: center;
     align-items: stretch;
-    place-items: center;
+    min-height: 350px;
 }
 
 /* Mostrar apenas os primeiros 6 cards em cada slide */
 .swiper-slide .museum-grid .museum-card {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.swiper-slide .museum-grid .museum-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 51, 102, 0.2);
 }
 
 .swiper-slide .museum-grid .museum-card:nth-child(n+7) {
     display: none;
 }
 
-/* Swiper Navigation Wrapper */
-.swiper-navigation-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 20px;
+/* Museum Card Components */
+.museum-card .museum-image {
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    background-color: #f8f9fa;
+    flex-shrink: 0;
 }
 
-/* Botões de Navegação do Swiper */
-.swiper-button-next,
-.swiper-button-prev {
-    color: #fff !important;
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, #2a5298 0%, #1e3d73 100%);
-    border-radius: 50%;
+.museum-card .museum-info {
+    padding: 15px;
+    flex-grow: 1;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    cursor: pointer;
-    position: static !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    transform: none !important;
-    box-shadow: 0 8px 25px rgba(42, 82, 152, 0.4);
-    border: 3px solid #fff;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    flex-shrink: 0;
-    margin-top: 0 !important;
-    backdrop-filter: blur(10px);
-    position: relative;
+    flex-direction: column;
+}
+
+.museum-card .museum-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #003366;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
-.swiper-button-next::before,
-.swiper-button-prev::before {
+.museum-card .museum-count {
+    color: #0066cc;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: auto;
+}
+
+.museum-card .museum-btn-compact {
+    background: #0066cc;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-align: center;
+    margin: 10px 15px 15px 15px;
+    transition: background 0.3s ease;
+}
+
+.museum-card .museum-btn-compact:hover {
+    background: #003366;
+    text-decoration: none;
+    color: white;
+}
+
+/* Swiper Navigation Wrapper */
+.swiper-navigation-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+    position: relative;
+}
+
+/* Modern Custom Navigation Buttons */
+.custom-prev,
+.custom-next {
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
+    color: white !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(0, 51, 102, 0.3);
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+    flex-shrink: 0;
+    opacity: 1;
+    visibility: visible;
+    margin: 0;
+    padding: 0;
+}
+
+.custom-prev:before,
+.custom-next:before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
     border-radius: 50%;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-.swiper-button-next:hover::before,
-.swiper-button-prev:hover::before {
-    opacity: 1;
-}
-
-.swiper-container {
-    flex: 1;
-    overflow: hidden;
-    margin: 0;
-}
-
-.swiper-button-next::after,
-.swiper-button-prev::after {
-    font-size: 28px !important;
-    font-weight: 900 !important;
-    color: #fff;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
+.custom-prev i,
+.custom-next i {
+    font-size: 18px;
+    transition: transform 0.3s ease;
     z-index: 2;
     position: relative;
 }
 
-.swiper-button-next::after {
-    content: '→' !important;
-    margin-left: 2px;
+.custom-prev:hover,
+.custom-next:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 51, 102, 0.4);
+    background: linear-gradient(135deg, #0066cc 0%, #003366 100%);
 }
 
-.swiper-button-prev::after {
-    content: '←' !important;
-    margin-right: 2px;
+.custom-prev:hover:before,
+.custom-next:hover:before {
+    opacity: 1;
 }
 
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-    background: linear-gradient(135deg, #1e3d73 0%, #2a5298 100%);
-    border-color: #fff;
-    box-shadow: 0 12px 35px rgba(42, 82, 152, 0.6);
-    transform: scale(1.1) translateY(-2px);
-}
-
-.swiper-button-next:hover::after,
-.swiper-button-prev:hover::after {
+.custom-prev:hover i,
+.custom-next:hover i {
     transform: scale(1.1);
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
 }
 
-.swiper-button-next:active,
-.swiper-button-prev:active {
-    transform: scale(1.05) translateY(0px);
-    box-shadow: 0 6px 20px rgba(42, 82, 152, 0.5);
-    transition: all 0.1s ease;
+.custom-prev:active,
+.custom-next:active {
+    transform: translateY(0) scale(1.02);
+    box-shadow: 0 4px 15px rgba(0, 51, 102, 0.5);
+}
+
+.custom-prev:disabled,
+.custom-next:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 2px 10px rgba(0, 51, 102, 0.2);
+    background: linear-gradient(135deg, #666 0%, #999 100%);
+}
+
+.custom-prev:disabled:hover,
+.custom-next:disabled:hover {
+    transform: none;
+    box-shadow: 0 2px 10px rgba(0, 51, 102, 0.2);
+    background: linear-gradient(135deg, #666 0%, #999 100%);
+}
+
+/* Ensure buttons are always visible */
+.swiper-navigation-wrapper .custom-prev,
+.swiper-navigation-wrapper .custom-next {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Button focus states for accessibility */
+.custom-prev:focus-visible,
+.custom-next:focus-visible {
+    outline: 3px solid #0066cc;
+    outline-offset: 3px;
+}
+
+/* Enhanced button styling */
+.custom-prev,
+.custom-next {
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 2px solid transparent;
+}
+
+/* Swiper Container */
+.museum-swiper {
+    flex: 1;
+    overflow: hidden;
+    margin: 0 10px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    min-height: 400px;
+}
+
+.museum-swiper .swiper-wrapper {
+    align-items: stretch;
+}
+
+.museum-swiper .swiper-slide {
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Swiper Pagination */
+.museum-swiper .swiper-pagination {
+    position: relative;
+    bottom: 0;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.museum-swiper .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    margin: 0 6px;
+    background: rgba(0, 51, 102, 0.3);
+    opacity: 1;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.museum-swiper .swiper-pagination-bullet-active {
+    background: #0066cc;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(0, 102, 204, 0.5);
+}
+
+.museum-swiper .swiper-pagination-bullet:hover {
+    background: #003366;
+    transform: scale(1.1);
+}
+
+/* Hide default swiper buttons */
+.swiper-button-next,
+.swiper-button-prev {
+    display: none !important;
+}
+
+/* Museum Filter Section Improvements */
+.museum-filter h3 {
+    font-size: 1.8rem;
+    color: #003366;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600px;
+}
+
+/* Slide Transition Effects */
+.swiper-slide {
+    transition: transform 0.3s ease;
+}
+
+.swiper-slide-active {
+    transform: scale(1);
+}
+
+/* Loading State for Swiper */
+.museum-swiper.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.museum-swiper.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #0066cc;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 100;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design for Swiper Navigation */
+@media (max-width: 768px) {
+    .swiper-navigation-wrapper {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .custom-prev,
+    .custom-next {
+        width: 50px;
+        height: 50px;
+        position: static;
+    }
+    
+    .custom-prev i,
+    .custom-next i {
+        font-size: 16px;
+    }
+    
+    .museum-swiper {
+        margin: 0;
+        padding: 15px;
+    }
+    
+    .museum-filter h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .museum-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .swiper-navigation-wrapper {
+        gap: 10px;
+    }
+    
+    .custom-prev,
+    .custom-next {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .custom-prev i,
+    .custom-next i {
+        font-size: 14px;
+    }
+    
+    .museum-swiper {
+        padding: 10px;
+    }
+    
+    .museum-swiper .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        margin: 0 4px;
+    }
+    
+    .museum-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+        gap: 10px;
+    }
+    
+    .museum-card .museum-image {
+        height: 100px;
+    }
+    
+    .museum-card .museum-title {
+
+/* Enhanced Museum Cards in Swiper */
+.museum-swiper .museum-card {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.museum-swiper .museum-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 51, 102, 0.2);
+}
+
+/* Accessibility Improvements */
+.custom-prev:focus,
+.custom-next:focus {
+    outline: 3px solid #0066cc;
+    outline-offset: 2px;
+}
+
+.museum-swiper .swiper-pagination-bullet:focus {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+}
+
+/* Animation for slide changes */
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.swiper-slide-next {
+    animation: slideInFromRight 0.5s ease-out;
+}
+
+.swiper-slide-prev {
+    animation: slideInFromLeft 0.5s ease-out;
 }
 
 /* Paginação do Swiper */
@@ -1023,16 +1536,7 @@
     text-overflow: ellipsis;
 }
 
-.museum-count {
-    font-size: 1rem; /* Aumentado de 0.9rem para 1rem */
-    color: #444444; /* Escurecido de #666666 para #444444 */
-    font-weight: 500; /* Aumentado de 400 para 500 */
-    white-space: nowrap;
-    margin: 8px 0 16px 0;
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 1.5;
+/* Removed duplicate museum-count styles */
 }
 
 /* Botão "Ver Mais" Refinado e Fixo */
@@ -1084,43 +1588,7 @@
     box-shadow: 0 3px 8px rgba(42, 82, 152, 0.4);
 }
 
-/* Modern Navigation Arrows - Melhorados */
-.swiper-button-next,
-.swiper-button-prev {
-    color: #ffffff;
-    background: #2a5298;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    margin-top: -30px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    border: none;
-    opacity: 0.9;
-}
-
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-    background: #1e3c72;
-    color: white;
-    transform: scale(1.1);
-    box-shadow: 0 10px 24px rgba(30, 60, 114, 0.5);
-    opacity: 1;
-}
-
-.swiper-button-next::after,
-.swiper-button-prev::after {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.swiper-button-next {
-    right: 20px;
-}
-
-.swiper-button-prev {
-    left: 20px;
-}
+/* Legacy styles removed - using custom navigation buttons now */
 
 .swiper-pagination {
     bottom: -10px;

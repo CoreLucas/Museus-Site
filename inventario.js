@@ -8,24 +8,28 @@ document.addEventListener('DOMContentLoaded', function() {
     initializePagination();
     initializeItemInteractions();
     initializeSwiper();
+    
+    // Initialize first page of authors
+    loadPageContent(1);
 });
 
 // Initialize Swiper for museum cards
 function initializeSwiper() {
-    const swiper = new Swiper('.swiper-container', {
+    const swiper = new Swiper('.museum-swiper', {
         slidesPerView: 1,
         spaceBetween: 30,
         loop: false,
-        speed: 600,
+        speed: 800,
         effect: 'slide',
+        autoHeight: false,
+        centeredSlides: false,
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
             dynamicBullets: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            renderBullet: function (index, className) {
+                return '<span class="' + className + '" aria-label="Ir para slide ' + (index + 1) + '"></span>';
+            },
         },
         keyboard: {
             enabled: true,
@@ -57,15 +61,96 @@ function initializeSwiper() {
     const nextBtn = document.querySelector('.swiper-button-next');
     const prevBtn = document.querySelector('.swiper-button-prev');
     
-    if (nextBtn) {
-        nextBtn.setAttribute('aria-label', 'Próximo slide de museus');
-        nextBtn.setAttribute('title', 'Próximo slide');
+    // Custom navigation buttons
+    const customPrevBtn = document.querySelector('.custom-prev');
+    const customNextBtn = document.querySelector('.custom-next');
+    
+    if (customPrevBtn && customNextBtn) {
+        // Add event listeners for custom buttons
+        customPrevBtn.addEventListener('click', () => {
+            swiper.slidePrev();
+        });
+        
+        customNextBtn.addEventListener('click', () => {
+            swiper.slideNext();
+        });
+        
+        // Update button states
+        function updateButtonStates() {
+            customPrevBtn.disabled = swiper.isBeginning;
+            customNextBtn.disabled = swiper.isEnd;
+        }
+        
+        // Listen to swiper events
+        swiper.on('slideChange', updateButtonStates);
+        swiper.on('reachBeginning', () => {
+            customPrevBtn.disabled = true;
+        });
+        swiper.on('reachEnd', () => {
+            customNextBtn.disabled = true;
+        });
+        swiper.on('fromEdge', updateButtonStates);
+        
+        // Initial state
+        updateButtonStates();
+        
+        // Accessibility attributes
+        customPrevBtn.setAttribute('aria-label', 'Slide anterior de museus');
+        customPrevBtn.setAttribute('title', 'Slide anterior');
+        customNextBtn.setAttribute('aria-label', 'Próximo slide de museus');
+        customNextBtn.setAttribute('title', 'Próximo slide');
     }
     
-    if (prevBtn) {
-        prevBtn.setAttribute('aria-label', 'Slide anterior de museus');
-        prevBtn.setAttribute('title', 'Slide anterior');
-    }
+    // Add smooth scroll animation and loading states
+    swiper.on('slideChangeTransitionStart', () => {
+        const swiperContainer = document.querySelector('.museum-swiper');
+        swiperContainer.classList.add('loading');
+        
+        // Remove loading state after transition
+        setTimeout(() => {
+            swiperContainer.classList.remove('loading');
+        }, 400);
+    });
+    
+    // Add keyboard navigation hints
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft' && !customPrevBtn.disabled) {
+            swiper.slidePrev();
+            customPrevBtn.focus();
+        } else if (e.key === 'ArrowRight' && !customNextBtn.disabled) {
+            swiper.slideNext();
+            customNextBtn.focus();
+        }
+    });
+    
+    // Add touch feedback for mobile
+    let touchStartX = 0;
+    const swiperEl = document.querySelector('.museum-swiper');
+    
+    swiperEl.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    });
+    
+    swiperEl.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > 50) { // Minimum swipe distance
+            if (diff > 0 && !customNextBtn.disabled) {
+                // Swipe left - next slide
+                customNextBtn.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    customNextBtn.style.transform = 'scale(1)';
+                }, 200);
+            } else if (diff < 0 && !customPrevBtn.disabled) {
+                // Swipe right - previous slide
+                customPrevBtn.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    customPrevBtn.style.transform = 'scale(1)';
+                }, 200);
+            }
+        }
+    });
 }
 
 // Search functionality
@@ -97,21 +182,21 @@ function initializeSearch() {
 function performSearch() {
     const searchInput = document.querySelector('.search-input');
     const query = searchInput.value.toLowerCase().trim();
-    const items = document.querySelectorAll('.item-card');
+    const authors = document.querySelectorAll('.author-card');
     
-    items.forEach(item => {
-        const title = item.querySelector('h4').textContent.toLowerCase();
-        const author = item.querySelector('.item-author').textContent.toLowerCase();
-        const museum = item.querySelector('.item-museum').textContent.toLowerCase();
-        const tags = Array.from(item.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase());
+    authors.forEach(author => {
+        const name = author.querySelector('h4').textContent.toLowerCase();
+        const specialty = author.querySelector('.author-specialty').textContent.toLowerCase();
+        const period = author.querySelector('.author-period').textContent.toLowerCase();
+        const tags = Array.from(author.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase());
         
-        const searchText = `${title} ${author} ${museum} ${tags.join(' ')}`;
+        const searchText = `${name} ${specialty} ${period} ${tags.join(' ')}`;
         
         if (query === '' || searchText.includes(query)) {
-            item.style.display = 'block';
-            item.style.animation = 'fadeInUp 0.6s ease forwards';
+            author.style.display = 'block';
+            author.style.animation = 'fadeInUp 0.6s ease forwards';
         } else {
-            item.style.display = 'none';
+            author.style.display = 'none';
         }
     });
     
@@ -120,16 +205,10 @@ function performSearch() {
 
 // Filter functionality
 function initializeFilters() {
-    const categoryCards = document.querySelectorAll('.category-card');
     const museumCards = document.querySelectorAll('.museum-card');
     
-    categoryCards.forEach(card => {
-        card.addEventListener('click', function() {
-            const category = this.dataset.category;
-            filterByCategory(category);
-            updateActiveFilter(categoryCards, this);
-        });
-    });
+    // Category cards are now non-interactive (display only)
+    // Only museum cards remain clickable for filtering
     
     museumCards.forEach(card => {
         card.addEventListener('click', function() {
@@ -158,16 +237,20 @@ function filterByCategory(category) {
 }
 
 function filterByMuseum(museum) {
-    const items = document.querySelectorAll('.item-card');
+    const authors = document.querySelectorAll('.author-card');
     
-    items.forEach(item => {
-        const itemMuseum = item.querySelector('.item-museum').textContent.toLowerCase();
+    authors.forEach(author => {
+        // For authors, we can filter by specialty or tags
+        const specialty = author.querySelector('.author-specialty').textContent.toLowerCase();
+        const tags = Array.from(author.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase());
         
-        if (museum === 'todos' || itemMuseum.includes(museum.replace('-', ' '))) {
-            item.style.display = 'block';
-            item.style.animation = 'fadeInUp 0.6s ease forwards';
+        const searchText = `${specialty} ${tags.join(' ')}`;
+        
+        if (museum === 'todos' || searchText.includes(museum.replace('-', ' '))) {
+            author.style.display = 'block';
+            author.style.animation = 'fadeInUp 0.6s ease forwards';
         } else {
-            item.style.display = 'none';
+            author.style.display = 'none';
         }
     });
     
@@ -214,8 +297,7 @@ function initializePagination() {
                 pageButtons.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
                 
-                // Simulate page change
-                scrollToTop();
+                // Change page without scrolling
                 loadPageContent(parseInt(this.textContent));
             }
         });
@@ -252,30 +334,85 @@ function navigateToPage(pageNum) {
         }
     });
     
-    scrollToTop();
     loadPageContent(pageNum);
 }
 
 function loadPageContent(pageNum) {
-    // Simulate loading new content
-    const itemsGrid = document.getElementById('itemsGrid');
-    itemsGrid.style.opacity = '0.5';
+    const authors = document.querySelectorAll('.author-card');
+    const authorsPerPage = 6;
+    const startIndex = (pageNum - 1) * authorsPerPage;
+    const endIndex = startIndex + authorsPerPage;
     
+    // First fade out all visible authors
+    authors.forEach(author => {
+        if (author.style.display !== 'none') {
+            author.style.opacity = '0';
+            author.style.transform = 'translateY(20px)';
+        }
+    });
+    
+    // After fade out, hide all and show new ones
     setTimeout(() => {
-        itemsGrid.style.opacity = '1';
-        // Here you would typically load new items from an API
-        console.log(`Loading page ${pageNum} content...`);
-    }, 300);
+        authors.forEach((author, index) => {
+            author.style.display = 'none';
+            author.style.opacity = '0';
+            author.style.transform = 'translateY(20px)';
+            
+            if (index >= startIndex && index < endIndex) {
+                author.style.display = 'block';
+                
+                // Staggered animation for each visible author
+                setTimeout(() => {
+                    author.style.opacity = '1';
+                    author.style.transform = 'translateY(0)';
+                    author.style.transition = 'all 0.4s ease';
+                }, (index - startIndex) * 80);
+            }
+        });
+        
+        // Update pagination buttons state
+        updatePaginationButtons(pageNum);
+    }, 200);
 }
 
-// Item interactions
-function initializeItemInteractions() {
-    const itemCards = document.querySelectorAll('.item-card');
+function updatePaginationButtons(currentPage) {
+    const prevBtn = document.querySelector('.page-btn.prev');
+    const nextBtn = document.querySelector('.page-btn.next');
+    const totalPages = 3;
     
-    itemCards.forEach(card => {
+    // Update prev button
+    if (prevBtn) {
+        prevBtn.disabled = currentPage === 1;
+        if (currentPage === 1) {
+            prevBtn.style.opacity = '0.5';
+            prevBtn.style.cursor = 'not-allowed';
+        } else {
+            prevBtn.style.opacity = '1';
+            prevBtn.style.cursor = 'pointer';
+        }
+    }
+    
+    // Update next button
+    if (nextBtn) {
+        nextBtn.disabled = currentPage === totalPages;
+        if (currentPage === totalPages) {
+            nextBtn.style.opacity = '0.5';
+            nextBtn.style.cursor = 'not-allowed';
+        } else {
+            nextBtn.style.opacity = '1';
+            nextBtn.style.cursor = 'pointer';
+        }
+    }
+}
+
+// Author interactions
+function initializeItemInteractions() {
+    const authorCards = document.querySelectorAll('.author-card');
+    
+    authorCards.forEach(card => {
         card.addEventListener('click', function() {
-            const title = this.querySelector('h4').textContent;
-            openItemModal(title, this);
+            const name = this.querySelector('h4').textContent;
+            openAuthorModal(name, this);
         });
         
         // Add keyboard navigation
@@ -287,6 +424,147 @@ function initializeItemInteractions() {
             }
         });
     });
+}
+
+function openAuthorModal(name, authorElement) {
+    // Create modal overlay
+    const modal = document.createElement('div');
+    modal.className = 'author-modal';
+    modal.innerHTML = `
+        <div class="modal-overlay" onclick="closeAuthorModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeAuthorModal()">&times;</button>
+            <div class="modal-header">
+                <h2>${name}</h2>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <div class="author-image-large" style="${authorElement.querySelector('.author-image').style.cssText}">
+                        ${authorElement.querySelector('.author-image').innerHTML}
+                    </div>
+                </div>
+                <div class="modal-info">
+                    <p><strong>Especialidade:</strong> ${authorElement.querySelector('.author-specialty').textContent}</p>
+                    <p><strong>Período:</strong> ${authorElement.querySelector('.author-period').textContent}</p>
+                    <p><strong>Obras no Acervo:</strong> ${authorElement.querySelector('.author-works').textContent}</p>
+                    <div class="modal-tags">
+                        ${authorElement.querySelector('.author-tags').innerHTML}
+                    </div>
+                    <div class="modal-description">
+                        <h4>Biografia</h4>
+                        <p>Este artista/criador contribuiu significativamente para o patrimônio cultural preservado nos museus da UFPB. Suas obras representam importantes aspectos da arte e cultura regional, demonstrando técnicas e estilos característicos de seu período de atuação.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Add modal styles (same as item modal)
+    const modalStyles = `
+        .author-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .author-modal .modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            cursor: pointer;
+        }
+        
+        .author-modal .modal-content {
+            background: white;
+            border-radius: 15px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            position: relative;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease;
+        }
+        
+        .author-modal .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #666;
+            z-index: 1001;
+        }
+        
+        .author-modal .modal-header {
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .author-modal .modal-header h2 {
+            margin: 0;
+            color: #2a5298;
+        }
+        
+        .author-modal .modal-body {
+            padding: 2rem;
+        }
+        
+        .author-modal .author-image-large {
+            height: 200px;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .author-modal .modal-info p {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+        
+        .author-modal .modal-tags {
+            margin: 1rem 0;
+        }
+        
+        .author-modal .modal-description {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .author-modal .modal-description h4 {
+            color: #2a5298;
+            margin-bottom: 1rem;
+        }
+    `;
+    
+    // Add styles to document
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = modalStyles;
+    modal.appendChild(styleSheet);
+    
+    // Add modal to document
+    document.body.appendChild(modal);
+    document.body.style.overflow = 'hidden';
+}
+
+function closeAuthorModal() {
+    const modal = document.querySelector('.author-modal');
+    if (modal) {
+        modal.remove();
+        document.body.style.overflow = 'auto';
+    }
 }
 
 function openItemModal(title, itemElement) {
@@ -438,11 +716,11 @@ function closeItemModal() {
 
 // Utility functions
 function updateResultsCount() {
-    const visibleItems = document.querySelectorAll('.item-card[style*="display: block"], .item-card:not([style*="display: none"])');
+    const visibleAuthors = document.querySelectorAll('.author-card[style*="display: block"], .author-card:not([style*="display: none"])');
     const resultsHeader = document.querySelector('.results-header h3');
     
     if (resultsHeader) {
-        resultsHeader.textContent = `Resultados da Busca (${visibleItems.length} itens)`;
+        resultsHeader.textContent = `Resultados da Busca (${visibleAuthors.length} autores)`;
     }
 }
 
