@@ -2,11 +2,11 @@
 
 /* Page Header */
 .page-header {
-    background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
+    background: linear-gradient(135deg, #873b4b 0%, #9f643d 100%);
     color: white;
     padding: 120px 0 60px;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 80px;
 }
 
 .page-title {
@@ -32,15 +32,16 @@
 }
 
 .sobre-section {
-    background: #f8f9fa;
+    background: #fff3d8;
+    margin-top: 80px;
 }
 
 .historia-section {
-    background: white;
+    background: #ecba78;
 }
 
 .valores-section {
-    background: #f8f9fa;
+    background: #fff3d8;
 }
 
 /* Layout de Conteúdo */
@@ -59,7 +60,7 @@
 
 .font-h2 {
     font-size: 2.5rem;
-    color: #003366;
+    color: #523827;
     margin-bottom: 2rem;
     font-weight: 700;
     text-align: center;
@@ -70,7 +71,7 @@
 .historia-text h2,
 .valores-text h2 {
     font-size: 2.5rem;
-    color: #003366;
+    color: #523827;
     margin-bottom: 2rem;
     font-weight: 700;
 }
@@ -80,9 +81,38 @@
 .valores-text p {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #555;
+    color: #523827;
     margin-bottom: 1.5rem;
     text-align: justify;
+}
+
+/* Remover todos os efeitos de hover dos textos */
+.sobre-text,
+.historia-text,
+.valores-text {
+    transition: none !important;
+    transform: none !important;
+}
+
+.sobre-text:hover,
+.historia-text:hover,
+.valores-text:hover {
+    transform: none !important;
+    color: #523827 !important;
+}
+
+/* Forçar cor fixa para todos os parágrafos */
+.sobre-text p,
+.historia-text p,
+.valores-text p {
+    color: #523827 !important;
+}
+
+.sobre-text p:hover,
+.historia-text p:hover,
+.valores-text p:hover {
+    color: #523827 !important;
+    transform: none !important;
 }
 
 /* Banner Images */
@@ -91,30 +121,26 @@
     height: 300px;
     object-fit: cover;
     border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 51, 102, 0.2);
-    transition: all 0.3s ease;
-    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(82, 56, 39, 0.2);
+    cursor: default;
+    pointer-events: none;
 }
 
 .banner-image:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 51, 102, 0.3);
+    transform: none !important;
+    box-shadow: 0 10px 30px rgba(82, 56, 39, 0.2) !important;
+    scale: 1 !important;
 }
 
 /* Fallback for banner placeholders */
 .banner-placeholder {
-    background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
+    background: linear-gradient(135deg, #873b4b 0%, #9f643d 100%);
     height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 51, 102, 0.2);
-    transition: transform 0.3s ease;
-}
-
-.banner-placeholder:hover {
-    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(82, 56, 39, 0.2);
 }
 
 .banner-placeholder span {
@@ -125,37 +151,7 @@
     letter-spacing: 2px;
 }
 
-/* Animações */
-.sobre-text,
-.historia-text,
-.valores-text {
-    opacity: 0;
-    transform: translateX(-30px);
-    animation: slideInLeft 0.8s ease forwards;
-}
-
-.sobre-banner,
-.historia-banner,
-.valores-banner {
-    opacity: 0;
-    transform: translateX(30px);
-    animation: slideInRight 0.8s ease forwards;
-    animation-delay: 0.2s;
-}
-
-@keyframes slideInLeft {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideInRight {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
+/* Animações removidas */
 
 /* Responsividade */
 @media (max-width: 768px) {
@@ -233,32 +229,36 @@
     }
 }
 
-/* Efeitos de Hover */
-.sobre-text,
-.historia-text,
-.valores-text {
-    transition: all 0.3s ease;
-}
-
-.sobre-text:hover,
-.historia-text:hover,
-.valores-text:hover {
-    transform: translateY(-2px);
-}
-
 /* Estilo para links no texto */
 .sobre-text a,
 .historia-text a,
 .valores-text a {
-    color: #0066cc;
+    color: #9f643d;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
 }
 
-.sobre-text a:hover,
-.historia-text a:hover,
-.valores-text a:hover {
-    color: #003366;
-    text-decoration: underline;
+/* Desabilitar efeitos de hover APENAS no conteúdo das páginas, não no header */
+.sobre-section *,
+.historia-section *,
+.valores-section * {
+    transition: none !important;
+    animation: none !important;
+}
+
+.sobre-section *:hover,
+.historia-section *:hover,
+.valores-section *:hover {
+    transform: none !important;
+    scale: 1 !important;
+    color: inherit !important;
+    background-color: inherit !important;
+}
+
+.banner-image,
+.sobre-banner img,
+.historia-banner img,
+.valores-banner img {
+    pointer-events: none !important;
+    cursor: default !important;
 }

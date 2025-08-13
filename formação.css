@@ -5,7 +5,7 @@
     height: 60vh;
     position: relative;
     overflow: hidden;
-    margin-top: 100px;
+    margin-top: 80px;
 }
 
 .hero-content {
@@ -24,7 +24,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 51, 102, 0.7);
+    background: rgba(135, 59, 75, 0.7);
 }
 
 .hero-text {
@@ -51,7 +51,7 @@
 /* Seção de Documentos */
 .documents-section {
     padding: 4rem 0;
-    background: #f8f9fa;
+    background: #fff3d8;
 }
 
 .documents-header {
@@ -62,13 +62,13 @@
 .section-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #003366;
+    color: #523827;
     margin-bottom: 1rem;
 }
 
 .section-description {
     font-size: 1.1rem;
-    color: #666;
+    color: #523827;
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
@@ -87,9 +87,9 @@
     background: white;
     border-radius: 12px;
     padding: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(82, 56, 39, 0.1);
     transition: all 0.3s ease;
-    border-left: 4px solid #003366;
+    border-left: 4px solid #9f643d;
     display: flex;
     gap: 1.5rem;
 }
@@ -104,7 +104,7 @@
     flex-shrink: 0;
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #003366, #0066cc);
+    background: linear-gradient(135deg, #873b4b, #9f643d);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -121,13 +121,13 @@
 .document-title {
     font-size: 1.3rem;
     font-weight: 600;
-    color: #003366;
+    color: #523827;
     margin-bottom: 0.8rem;
     line-height: 1.4;
 }
 
 .document-description {
-    color: #555;
+    color: #523827;
     line-height: 1.6;
     margin-bottom: 1.2rem;
     font-size: 0.95rem;
@@ -147,12 +147,12 @@
     align-items: center;
     gap: 0.5rem;
     font-size: 0.9rem;
-    color: #666;
+    color: #523827;
 }
 
 .document-date i,
 .document-type i {
-    color: #003366;
+    color: #9f643d;
 }
 
 /* Botão de Download */
@@ -160,7 +160,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: linear-gradient(135deg, #003366, #0066cc);
+    background: linear-gradient(135deg, #873b4b, #9f643d);
     color: white;
     text-decoration: none;
     padding: 0.8rem 1.5rem;
@@ -171,9 +171,9 @@
 }
 
 .btn-download:hover {
-    background: linear-gradient(135deg, #0066cc, #0099ff);
+    background: linear-gradient(135deg, #9f643d, #cb8659);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+    box-shadow: 0 4px 12px rgba(159, 100, 61, 0.3);
 }
 
 .btn-download i {

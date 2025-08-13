@@ -58,6 +58,10 @@ function toggleAccordionItem(item, content, icon) {
 function openAccordionItem(item) {
     const content = item.querySelector('.accordion-content');
     const icon = item.querySelector('.accordion-icon');
+    const header = item.querySelector('.accordion-header h3');
+    
+    // Salva a posição atual da página
+    const currentScrollPosition = window.pageYOffset;
     
     item.classList.add('active');
     
@@ -68,24 +72,25 @@ function openAccordionItem(item) {
     // Anima o ícone
     icon.style.transform = 'rotate(180deg)';
     
+    // Mantém a cor do título
+    header.style.color = '#9f643d';
+    
     // Adiciona animação suave ao conteúdo
     setTimeout(() => {
         content.style.maxHeight = 'none';
+        // Restaura a posição da página para evitar movimento
+        window.scrollTo(0, currentScrollPosition);
     }, 400);
-    
-    // Scroll suave para o item
-    setTimeout(() => {
-        item.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest'
-        });
-    }, 200);
 }
 
 // Fecha item do accordion
 function closeAccordionItem(item) {
     const content = item.querySelector('.accordion-content');
     const icon = item.querySelector('.accordion-icon');
+    const header = item.querySelector('.accordion-header h3');
+    
+    // Salva a posição atual da página
+    const currentScrollPosition = window.pageYOffset;
     
     // Define altura atual antes de fechar
     content.style.maxHeight = content.scrollHeight + 'px';
@@ -99,10 +104,15 @@ function closeAccordionItem(item) {
     // Remove classe active após animação
     setTimeout(() => {
         item.classList.remove('active');
+        // Restaura a posição da página para evitar movimento
+        window.scrollTo(0, currentScrollPosition);
     }, 100);
     
     // Anima o ícone
     icon.style.transform = 'rotate(0deg)';
+    
+    // Mantém a cor do título
+    header.style.color = '#9f643d';
 }
 
 // Inicializa animações de entrada

@@ -2,11 +2,11 @@
 
 /* Page Header */
 .page-header {
-    background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
+    background: linear-gradient(135deg, #873b4b 0%, #9f643d 100%);
     color: white;
     padding: 120px 0 60px;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 80px;
 }
 
 .page-title {
@@ -27,7 +27,8 @@
 /* Seção Principal */
 .roteiros-section {
     padding: 80px 0;
-    background: #f8f9fa;
+    background: #fff3d8;
+    margin-top: 80px;
 }
 
 .roteiros-intro {
@@ -37,14 +38,14 @@
 
 .roteiros-intro h2 {
     font-size: 2.5rem;
-    color: #003366;
+    color: #523827;
     margin-bottom: 1rem;
     font-weight: 700;
 }
 
 .roteiros-intro p {
     font-size: 1.1rem;
-    color: #666;
+    color: #523827;
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;
@@ -61,7 +62,7 @@
     background: white;
     border-radius: 10px;
     margin-bottom: 20px;
-    box-shadow: 0 5px 15px rgba(0, 51, 102, 0.1);
+    box-shadow: 0 5px 15px rgba(82, 56, 39, 0.1);
     overflow: hidden;
     transition: all 0.3s ease;
 }
@@ -92,32 +93,32 @@
 }
 
 .accordion-item.active .accordion-header {
-    background: #003366;
-    color: white;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: #ecba78;
+    color: #523827;
+    border-bottom: 1px solid rgba(82, 56, 39, 0.1);
 }
 
 .accordion-header h3 {
     font-size: 1.3rem;
     font-weight: 600;
     margin: 0;
-    color: #003366;
-    transition: color 0.3s ease;
+    color: #9f643d;
+    transition: none;
 }
 
 .accordion-item.active .accordion-header h3 {
-    color: white;
+    color: #9f643d !important;
 }
 
 /* Accordion Icon */
 .accordion-icon {
     font-size: 1.2rem;
-    color: #0066cc;
+    color: #9f643d;
     transition: all 0.3s ease;
 }
 
 .accordion-item.active .accordion-icon {
-    color: white;
+    color: #9f643d;
     transform: rotate(180deg);
 }
 
@@ -141,7 +142,7 @@
 .content-wrapper p {
     font-size: 1rem;
     line-height: 1.7;
-    color: #555;
+    color: #523827;
     margin-bottom: 1.5rem;
 }
 
@@ -153,11 +154,11 @@
 .content-wrapper li {
     margin-bottom: 0.8rem;
     line-height: 1.6;
-    color: #555;
+    color: #523827;
 }
 
 .content-wrapper li strong {
-    color: #003366;
+    color: #9f643d;
 }
 
 /* Support Channels */
@@ -170,28 +171,28 @@
     align-items: flex-start;
     margin-bottom: 2rem;
     padding: 20px;
-    background: #f8f9fa;
+    background: #fff3d8;
     border-radius: 8px;
-    border-left: 4px solid #0066cc;
+    border-left: 4px solid #9f643d;
 }
 
 .support-item i {
     font-size: 1.5rem;
-    color: #0066cc;
+    color: #9f643d;
     margin-right: 15px;
     margin-top: 5px;
 }
 
 .support-item h4 {
     font-size: 1.1rem;
-    color: #003366;
+    color: #523827;
     margin-bottom: 0.5rem;
     font-weight: 600;
 }
 
 .support-item p {
     margin: 0;
-    color: #666;
+    color: #523827;
     line-height: 1.5;
 }
 
@@ -205,7 +206,7 @@
     align-items: flex-start;
     margin-bottom: 2rem;
     padding: 20px;
-    background: #f8f9fa;
+    background: #fff3d8;
     border-radius: 8px;
     position: relative;
 }
@@ -217,11 +218,11 @@
     bottom: -20px;
     width: 2px;
     height: 20px;
-    background: #ddd;
+    background: #cb8659;
 }
 
 .step-number {
-    background: #0066cc;
+    background: #9f643d;
     color: white;
     width: 35px;
     height: 35px;
@@ -236,14 +237,14 @@
 
 .step-content h4 {
     font-size: 1.1rem;
-    color: #003366;
+    color: #523827;
     margin-bottom: 0.5rem;
     font-weight: 600;
 }
 
 .step-content p {
     margin: 0;
-    color: #666;
+    color: #523827;
     line-height: 1.5;
 }
 
@@ -274,13 +275,13 @@
 /* Links Section */
 .links-section {
     padding: 80px 0;
-    background: white;
+    background: #ecba78;
 }
 
 .links-section h2 {
     text-align: center;
     font-size: 2.5rem;
-    color: #003366;
+    color: #523827;
     margin-bottom: 3rem;
     font-weight: 700;
 }
@@ -307,27 +308,27 @@
 
 .link-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 51, 102, 0.2);
-    border-color: #0066cc;
+    box-shadow: 0 15px 35px rgba(82, 56, 39, 0.2);
+    border-color: #9f643d;
     text-decoration: none;
     color: inherit;
 }
 
 .link-card i {
     font-size: 2.5rem;
-    color: #0066cc;
+    color: #9f643d;
     margin-bottom: 1rem;
 }
 
 .link-card h3 {
     font-size: 1.3rem;
-    color: #003366;
+    color: #523827;
     margin-bottom: 1rem;
     font-weight: 600;
 }
 
 .link-card p {
-    color: #666;
+    color: #523827;
     line-height: 1.6;
     margin: 0;
 }
@@ -439,7 +440,7 @@
 
 /* Active Navigation Link */
 .nav-link.active {
-    color: #0066cc !important;
+    color: #ffe63d !important;
     font-weight: 600;
 }
 
