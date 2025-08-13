@@ -105,7 +105,7 @@ function initializeObrasSwiper() {
         // Configurações básicas
         slidesPerView: 1,  // Mostra apenas um slide por vez (cada slide contém 3 obras)
         spaceBetween: 30,
-        loop: true,
+        loop: false,  // Desabilitar loop
         speed: 600,  // Velocidade da transição em ms
         effect: 'slide',  // Alterado para efeito slide para melhor compatibilidade
         
@@ -905,7 +905,7 @@ document.addEventListener('click', (e) => {
         e.target.closest('.modal').style.display = 'none';
     }
 });// 
-Nova configuração do Swiper para mostrar 3 cards por vez
+// Nova configuração do Swiper para mostrar 3 cards por vez
 function initializeNewSwiper() {
     // Destruir instâncias anteriores
     if (window.obrasSwiper) {
@@ -921,12 +921,8 @@ function initializeNewSwiper() {
         window.obrasSwiper = new Swiper('.obras-swiper', {
             slidesPerView: 3,
             spaceBetween: 30,
-            loop: true,
+            loop: false,  // Desabilitar loop
             speed: 600,
-            autoplay: {
-                delay: 4000,
-                disableOnInteraction: false,
-            },
             navigation: {
                 nextEl: '.obras-swiper .swiper-button-next',
                 prevEl: '.obras-swiper .swiper-button-prev',
@@ -964,12 +960,8 @@ function initializeNewSwiper() {
         window.equipeSwiper = new Swiper('.equipe-swiper', {
             slidesPerView: 3,
             spaceBetween: 30,
-            loop: true,
+            loop: false,  // Desabilitar loop
             speed: 600,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
             navigation: {
                 nextEl: '.equipe-swiper .swiper-button-next',
                 prevEl: '.equipe-swiper .swiper-button-prev',
@@ -1018,7 +1010,7 @@ window.addEventListener('resize', function() {
     }, 250);
 });
 // ====
-= CONFIGURAÇÃO CORRIGIDA DO SWIPER =====
+// = CONFIGURAÇÃO CORRIGIDA DO SWIPER =====
 function initializeSwipers() {
     console.log('Inicializando Swipers...');
     
@@ -1042,13 +1034,9 @@ function initializeSwipers() {
             window.obrasSwiper = new Swiper('.swiper-container.obras-swiper', {
                 slidesPerView: 3,
                 spaceBetween: 30,
-                loop: true,
+                loop: false,  // Desabilitar loop
                 speed: 600,
                 centeredSlides: false,
-                autoplay: {
-                    delay: 4000,
-                    disableOnInteraction: false,
-                },
                 navigation: {
                     nextEl: '.swiper-container.obras-swiper .swiper-button-next',
                     prevEl: '.swiper-container.obras-swiper .swiper-button-prev',
@@ -1098,13 +1086,9 @@ function initializeSwipers() {
             window.equipeSwiper = new Swiper('.swiper-container.equipe-swiper', {
                 slidesPerView: 3,
                 spaceBetween: 30,
-                loop: true,
+                loop: false,  // Desabilitar loop
                 speed: 600,
                 centeredSlides: false,
-                autoplay: {
-                    delay: 5000,
-                    disableOnInteraction: false,
-                },
                 navigation: {
                     nextEl: '.swiper-container.equipe-swiper .swiper-button-next',
                     prevEl: '.swiper-container.equipe-swiper .swiper-button-prev',

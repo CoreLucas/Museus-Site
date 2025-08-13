@@ -24,7 +24,7 @@ function initializeAllSwipers() {
         
         window.obrasSwiper = new Swiper('.swiper-container.obras-swiper', {
             // Configurações básicas
-            slidesPerView: 3,
+            slidesPerView: 2,  // Alterado de 3 para 2 cards
             spaceBetween: 30,
             loop: false,
             speed: 600,
@@ -55,7 +55,7 @@ function initializeAllSwipers() {
                     slidesPerGroup: 1,
                 },
                 1024: {
-                    slidesPerView: 3,
+                    slidesPerView: 2,  // Mantém 2 cards em desktop
                     spaceBetween: 30,
                     slidesPerGroup: 1,
                 }
@@ -67,7 +67,7 @@ function initializeAllSwipers() {
                     console.log('✅ Swiper de Obras inicializado!');
                     console.log('Total de slides:', this.slides.length);
                     console.log('Slides visíveis:', this.params.slidesPerView);
-                    console.log('Navegação customizada: 3 cards por vez');
+                    console.log('Navegação customizada: 2 cards por vez');
                 },
                 slideChange: function() {
                     console.log('📍 Slide atual:', this.activeIndex);
@@ -95,7 +95,7 @@ function initializeAllSwipers() {
         
         window.equipeSwiper = new Swiper('.swiper-container.equipe-swiper', {
             // Configurações básicas
-            slidesPerView: 3,
+            slidesPerView: 2,  // Alterado de 3 para 2 cards
             spaceBetween: 30,
             loop: false,
             speed: 600,
@@ -126,7 +126,7 @@ function initializeAllSwipers() {
                     slidesPerGroup: 1,
                 },
                 1024: {
-                    slidesPerView: 3,
+                    slidesPerView: 2,  // Mantém 2 cards em desktop
                     spaceBetween: 30,
                     slidesPerGroup: 1,
                 }
@@ -138,7 +138,7 @@ function initializeAllSwipers() {
                     console.log('✅ Swiper de Equipe inicializado!');
                     console.log('Total de slides:', this.slides.length);
                     console.log('Slides visíveis:', this.params.slidesPerView);
-                    console.log('Navegação customizada: 3 cards por vez');
+                    console.log('Navegação customizada: 2 cards por vez');
                 },
                 slideChange: function() {
                     console.log('👥 Slide atual da equipe:', this.activeIndex);
@@ -186,32 +186,31 @@ function setupCustomNavigation() {
             const slidesPerView = window.obrasSwiper.params.slidesPerView;
             const totalSlides = window.obrasSwiper.slides.length;
             
-            // Calcular próximo índice (mover menos para mostrar 3 novos cards)
-            let nextIndex = currentIndex + (slidesPerView - 1); // Mover 2 posições para mostrar 3 novos
+            // Calcular próximo índice (mover 1 posição para mostrar 2 novos cards)
+            let nextIndex = currentIndex + 1; // Mover 1 posição para mostrar 2 novos
             
             // Verificar se não ultrapassa o final
             if (nextIndex >= totalSlides) {
                 nextIndex = totalSlides - slidesPerView;
             }
             
-            console.log(`Movendo de ${currentIndex} para ${nextIndex} (mostrando 3 novos cards)`);
+            console.log(`Movendo de ${currentIndex} para ${nextIndex} (mostrando 2 novos cards)`);
             window.obrasSwiper.slideTo(nextIndex);
         });
         
         obrasPrev.addEventListener('click', function() {
             console.log('🔄 Prev customizado - Obras');
             const currentIndex = window.obrasSwiper.activeIndex;
-            const slidesPerView = window.obrasSwiper.params.slidesPerView;
             
-            // Calcular índice anterior (mover menos para mostrar 3 novos cards)
-            let prevIndex = currentIndex - (slidesPerView - 1); // Mover 2 posições para trás
+            // Calcular índice anterior (mover 1 posição para trás)
+            let prevIndex = currentIndex - 1; // Mover 1 posição para trás
             
             // Verificar se não vai antes do início
             if (prevIndex < 0) {
                 prevIndex = 0;
             }
             
-            console.log(`Movendo de ${currentIndex} para ${prevIndex} (mostrando 3 novos cards)`);
+            console.log(`Movendo de ${currentIndex} para ${prevIndex} (mostrando 2 novos cards)`);
             window.obrasSwiper.slideTo(prevIndex);
         });
     }
@@ -227,32 +226,31 @@ function setupCustomNavigation() {
             const slidesPerView = window.equipeSwiper.params.slidesPerView;
             const totalSlides = window.equipeSwiper.slides.length;
             
-            // Calcular próximo índice (mover menos para mostrar 3 novos cards)
-            let nextIndex = currentIndex + (slidesPerView - 1); // Mover 2 posições para mostrar 3 novos
+            // Calcular próximo índice (mover 1 posição para mostrar 2 novos cards)
+            let nextIndex = currentIndex + 1; // Mover 1 posição para mostrar 2 novos
             
             // Verificar se não ultrapassa o final
             if (nextIndex >= totalSlides) {
                 nextIndex = totalSlides - slidesPerView;
             }
             
-            console.log(`Movendo de ${currentIndex} para ${nextIndex} (mostrando 3 novos cards)`);
+            console.log(`Movendo de ${currentIndex} para ${nextIndex} (mostrando 2 novos cards)`);
             window.equipeSwiper.slideTo(nextIndex);
         });
         
         equipePrev.addEventListener('click', function() {
             console.log('🔄 Prev customizado - Equipe');
             const currentIndex = window.equipeSwiper.activeIndex;
-            const slidesPerView = window.equipeSwiper.params.slidesPerView;
             
-            // Calcular índice anterior (mover menos para mostrar 3 novos cards)
-            let prevIndex = currentIndex - (slidesPerView - 1); // Mover 2 posições para trás
+            // Calcular índice anterior (mover 1 posição para trás)
+            let prevIndex = currentIndex - 1; // Mover 1 posição para trás
             
             // Verificar se não vai antes do início
             if (prevIndex < 0) {
                 prevIndex = 0;
             }
             
-            console.log(`Movendo de ${currentIndex} para ${prevIndex} (mostrando 3 novos cards)`);
+            console.log(`Movendo de ${currentIndex} para ${prevIndex} (mostrando 2 novos cards)`);
             window.equipeSwiper.slideTo(prevIndex);
         });
     }
