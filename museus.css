@@ -1,35 +1,13 @@
 /* Estilos específicos para a página de museus */
 
-/* Header da Página */
-.page-header {
-    background: linear-gradient(135deg, #2c3e50 0%, #4b6a88 100%);
-    color: white;
-    padding: 6rem 0 4rem;
-    margin-top: 76px;
-    text-align: center;
-}
 
-.page-title {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.page-subtitle {
-    font-size: 1.2rem;
-    font-weight: 300;
-    opacity: 0.9;
-    max-width: 600px;
-    margin: 0 auto;
-}
 
 /* Seção de Filtros */
 .filters-section {
     background: #fff3d8;
     padding: 2rem 0;
     border-bottom: 1px solid #ecba78;
+    margin-top: 76px;
 }
 
 .filters-container {
@@ -55,7 +33,7 @@
 
 .search-input:focus {
     outline: none;
-    border-color: #2c3e50;
+    border-color: #9f643d;
 }
 
 .search-icon {
@@ -73,9 +51,9 @@
 
 .filter-btn {
     padding: 0.6rem 1.2rem;
-    border: 2px solid #2c3e50;
+    border: 2px solid #9f643d;
     background: white;
-    color: #2c3e50;
+    color: #9f643d;
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s;
@@ -84,7 +62,7 @@
 
 .filter-btn:hover,
 .filter-btn.active {
-    background: #2c3e50;
+    background: #9f643d;
     color: white;
 }
 
@@ -172,7 +150,7 @@
 
 .tag {
     background: rgba(255,255,255,0.9);
-    color: #2c3e50;
+    color: #523827;
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     font-size: 0.8rem;
@@ -216,7 +194,7 @@
 
 .museu-location i,
 .museu-type i {
-    color: #2c3e50;
+    color: #9f643d;
 }
 
 .btn-saiba-mais {

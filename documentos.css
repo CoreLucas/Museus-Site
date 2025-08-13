@@ -1,57 +1,10 @@
 /* Estilos específicos para a página de documentos */
 
-/* Hero Section */
-.hero-section {
-    height: 60vh;
-    position: relative;
-    overflow: hidden;
-    margin-top: 76px;
-}
-
-.hero-content {
-    height: 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    background-position: center;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(135, 59, 75, 0.7);
-}
-
-.hero-text {
-    text-align: center;
-    color: white;
-    z-index: 2;
-    max-width: 800px;
-    padding: 0 2rem;
-}
-
-.hero-title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.hero-subtitle {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-}
-
 /* Seção de Documentos */
 .documents-section {
     padding: 4rem 0;
     background: #fff3d8;
+    /* margin-top: 76px; */
 }
 
 .documents-header {
@@ -116,6 +69,8 @@
 /* Conteúdo do Documento */
 .document-content {
     flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .document-title {
@@ -139,6 +94,7 @@
     gap: 1.5rem;
     margin-bottom: 1.5rem;
     flex-wrap: wrap;
+    margin-top: auto;
 }
 
 .document-date,
@@ -168,6 +124,7 @@
     font-weight: 500;
     transition: all 0.3s ease;
     font-size: 0.9rem;
+    align-self: flex-start;
 }
 
 .btn-download:hover {
@@ -183,7 +140,7 @@
 /* Responsividade */
 @media (max-width: 768px) {
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     
     .hero-subtitle {
@@ -220,9 +177,14 @@
 }
 
 @media (max-width: 480px) {
-    .hero-title {
-        font-size: 2rem;
+    .hero-section {
+        padding: 4rem 0 2rem;
     }
+    
+    .hero-title {
+        font-size: 1.8rem;
+    }
+}
     
     .document-card {
         padding: 1rem;
@@ -246,7 +208,7 @@
 /* Animações */
 @keyframes fadeInUp {
     from {
-        opacity: 0;
+        opacity: 1;
         transform: translateY(30px);
     }
     to {
@@ -256,6 +218,7 @@
 }
 
 .document-card {
+    opacity: 1;
     animation: fadeInUp 0.6s ease forwards;
 }
 
@@ -270,7 +233,7 @@
 
 /* Estados de carregamento */
 .document-card {
-    opacity: 0;
+    opacity: 1;
 }
 
 /* Acessibilidade */

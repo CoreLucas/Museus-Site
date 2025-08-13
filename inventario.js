@@ -7,9 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeViewToggle();
     initializePagination();
     initializeItemInteractions();
-    initializeSwiper();
     
-    // Initialize first page of authors
+    // Initialize first page of authors immediately
     loadPageContent(1);
 });
 
@@ -343,21 +342,17 @@ function loadPageContent(pageNum) {
     const startIndex = (pageNum - 1) * authorsPerPage;
     const endIndex = startIndex + authorsPerPage;
     
-    // First fade out all visible authors
-    authors.forEach(author => {
-        if (author.style.display !== 'none') {
-            author.style.opacity = '0';
-            author.style.transform = 'translateY(20px)';
-        }
+    // Hide all authors first
+    authors.forEach((author, index) => {
+        author.style.display = 'none';
+        author.style.opacity = '0';
+        author.style.transform = 'translateY(20px)';
+        author.style.transition = 'all 0.4s ease';
     });
     
-    // After fade out, hide all and show new ones
+    // Show authors for current page with staggered animation
     setTimeout(() => {
         authors.forEach((author, index) => {
-            author.style.display = 'none';
-            author.style.opacity = '0';
-            author.style.transform = 'translateY(20px)';
-            
             if (index >= startIndex && index < endIndex) {
                 author.style.display = 'block';
                 
@@ -365,14 +360,13 @@ function loadPageContent(pageNum) {
                 setTimeout(() => {
                     author.style.opacity = '1';
                     author.style.transform = 'translateY(0)';
-                    author.style.transition = 'all 0.4s ease';
-                }, (index - startIndex) * 80);
+                }, (index - startIndex) * 100);
             }
         });
         
         // Update pagination buttons state
         updatePaginationButtons(pageNum);
-    }, 200);
+    }, 100);
 }
 
 function updatePaginationButtons(currentPage) {

@@ -433,9 +433,23 @@
 
 /* Author Card Animations */
 .author-card {
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.4s ease;
+}
+
+/* Initially hide all author cards except first 6 */
+.author-card:nth-child(n+7) {
+    display: none;
+}
+
+/* Animation classes for pagination transitions */
+.author-card.fade-in {
     animation: fadeInUp 0.6s ease forwards;
+}
+
+.author-card.fade-out {
+    animation: fadeOutDown 0.3s ease forwards;
 }
 
 .author-card:nth-child(1) { animation-delay: 0.1s; }
@@ -684,6 +698,17 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes fadeOutDown {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px);
     }
 }
 

@@ -1,750 +1,561 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inventário - SISMUS UFPB</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="inventario.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
-</head>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="inventario.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+  </head>
 
-<body>
+  <body>
     <!-- Header -->
     <!-- Header -->
     <header class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="images/SisMus.png" alt="SisMus Logo" class="logo-img">
-                </a>
-            </div>
-            <nav class="nav">
-                <ul class="nav-menu">
-                    <li><a href="./index.html" class="nav-link">INÍCIO</a></li>
-                    <li><a href="./museus.html" class="nav-link">MUSEUS</a></li>
-                    <li class="nav-item-with-submenu">
-                        <a href="" class="nav-link active">ACERVOS</a>
-                        <ul class="submenu">
-                            <li><a href="inventario.html" class="active">INVENTÁRIO</a></li>
-                            <li><a href="">ORIENTAÇÃO TÉCNICA</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="roteiros.html" class="nav-link">ROTEIROS</a></li>
-                    <li><a href="" class="nav-link">NOTÍCIAS</a></li>
-                    <li class="nav-item-with-submenu">
-                        <a href="" class="nav-link">SISMUS</a>
-                        <ul class="submenu">
-                            <li><a href="sobre.html">SOBRE</a></li>
-                            <li><a href="composicao.html">COMPOSIÇÃO</a></li>
-                            <li><a href="documentos.html">DOCUMENTOS</a></li>
-                            <li><a href="formação.html">FORMAÇÃO</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
+      <div class="container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="images/SisMus.png" alt="SisMus Logo" class="logo-img" />
+          </a>
         </div>
+        <nav class="nav">
+          <ul class="nav-menu">
+            <li><a href="./index.html" class="nav-link">INÍCIO</a></li>
+            <li><a href="./museus.html" class="nav-link">MUSEUS</a></li>
+            <li class="nav-item-with-submenu">
+              <a href="" class="nav-link active">ACERVOS</a>
+              <ul class="submenu">
+                <li><a href="inventario.html" class="active">INVENTÁRIO</a></li>
+                <li><a href="">ORIENTAÇÃO TÉCNICA</a></li>
+              </ul>
+            </li>
+            <li><a href="roteiros.html" class="nav-link">ROTEIROS</a></li>
+            <li><a href="" class="nav-link">NOTÍCIAS</a></li>
+            <li class="nav-item-with-submenu">
+              <a href="" class="nav-link">SISMUS</a>
+              <ul class="submenu">
+                <li><a href="sobre.html">SOBRE</a></li>
+                <li><a href="composicao.html">COMPOSIÇÃO</a></li>
+                <li><a href="documentos.html">DOCUMENTOS</a></li>
+                <li><a href="formação.html">FORMAÇÃO</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+      </div>
     </header>
 
     <!-- Main Content -->
     <main class="main-content">
-        <div class="container">
+      <div class="container">
+        <!-- Filters Section -->
+        <section class="filters-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 class="section-main-title">EXPLORE O ACERVO</h2>
+              <p class="section-subtitle">
+                Navegue pelas diferentes formas de descobrir nosso patrimônio
+                cultural
+              </p>
+            </div>
 
-            <p class="stats-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                took a galley of type and scrambled it to make a type specimen book. It has survived not only five
-                centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-
-
-            <!-- Statistics Section -->
-            <section class="stats-section">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">2.847</div>
-                        <div class="stat-label">Itens catalogados</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">5</div>
-                        <div class="stat-label">Museus integrados</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">127</div>
-                        <div class="stat-label">Autores registrados</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">8</div>
-                        <div class="stat-label">Categorias</div>
-                    </div>
+            <!-- Filter Categories -->
+            <div class="filter-categories">
+              <div class="filter-section-header">
+                <h3 class="filter-title">
+                  <i class="fas fa-th-large"></i>
+                  TIPOLOGIAS
+                </h3>
+                <p class="filter-description">
+                  Visualize a distribuição das obras por categoria
+                </p>
+              </div>
+              <div class="category-grid">
+                <div class="category-card">
+                  <div class="category-icon">
+                    <i class="fas fa-palette"></i>
+                  </div>
+                  <h4>Pinturas</h4>
+                  <span class="category-count">(342)</span>
                 </div>
-            </section>
-
-            <!-- Filters Section -->
-            <section class="filters-section">
-                <div class="container">
-                    <div class="section-header">
-                        <h2 class="section-main-title">EXPLORE O ACERVO</h2>
-                        <p class="section-subtitle">Navegue pelas diferentes formas de descobrir nosso patrimônio
-                            cultural</p>
-                    </div>
-
-                    <!-- Filter Categories -->
-                    <div class="filter-categories">
-                        <div class="filter-section-header">
-                            <h3 class="filter-title">
-                                <i class="fas fa-th-large"></i>
-                                TIPOLOGIAS
-                            </h3>
-                            <p class="filter-description">Visualize a distribuição das obras por categoria</p>
-                        </div>
-                        <div class="category-grid">
-                            <div class="category-card">
-                                <div class="category-icon">
-                                    <i class="fas fa-palette"></i>
-                                </div>
-                                <h4>Pinturas</h4>
-                                <span class="category-count">(342)</span>
-                            </div>
-                            <div class="category-card">
-                                <div class="category-icon">
-                                    <i class="fas fa-chess-rook"></i>
-                                </div>
-                                <h4>Esculturas</h4>
-                                <span class="category-count">(156)</span>
-                            </div>
-                            <div class="category-card">
-                                <div class="category-icon">
-                                    <i class="fas fa-camera"></i>
-                                </div>
-                                <h4>Fotografias</h4>
-                                <span class="category-count">(789)</span>
-                            </div>
-                            <div class="category-card">
-                                <div class="category-icon">
-                                    <i class="fas fa-file-alt"></i>
-                                </div>
-                                <h4>Documentos</h4>
-                                <span class="category-count">(523)</span>
-                            </div>
-                            <div class="category-card">
-                                <div class="category-icon">
-                                    <i class="fas fa-vase"></i>
-                                </div>
-                                <h4>Cerâmicas</h4>
-                                <span class="category-count">(234)</span>
-                            </div>
-                            <div class="category-card">
-                                <div class="category-icon">
-                                    <i class="fas fa-chair"></i>
-                                </div>
-                                <h4>Mobiliário</h4>
-                                <span class="category-count">(187)</span>
-                            </div>
-                            <div class="category-card">
-                                <div class="category-icon">
-                                    <i class="fas fa-tshirt"></i>
-                                </div>
-                                <h4>Têxteis</h4>
-                                <span class="category-count">(98)</span>
-                            </div>
-                            <div class="category-card">
-                                <div class="category-icon">
-                                    <i class="fas fa-cube"></i>
-                                </div>
-                                <h4>Outros</h4>
-                                <span class="category-count">(518)</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="category-card">
+                  <div class="category-icon">
+                    <i class="fas fa-chess-rook"></i>
+                  </div>
+                  <h4>Esculturas</h4>
+                  <span class="category-count">(156)</span>
                 </div>
-            </section>
-
-            <!-- Filtro de museu -->
-            <section class="gallery-section">
-                <div class="container">
-                    <!-- Museum Filter -->
-                    <div class="museum-filter">
-                        <div class="filter-section-header">
-                            <h3 class="filter-title">
-                                <i class="fas fa-university"></i>
-                                MUSEUS
-                            </h3>
-                            <p class="filter-description">Explore os diferentes museus e suas coleções</p>
-                        </div>
-                        <div class="swiper-navigation-wrapper">
-                            <button class="custom-prev" type="button">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-
-                            <div class="swiper-container museum-swiper">
-                                <div class="swiper-wrapper">
-                                    <!-- Slide 1 - Museus 1-6 -->
-                                    <div class="swiper-slide">
-                                        <div class="museum-grid">
-                                            <div class="museum-card" data-museum="casa-hermano">
-                                                <div class="museum-image"
-                                                    style="background-image: url('./images/banner_museu_casa_hermano.jpg')">
-                                                </div>
-                                                <div class="museum-info">
-                                                    <div class="museum-header">
-                                                        <h4 class="museum-title">Museu Casa de Cultura Hermano José
-                                                            (MCCHJ)
-                                                        </h4>
-                                                    </div>
-                                                    <span class="museum-count">1.245 itens</span>
-                                                </div>
-                                                <a href="museu-detalhes.html?id=1" class="museum-btn-compact">Ver
-                                                    mais</a>
-                                            </div>
-                                            <div class="museum-card" data-museum="casa-ciencia">
-                                                <div class="museum-image"
-                                                    style="background-image: url('./images/Museu-Nacional.jpg')"></div>
-                                                <div class="museum-info">
-                                                    <div class="museum-header">
-                                                        <h4 class="museum-title">Casa da Ciência</h4>
-                                                    </div>
-                                                    <span class="museum-count">687 itens</span>
-                                                </div>
-                                                <a href="museu-detalhes.html?id=2" class="museum-btn-compact">Ver
-                                                    mais</a>
-                                            </div>
-                                            <div class="museum-card" data-museum="lixo-marinho">
-                                                <div class="museum-image"></div>
-                                                <div class="museum-info">
-                                                    <div class="museum-header">
-                                                        <h4 class="museum-title">Coleção Científico-Didática de Lixo
-                                                            Marinho
-                                                        </h4>
-                                                    </div>
-                                                    <span class="museum-count">423 itens</span>
-                                                </div>
-                                                <a href="museu-detalhes.html?id=3" class="museum-btn-compact">Ver
-                                                    mais</a>
-                                            </div>
-                                            <div class="museum-card" data-museum="galeria-arandu">
-                                                <div class="museum-image"></div>
-                                                <div class="museum-info">
-                                                    <div class="museum-header">
-                                                        <h4 class="museum-title">Galeria Arandu</h4>
-                                                    </div>
-                                                    <span class="museum-count">312 itens</span>
-                                                </div>
-                                                <a href="museu-detalhes.html?id=4" class="museum-btn-compact">Ver
-                                                    mais</a>
-                                            </div>
-                                            <div class="museum-card" data-museum="galeria-lavandeira">
-                                                <div class="museum-image"></div>
-                                                <div class="museum-info">
-                                                    <div class="museum-header">
-                                                        <h4 class="museum-title">Galeria Lavandeira</h4>
-                                                    </div>
-                                                    <span class="museum-count">180 itens</span>
-                                                </div>
-                                                <a href="museu-detalhes.html?id=5" class="museum-btn-compact">Ver
-                                                    mais</a>
-                                            </div>
-                                            <div class="museum-card" data-museum="laboratelier">
-                                                <div class="museum-image"></div>
-                                                <div class="museum-info">
-                                                    <div class="museum-header">
-                                                        <h4 class="museum-title">LaborAtelier</h4>
-                                                    </div>
-                                                    <span class="museum-count">156 itens</span>
-                                                </div>
-                                                <a href="museu-detalhes.html?id=6" class="museum-btn-compact">Ver
-                                                    mais</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Slide 2 - Museus 7-12 -->
-                                    <div class="swiper-slide">
-                                        <div class="museum-grid">
-                                            <div class="museum-card" data-museum="memorial-cavn">
-                                                <div class="museum-image"></div>
-                                                <div class="museum-info">
-                                                    <div class="museum-header">
-                                                        <h4 class="museum-title">Memorial CAVN</h4>
-                                                    </div>
-                                                    <span class="museum-count">234 itens</span>
-                                                </div>
-                                                <a href="museu-detalhes.html?id=7" class="museum-btn-compact">Ver
-                                                    mais</a>
-                                            </div>
-                                            <div class="museum-card" data-museum="biodiversidade">
-                                                <div class="museum-image"></div>
-                                                <div class="museum-info">
-                                                    <div class="museum-header">
-                                                        <h4 class="museum-title">Museu da Biodiversidade - Coleções
-                                                            biológicas</h4>
-                                                    </div>
-                                                    <span class="museum-count">567 itens</span>
-                                                </div>
-                                                <a href="museu-detalhes.html?id=8" class="museum-btn-compact">Ver
-                                                    mais</a>
-                                            </div>
-                                            <div class="museum-card" data-museum="ciencias-morfologicas">
-                                                <div class="museum-image"></div>
-                                                <div class="museum-info">
-                                                    <div class="museum-header">
-                                                        <h4 class="museum-title">Museu de Ciências Morfológicas (MCM)
-                                                        </h4>
-                                                    </div>
-                                                    <span class="museum-count">345 itens</span>
-                                                </div>
-                                                <a href="museu-detalhes.html?id=9" class="museum-btn-compact">Ver
-                                                    mais</a>
-                                            </div>
-                                            <div class="museum-card" data-museum="paleontologia">
-                                                <div class="museum-image"></div>
-                                                <div class="museum-info">
-                                                    <div class="museum-header">
-                                                        <h4 class="museum-title">Museu de Paleontologia</h4>
-                                                    </div>
-                                                    <span class="museum-count">289 itens</span>
-                                                </div>
-                                                <a href="museu-detalhes.html?id=10" class="museum-btn-compact">Ver
-                                                    mais</a>
-                                            </div>
-                                            <div class="museum-card" data-museum="museu-brejo">
-                                                <div class="museum-image"></div>
-                                                <div class="museum-info">
-                                                    <div class="museum-header">
-                                                        <h4 class="museum-title">Museu do Brejo</h4>
-                                                    </div>
-                                                    <span class="museum-count">198 itens</span>
-                                                </div>
-                                                <a href="museu-detalhes.html?id=11" class="museum-btn-compact">Ver
-                                                    mais</a>
-                                            </div>
-                                            <div class="museum-card" data-museum="nac">
-                                                <div class="museum-image"></div>
-                                                <div class="museum-info">
-                                                    <div class="museum-header">
-                                                        <h4 class="museum-title">Núcleo de Arte Contemporânea (NAC)</h4>
-                                                    </div>
-                                                    <span class="museum-count">456 itens</span>
-                                                </div>
-                                                <a href="museu-detalhes.html?id=12" class="museum-btn-compact">Ver
-                                                    mais</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Slide 3 - Museus 13-17 -->
-                                    <div class="swiper-slide">
-                                        <div class="museum-grid">
-                                            <div class="museum-card" data-museum="nudoc">
-                                                <div class="museum-image"></div>
-                                                <div class="museum-info">
-                                                    <div class="museum-header">
-                                                        <h4 class="museum-title">Núcleo de Documentação Cinematográfica
-                                                            (NUDOC)</h4>
-                                                    </div>
-                                                    <span class="museum-count">123 itens</span>
-                                                </div>
-                                                <a href="museu-detalhes.html?id=13" class="museum-btn-compact">Ver
-                                                    mais</a>
-                                            </div>
-                                            <div class="museum-card" data-museum="ndihr">
-                                                <div class="museum-image"></div>
-                                                <div class="museum-info">
-                                                    <div class="museum-header">
-                                                        <h4 class="museum-title">Núcleo de Documentação e Informação
-                                                            Histórica Regional (NDIHR)</h4>
-                                                    </div>
-                                                    <span class="museum-count">234 itens</span>
-                                                </div>
-                                                <a href="museu-detalhes.html?id=14" class="museum-btn-compact">Ver
-                                                    mais</a>
-                                            </div>
-                                            <div class="museum-card" data-museum="nuppo">
-                                                <div class="museum-image"></div>
-                                                <div class="museum-info">
-                                                    <div class="museum-header">
-                                                        <h4 class="museum-title">Núcleo de Pesquisa e Documentação da
-                                                            Cultura Popular (NUPPO)</h4>
-                                                    </div>
-                                                    <span class="museum-count">167 itens</span>
-                                                </div>
-                                                <a href="museu-detalhes.html?id=15" class="museum-btn-compact">Ver
-                                                    mais</a>
-                                            </div>
-                                            <div class="museum-card" data-museum="pinacoteca">
-                                                <div class="museum-image"></div>
-                                                <div class="museum-info">
-                                                    <div class="museum-header">
-                                                        <h4 class="museum-title">Pinacoteca</h4>
-                                                    </div>
-                                                    <span class="museum-count">789 itens</span>
-                                                </div>
-                                                <a href="museu-detalhes.html?id=16" class="museum-btn-compact">Ver
-                                                    mais</a>
-                                            </div>
-                                            <div class="museum-card" data-museum="sala-hermano">
-                                                <div class="museum-image"></div>
-                                                <div class="museum-info">
-                                                    <div class="museum-header">
-                                                        <h4 class="museum-title">Sala Hermano José</h4>
-                                                    </div>
-                                                    <span class="museum-count">145 itens</span>
-                                                </div>
-                                                <a href="museu-detalhes.html?id=17" class="museum-btn-compact">Ver
-                                                    mais</a>
-                                            </div>
-                                            <div class="museum-card" data-museum="placeholder">
-                                                <div class="museum-image"></div>
-                                                <div class="museum-info">
-                                                    <h4></h4>
-                                                    <span class="museum-count"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Pagination -->
-                                    <div class="swiper-pagination"></div>
-                                </div>
-                            </div>
-                            <button class="custom-next" type="button">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                        </div>
-                    </div>
-            </section>
-
-            <!-- Results Section -->
-            <section class="results-section">
-                <div class="container">
-                    <div class="filter-section-header">
-                        <h3 class="filter-title">
-                            <i class="fas fa-users"></i>
-                            AUTORIAS
-                        </h3>
-                        <p class="filter-description">Descubra os artistas e criadores por trás das obras</p>
-                    </div>
-
-                    <!-- Search Bar -->
-                    <div class="search-container">
-                        <div class="search-box">
-                            <input type="text" placeholder="Buscar por autor..." class="search-input">
-                            <button class="search-btn"><i class="fas fa-search"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="authors-grid" id="authorsGrid">
-                        <!-- Sample Authors -->
-                        <div class="author-card">
-                            <div class="author-image" style="background-image: url('./images/Maria_isabel.jpg')"></div>
-                            <div class="author-info">
-                                <h4>João Silva</h4>
-                                <p class="author-specialty">Pintor e Escultor</p>
-                                <p class="author-period">1950 - 2020</p>
-                                <p class="author-works">23 obras no acervo</p>
-                                <div class="author-tags">
-                                    <span class="tag">Pintura</span>
-                                    <span class="tag">Escultura</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="author-card">
-                            <div class="author-image" style="background-image: url('./images/Obras_de_arte.jpg')"></div>
-                            <div class="author-info">
-                                <h4>Maria Santos</h4>
-                                <p class="author-specialty">Fotógrafa</p>
-                                <p class="author-period">1965 - Presente</p>
-                                <p class="author-works">45 obras no acervo</p>
-                                <div class="author-tags">
-                                    <span class="tag">Fotografia</span>
-                                    <span class="tag">Arte Contemporânea</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="author-card">
-                            <div class="author-image" style="background-image: url('./images/Johannes_Vermeer.jpg')">
-                            </div>
-                            <div class="author-info">
-                                <h4>Pedro Oliveira</h4>
-                                <p class="author-specialty">Ceramista</p>
-                                <p class="author-period">1940 - 2015</p>
-                                <p class="author-works">18 obras no acervo</p>
-                                <div class="author-tags">
-                                    <span class="tag">Cerâmica</span>
-                                    <span class="tag">Arte Popular</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="author-card">
-                            <div class="author-image"></div>
-                            <div class="author-info">
-                                <h4>Ana Costa</h4>
-                                <p class="author-specialty">Documentarista</p>
-                                <p class="author-period">1970 - Presente</p>
-                                <p class="author-works">12 obras no acervo</p>
-                                <div class="author-tags">
-                                    <span class="tag">Documentário</span>
-                                    <span class="tag">História</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="author-card">
-                            <div class="author-image"></div>
-                            <div class="author-info">
-                                <h4>Carlos Mendes</h4>
-                                <p class="author-specialty">Pesquisador</p>
-                                <p class="author-period">1960 - Presente</p>
-                                <p class="author-works">67 obras no acervo</p>
-                                <div class="author-tags">
-                                    <span class="tag">Botânica</span>
-                                    <span class="tag">Ciência</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="author-card">
-                            <div class="author-image"></div>
-                            <div class="author-info">
-                                <h4>Artesão Anônimo</h4>
-                                <p class="author-specialty">Marceneiro Colonial</p>
-                                <p class="author-period">Século XVIII</p>
-                                <p class="author-works">8 obras no acervo</p>
-                                <div class="author-tags">
-                                    <span class="tag">Mobiliário</span>
-                                    <span class="tag">Colonial</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Página 2 - Autores 7-12 -->
-                        <div class="author-card">
-                            <div class="author-image"></div>
-                            <div class="author-info">
-                                <h4>Luiza Fernandes</h4>
-                                <p class="author-specialty">Tecelã e Bordadeira</p>
-                                <p class="author-period">1955 - Presente</p>
-                                <p class="author-works">34 obras no acervo</p>
-                                <div class="author-tags">
-                                    <span class="tag">Têxtil</span>
-                                    <span class="tag">Arte Popular</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="author-card">
-                            <div class="author-image"></div>
-                            <div class="author-info">
-                                <h4>Roberto Almeida</h4>
-                                <p class="author-specialty">Arquiteto e Designer</p>
-                                <p class="author-period">1968 - Presente</p>
-                                <p class="author-works">15 obras no acervo</p>
-                                <div class="author-tags">
-                                    <span class="tag">Design</span>
-                                    <span class="tag">Arquitetura</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="author-card">
-                            <div class="author-image"></div>
-                            <div class="author-info">
-                                <h4>Francisca Lima</h4>
-                                <p class="author-specialty">Gravurista</p>
-                                <p class="author-period">1942 - 2018</p>
-                                <p class="author-works">52 obras no acervo</p>
-                                <div class="author-tags">
-                                    <span class="tag">Gravura</span>
-                                    <span class="tag">Arte Gráfica</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="author-card">
-                            <div class="author-image"></div>
-                            <div class="author-info">
-                                <h4>Antônio Barbosa</h4>
-                                <p class="author-specialty">Músico e Compositor</p>
-                                <p class="author-period">1930 - 2010</p>
-                                <p class="author-works">28 obras no acervo</p>
-                                <div class="author-tags">
-                                    <span class="tag">Música</span>
-                                    <span class="tag">Folclore</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="author-card">
-                            <div class="author-image"></div>
-                            <div class="author-info">
-                                <h4>Helena Rodrigues</h4>
-                                <p class="author-specialty">Historiadora</p>
-                                <p class="author-period">1975 - Presente</p>
-                                <p class="author-works">19 obras no acervo</p>
-                                <div class="author-tags">
-                                    <span class="tag">História</span>
-                                    <span class="tag">Documentação</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="author-card">
-                            <div class="author-image"></div>
-                            <div class="author-info">
-                                <h4>Miguel Torres</h4>
-                                <p class="author-specialty">Escultor em Madeira</p>
-                                <p class="author-period">1958 - Presente</p>
-                                <p class="author-works">41 obras no acervo</p>
-                                <div class="author-tags">
-                                    <span class="tag">Escultura</span>
-                                    <span class="tag">Madeira</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Página 3 - Autores 13-18 -->
-                        <div class="author-card">
-                            <div class="author-image"></div>
-                            <div class="author-info">
-                                <h4>Beatriz Campos</h4>
-                                <p class="author-specialty">Pintora Modernista</p>
-                                <p class="author-period">1925 - 1995</p>
-                                <p class="author-works">73 obras no acervo</p>
-                                <div class="author-tags">
-                                    <span class="tag">Pintura</span>
-                                    <span class="tag">Modernismo</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="author-card">
-                            <div class="author-image"></div>
-                            <div class="author-info">
-                                <h4>José Marinho</h4>
-                                <p class="author-specialty">Colecionador e Curador</p>
-                                <p class="author-period">1962 - Presente</p>
-                                <p class="author-works">156 obras no acervo</p>
-                                <div class="author-tags">
-                                    <span class="tag">Curadoria</span>
-                                    <span class="tag">Colecionismo</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="author-card">
-                            <div class="author-image"></div>
-                            <div class="author-info">
-                                <h4>Carla Nascimento</h4>
-                                <p class="author-specialty">Artista Digital</p>
-                                <p class="author-period">1985 - Presente</p>
-                                <p class="author-works">22 obras no acervo</p>
-                                <div class="author-tags">
-                                    <span class="tag">Arte Digital</span>
-                                    <span class="tag">Multimídia</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="author-card">
-                            <div class="author-image"></div>
-                            <div class="author-info">
-                                <h4>Severino Pereira</h4>
-                                <p class="author-specialty">Artista Popular</p>
-                                <p class="author-period">1948 - Presente</p>
-                                <p class="author-works">89 obras no acervo</p>
-                                <div class="author-tags">
-                                    <span class="tag">Arte Popular</span>
-                                    <span class="tag">Xilogravura</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="author-card">
-                            <div class="author-image"></div>
-                            <div class="author-info">
-                                <h4>Mariana Vasconcelos</h4>
-                                <p class="author-specialty">Conservadora</p>
-                                <p class="author-period">1978 - Presente</p>
-                                <p class="author-works">7 obras no acervo</p>
-                                <div class="author-tags">
-                                    <span class="tag">Conservação</span>
-                                    <span class="tag">Restauro</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="author-card">
-                            <div class="author-image"></div>
-                            <div class="author-info">
-                                <h4>Eduardo Santos</h4>
-                                <p class="author-specialty">Videoartista</p>
-                                <p class="author-period">1980 - Presente</p>
-                                <p class="author-works">13 obras no acervo</p>
-                                <div class="author-tags">
-                                    <span class="tag">Videoarte</span>
-                                    <span class="tag">Performance</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pagination -->
-                    <div class="pagination">
-                        <button class="page-btn prev" disabled><i class="fas fa-chevron-left"></i></button>
-                        <button class="page-btn active">1</button>
-                        <button class="page-btn">2</button>
-                        <button class="page-btn">3</button>
-                        <button class="page-btn next"><i class="fas fa-chevron-right"></i></button>
-                    </div>
+                <div class="category-card">
+                  <div class="category-icon">
+                    <i class="fas fa-camera"></i>
+                  </div>
+                  <h4>Fotografias</h4>
+                  <span class="category-count">(789)</span>
                 </div>
-            </section>
-        </div>
+                <div class="category-card">
+                  <div class="category-icon">
+                    <i class="fas fa-file-alt"></i>
+                  </div>
+                  <h4>Documentos</h4>
+                  <span class="category-count">(523)</span>
+                </div>
+                <div class="category-card">
+                  <div class="category-icon">
+                    <i class="fas fa-vase"></i>
+                  </div>
+                  <h4>Cerâmicas</h4>
+                  <span class="category-count">(234)</span>
+                </div>
+                <div class="category-card">
+                  <div class="category-icon">
+                    <i class="fas fa-chair"></i>
+                  </div>
+                  <h4>Mobiliário</h4>
+                  <span class="category-count">(187)</span>
+                </div>
+                <div class="category-card">
+                  <div class="category-icon">
+                    <i class="fas fa-tshirt"></i>
+                  </div>
+                  <h4>Têxteis</h4>
+                  <span class="category-count">(98)</span>
+                </div>
+                <div class="category-card">
+                  <div class="category-icon">
+                    <i class="fas fa-cube"></i>
+                  </div>
+                  <h4>Outros</h4>
+                  <span class="category-count">(518)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section">
+          <div class="container">
+            <div class="filter-section-header">
+              <h3 class="filter-title">
+                <i class="fas fa-users"></i>
+                AUTORIAS
+              </h3>
+              <p class="filter-description">
+                Descubra os artistas e criadores por trás das obras
+              </p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-container">
+              <div class="search-box">
+                <input
+                  type="text"
+                  placeholder="Buscar por autor..."
+                  class="search-input"
+                />
+                <button class="search-btn">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="authors-grid" id="authorsGrid">
+              <!-- Sample Authors -->
+              <div class="author-card">
+                <div
+                  class="author-image"
+                  style="background-image: url('./images/Maria_isabel.jpg')"
+                ></div>
+                <div class="author-info">
+                  <h4>João Silva</h4>
+                  <p class="author-specialty">Pintor e Escultor</p>
+                  <p class="author-period">1950 - 2020</p>
+                  <p class="author-works">23 obras no acervo</p>
+                  <div class="author-tags">
+                    <span class="tag">Pintura</span>
+                    <span class="tag">Escultura</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="author-card">
+                <div
+                  class="author-image"
+                  style="background-image: url('./images/Obras_de_arte.jpg')"
+                ></div>
+                <div class="author-info">
+                  <h4>Maria Santos</h4>
+                  <p class="author-specialty">Fotógrafa</p>
+                  <p class="author-period">1965 - Presente</p>
+                  <p class="author-works">45 obras no acervo</p>
+                  <div class="author-tags">
+                    <span class="tag">Fotografia</span>
+                    <span class="tag">Arte Contemporânea</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="author-card">
+                <div
+                  class="author-image"
+                  style="background-image: url('./images/Johannes_Vermeer.jpg')"
+                ></div>
+                <div class="author-info">
+                  <h4>Pedro Oliveira</h4>
+                  <p class="author-specialty">Ceramista</p>
+                  <p class="author-period">1940 - 2015</p>
+                  <p class="author-works">18 obras no acervo</p>
+                  <div class="author-tags">
+                    <span class="tag">Cerâmica</span>
+                    <span class="tag">Arte Popular</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="author-card">
+                <div class="author-image"></div>
+                <div class="author-info">
+                  <h4>Ana Costa</h4>
+                  <p class="author-specialty">Documentarista</p>
+                  <p class="author-period">1970 - Presente</p>
+                  <p class="author-works">12 obras no acervo</p>
+                  <div class="author-tags">
+                    <span class="tag">Documentário</span>
+                    <span class="tag">História</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="author-card">
+                <div class="author-image"></div>
+                <div class="author-info">
+                  <h4>Carlos Mendes</h4>
+                  <p class="author-specialty">Pesquisador</p>
+                  <p class="author-period">1960 - Presente</p>
+                  <p class="author-works">67 obras no acervo</p>
+                  <div class="author-tags">
+                    <span class="tag">Botânica</span>
+                    <span class="tag">Ciência</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="author-card">
+                <div class="author-image"></div>
+                <div class="author-info">
+                  <h4>Artesão Anônimo</h4>
+                  <p class="author-specialty">Marceneiro Colonial</p>
+                  <p class="author-period">Século XVIII</p>
+                  <p class="author-works">8 obras no acervo</p>
+                  <div class="author-tags">
+                    <span class="tag">Mobiliário</span>
+                    <span class="tag">Colonial</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Página 2 - Autores 7-12 -->
+              <div class="author-card">
+                <div class="author-image"></div>
+                <div class="author-info">
+                  <h4>Luiza Fernandes</h4>
+                  <p class="author-specialty">Tecelã e Bordadeira</p>
+                  <p class="author-period">1955 - Presente</p>
+                  <p class="author-works">34 obras no acervo</p>
+                  <div class="author-tags">
+                    <span class="tag">Têxtil</span>
+                    <span class="tag">Arte Popular</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="author-card">
+                <div class="author-image"></div>
+                <div class="author-info">
+                  <h4>Roberto Almeida</h4>
+                  <p class="author-specialty">Arquiteto e Designer</p>
+                  <p class="author-period">1968 - Presente</p>
+                  <p class="author-works">15 obras no acervo</p>
+                  <div class="author-tags">
+                    <span class="tag">Design</span>
+                    <span class="tag">Arquitetura</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="author-card">
+                <div class="author-image"></div>
+                <div class="author-info">
+                  <h4>Francisca Lima</h4>
+                  <p class="author-specialty">Gravurista</p>
+                  <p class="author-period">1942 - 2018</p>
+                  <p class="author-works">52 obras no acervo</p>
+                  <div class="author-tags">
+                    <span class="tag">Gravura</span>
+                    <span class="tag">Arte Gráfica</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="author-card">
+                <div class="author-image"></div>
+                <div class="author-info">
+                  <h4>Antônio Barbosa</h4>
+                  <p class="author-specialty">Músico e Compositor</p>
+                  <p class="author-period">1930 - 2010</p>
+                  <p class="author-works">28 obras no acervo</p>
+                  <div class="author-tags">
+                    <span class="tag">Música</span>
+                    <span class="tag">Folclore</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="author-card">
+                <div class="author-image"></div>
+                <div class="author-info">
+                  <h4>Helena Rodrigues</h4>
+                  <p class="author-specialty">Historiadora</p>
+                  <p class="author-period">1975 - Presente</p>
+                  <p class="author-works">19 obras no acervo</p>
+                  <div class="author-tags">
+                    <span class="tag">História</span>
+                    <span class="tag">Documentação</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="author-card">
+                <div class="author-image"></div>
+                <div class="author-info">
+                  <h4>Miguel Torres</h4>
+                  <p class="author-specialty">Escultor em Madeira</p>
+                  <p class="author-period">1958 - Presente</p>
+                  <p class="author-works">41 obras no acervo</p>
+                  <div class="author-tags">
+                    <span class="tag">Escultura</span>
+                    <span class="tag">Madeira</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Página 3 - Autores 13-18 -->
+              <div class="author-card">
+                <div class="author-image"></div>
+                <div class="author-info">
+                  <h4>Beatriz Campos</h4>
+                  <p class="author-specialty">Pintora Modernista</p>
+                  <p class="author-period">1925 - 1995</p>
+                  <p class="author-works">73 obras no acervo</p>
+                  <div class="author-tags">
+                    <span class="tag">Pintura</span>
+                    <span class="tag">Modernismo</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="author-card">
+                <div class="author-image"></div>
+                <div class="author-info">
+                  <h4>José Marinho</h4>
+                  <p class="author-specialty">Colecionador e Curador</p>
+                  <p class="author-period">1962 - Presente</p>
+                  <p class="author-works">156 obras no acervo</p>
+                  <div class="author-tags">
+                    <span class="tag">Curadoria</span>
+                    <span class="tag">Colecionismo</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="author-card">
+                <div class="author-image"></div>
+                <div class="author-info">
+                  <h4>Carla Nascimento</h4>
+                  <p class="author-specialty">Artista Digital</p>
+                  <p class="author-period">1985 - Presente</p>
+                  <p class="author-works">22 obras no acervo</p>
+                  <div class="author-tags">
+                    <span class="tag">Arte Digital</span>
+                    <span class="tag">Multimídia</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="author-card">
+                <div class="author-image"></div>
+                <div class="author-info">
+                  <h4>Severino Pereira</h4>
+                  <p class="author-specialty">Artista Popular</p>
+                  <p class="author-period">1948 - Presente</p>
+                  <p class="author-works">89 obras no acervo</p>
+                  <div class="author-tags">
+                    <span class="tag">Arte Popular</span>
+                    <span class="tag">Xilogravura</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="author-card">
+                <div class="author-image"></div>
+                <div class="author-info">
+                  <h4>Mariana Vasconcelos</h4>
+                  <p class="author-specialty">Conservadora</p>
+                  <p class="author-period">1978 - Presente</p>
+                  <p class="author-works">7 obras no acervo</p>
+                  <div class="author-tags">
+                    <span class="tag">Conservação</span>
+                    <span class="tag">Restauro</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="author-card">
+                <div class="author-image"></div>
+                <div class="author-info">
+                  <h4>Eduardo Santos</h4>
+                  <p class="author-specialty">Videoartista</p>
+                  <p class="author-period">1980 - Presente</p>
+                  <p class="author-works">13 obras no acervo</p>
+                  <div class="author-tags">
+                    <span class="tag">Videoarte</span>
+                    <span class="tag">Performance</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+              <button class="page-btn prev" disabled>
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="page-btn active">1</button>
+              <button class="page-btn">2</button>
+              <button class="page-btn">3</button>
+              <button class="page-btn next">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <p class="stats-description">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged. It was popularised in the 1960s with
+          the release of Letraset sheets containing Lorem Ipsum passages, and
+          more recently with desktop publishing software like Aldus PageMaker
+          including versions of Lorem Ipsum.
+        </p>
+
+        <!-- Statistics Section -->
+        <section class="stats-section">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number">2.847</div>
+              <div class="stat-label">Itens catalogados</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">5</div>
+              <div class="stat-label">Museus integrados</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">127</div>
+              <div class="stat-label">Autores registrados</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">8</div>
+              <div class="stat-label">Categorias</div>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
 
     <!-- Footer -->
     <!-- Rodapé -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Contato</h4>
-                    <p><i class="fas fa-phone"></i> (83) 3216-7000</p>
-                    <p><i class="fas fa-envelope"></i> museus@ufpb.br</p>
-                    <p><i class="fas fa-map-marker-alt"></i> João Pessoa - PB</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Realização</h4>
-                    <img src="images/proex_logo.png" alt="PROEX Logo" class="footer-logo">
-                    <img src="images/ufpb_logo.png" alt="UFPB Logo" class="footer-logo">
-                    <img src="images/ufpb_logo.png" alt="UFPB Logo" class="footer-logo">
-                </div>
-                <div class="footer-section">
-                    <h4>Parcerias</h4>
-                    <img src="images/proex_logo.png" alt="PROEX Logo" class="footer-logo">
-                    <img src="images/ufpb_logo.png" alt="UFPB Logo" class="footer-logo">
-                    <img src="images/ufpb_logo.png" alt="UFPB Logo" class="footer-logo">
-                    <img src="images/ufpb_logo.png" alt="UFPB Logo" class="footer-logo">
-                </div>
-
-            </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>Contato</h4>
+            <p><i class="fas fa-phone"></i> (83) 3216-7000</p>
+            <p><i class="fas fa-envelope"></i> museus@ufpb.br</p>
+            <p><i class="fas fa-map-marker-alt"></i> João Pessoa - PB</p>
+          </div>
+          <div class="footer-section">
+            <h4>Realização</h4>
+            <img
+              src="images/proex_logo.png"
+              alt="PROEX Logo"
+              class="footer-logo"
+            />
+            <img
+              src="images/ufpb_logo.png"
+              alt="UFPB Logo"
+              class="footer-logo"
+            />
+            <img
+              src="images/ufpb_logo.png"
+              alt="UFPB Logo"
+              class="footer-logo"
+            />
+          </div>
+          <div class="footer-section">
+            <h4>Parcerias</h4>
+            <img
+              src="images/proex_logo.png"
+              alt="PROEX Logo"
+              class="footer-logo"
+            />
+            <img
+              src="images/ufpb_logo.png"
+              alt="UFPB Logo"
+              class="footer-logo"
+            />
+            <img
+              src="images/ufpb_logo.png"
+              alt="UFPB Logo"
+              class="footer-logo"
+            />
+            <img
+              src="images/ufpb_logo.png"
+              alt="UFPB Logo"
+              class="footer-logo"
+            />
+          </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Universidade Federal da Paraíba - Todos os direitos reservados</p>
-        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Universidade Federal da Paraíba - Todos os direitos
+          reservados
+        </p>
+      </div>
     </footer>
 
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="inventario.js"></script>
-</body>
-
+  </body>
 </html>
