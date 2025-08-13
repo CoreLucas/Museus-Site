@@ -57,7 +57,7 @@
 .main-content {
     padding: 3rem 0;
     background: #fff3d8;
-    margin-top: 80px; /* Compensa a altura do header fixo */
+    margin-top: 76px; /* Compensa a altura do header fixo */
 }
 
 /* Statistics Section */

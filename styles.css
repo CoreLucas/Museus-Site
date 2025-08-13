@@ -182,7 +182,7 @@ body {
     text-align: center;
     color: white;
     position: relative;
-    margin-top: 80px;
+    margin-top: 76px;
 }
 
 .banner-content {
@@ -213,7 +213,7 @@ body {
 /* Hero Section Dinâmica */
 .hero-section {
     position: relative;
-    margin-top: 80px; /* Compensa a altura do header fixo */
+    margin-top: 76px; /* Compensa a altura do header fixo */
     width: 100%;
     height: auto; /* Altura automática baseada na imagem */
     max-height: 70vh; /* Controla a altura máxima em monitores ultrawide */
