@@ -66,6 +66,16 @@
     color: white;
 }
 
+.filter-btn.clear-btn {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.filter-btn.clear-btn:hover {
+    background: #dc3545;
+    color: white;
+}
+
 .sort-select {
     padding: 0.6rem 1rem;
     border: 2px solid #ddd;

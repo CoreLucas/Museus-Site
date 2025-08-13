@@ -8,141 +8,137 @@ const museusGrid = document.getElementById('museusGrid');
 const noResults = document.getElementById('noResults');
 const museuCards = document.querySelectorAll('.museu-card');
 
-// Dados dos museus para facilitar busca e ordenação
-const museusData = [
-    {
-        id: 1,
-        name: 'Museu de Arte Contemporânea',
-        category: 'arte',
-        location: 'campus1',
-        description: 'Exposições de arte moderna e contemporânea'
-    },
-    {
-        id: 2,
-        name: 'Museu de História Natural',
-        category: 'historia',
-        location: 'campus1',
-        description: 'Acervo dedicado à fauna, flora e história natural'
-    },
-    {
-        id: 3,
-        name: 'Museu de Ciências Exatas',
-        category: 'ciencia',
-        location: 'campus2',
-        description: 'Exposições interativas sobre matemática, física e química'
-    },
-    {
-        id: 4,
-        name: 'Museu de Tecnologia e Inovação',
-        category: 'tecnologia',
-        location: 'campus1',
-        description: 'História da tecnologia e inovações desenvolvidas na UFPB'
-    },
-    {
-        id: 5,
-        name: 'Pinacoteca UFPB',
-        category: 'arte',
-        location: 'campus1',
-        description: 'Coleção permanente de pinturas e esculturas'
-    },
-    {
-        id: 6,
-        name: 'Museu Casa Hermano José',
-        category: 'historia',
-        location: 'campus3',
-        description: 'Casa histórica preservada com mobiliário e objetos pessoais'
-    }
-];
-
-// Função de busca
-function searchMuseums() {
-    const searchTerm = searchInput.value.toLowerCase();
-    let visibleCount = 0;
-    
-    museuCards.forEach((card, index) => {
-        const museuData = museusData[index];
-        const matchesSearch = museuData.name.toLowerCase().includes(searchTerm) ||
-                            museuData.description.toLowerCase().includes(searchTerm);
+// Função para extrair dados dos museus diretamente do DOM
+function getMuseumDataFromDOM() {
+    const cards = document.querySelectorAll('.museu-card');
+    return Array.from(cards).map(card => {
+        const title = card.querySelector('.museu-title').textContent.trim();
+        const description = card.querySelector('.museu-description').textContent.trim();
+        const category = card.getAttribute('data-category');
+        const location = card.getAttribute('data-location');
         
-        if (matchesSearch) {
-            card.style.display = 'block';
-            visibleCount++;
-        } else {
-            card.style.display = 'none';
-        }
+        return {
+            element: card,
+            name: title,
+            category: category,
+            location: location,
+            description: description
+        };
     });
-    
-    // Mostrar mensagem se não há resultados
-    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
 }
 
-// Função de filtro por categoria
-function filterByCategory(category) {
+
+
+// Função combinada de busca e filtro
+function applySearchAndFilter() {
+    const searchTerm = searchInput.value.toLowerCase();
+    const activeFilterBtn = document.querySelector('.filter-btn.active');
+    const museumData = getMuseumDataFromDOM();
     let visibleCount = 0;
     
-    museuCards.forEach(card => {
-        const cardCategory = card.getAttribute('data-category');
+    if (!activeFilterBtn) {
+        // Se não há filtro ativo, mostrar todos
+        museumData.forEach(museum => {
+            // Buscar apenas no título do museu
+            const matchesSearch = !searchTerm || 
+                museum.name.toLowerCase().includes(searchTerm);
+            
+            if (matchesSearch) {
+                museum.element.style.display = 'block';
+                visibleCount++;
+            } else {
+                museum.element.style.display = 'none';
+            }
+        });
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        return;
+    }
+    
+    const activeFilter = activeFilterBtn.getAttribute('data-filter');
+    
+    museumData.forEach(museum => {
+        // Buscar apenas no título do museu
+        const matchesSearch = !searchTerm || 
+            museum.name.toLowerCase().includes(searchTerm);
         
-        if (category === 'all' || cardCategory === category) {
-            card.style.display = 'block';
+        let matchesFilter = false;
+        
+        if (activeFilter === 'todos') {
+            // Se "Todos" está selecionado, mostrar todos os museus
+            matchesFilter = true;
+        } else {
+            // Obter as tags visuais do museu para comparação
+            const tagElements = museum.element.querySelectorAll('.tag');
+            const museumTags = Array.from(tagElements).map(tag => tag.textContent.trim().toLowerCase());
+            
+            // Mapear filtros para as tags correspondentes
+            const filterToTagMap = {
+                'artes': 'artes',
+                'ciencia': 'ciência',
+                'patrimonio-cultural': 'patrimônio cultural',
+                'audiovisual': 'audiovisual',
+                'historia': 'história'
+            };
+            
+            const expectedTag = filterToTagMap[activeFilter.toLowerCase()];
+            if (expectedTag) {
+                matchesFilter = museumTags.includes(expectedTag);
+            }
+        }
+        
+        if (matchesSearch && matchesFilter) {
+            museum.element.style.display = 'block';
             visibleCount++;
         } else {
-            card.style.display = 'none';
+            museum.element.style.display = 'none';
         }
     });
     
-    // Aplicar busca após filtro
-    if (searchInput.value) {
-        searchMuseums();
-    } else {
-        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
-    }
+    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
 }
 
 // Função de ordenação
 function sortMuseums(criteria) {
-    const cardsArray = Array.from(museuCards);
+    const museumData = getMuseumDataFromDOM();
     
-    cardsArray.sort((a, b) => {
-        const indexA = Array.from(museuCards).indexOf(a);
-        const indexB = Array.from(museuCards).indexOf(b);
-        const dataA = museusData[indexA];
-        const dataB = museusData[indexB];
-        
+    museumData.sort((a, b) => {
         switch(criteria) {
             case 'name':
-                return dataA.name.localeCompare(dataB.name);
+                return a.name.localeCompare(b.name);
             case 'type':
-                return dataA.category.localeCompare(dataB.category);
+                return a.category.localeCompare(b.category);
             case 'location':
-                return dataA.location.localeCompare(dataB.location);
+                return a.location.localeCompare(b.location);
             default:
                 return 0;
         }
     });
     
     // Reorganizar os cards no DOM
-    cardsArray.forEach(card => {
-        museusGrid.appendChild(card);
+    museumData.forEach(museum => {
+        museusGrid.appendChild(museum.element);
     });
+    
+    // Reaplicar filtros após ordenação
+    applySearchAndFilter();
 }
 
 // Event Listeners
 
 // Busca em tempo real
-searchInput.addEventListener('input', searchMuseums);
+searchInput.addEventListener('input', applySearchAndFilter);
 
 // Filtros por categoria
 filterButtons.forEach(button => {
     button.addEventListener('click', () => {
         // Remover classe active de todos os botões
         filterButtons.forEach(btn => btn.classList.remove('active'));
+        
         // Adicionar classe active ao botão clicado
         button.classList.add('active');
         
-        // Aplicar filtro
-        const category = button.getAttribute('data-filter');
-        filterByCategory(category);
+        // Aplicar filtro combinado
+        applySearchAndFilter();
     });
 });
 
@@ -150,6 +146,8 @@ filterButtons.forEach(button => {
 sortSelect.addEventListener('change', (e) => {
     sortMuseums(e.target.value);
 });
+
+
 
 // Animação de entrada dos cards
 function animateCards() {
@@ -176,32 +174,12 @@ function animateCards() {
 // Inicializar animações quando a página carregar
 document.addEventListener('DOMContentLoaded', () => {
     animateCards();
+    
+    // Mostrar todos os museus inicialmente
+    const museumData = getMuseumDataFromDOM();
+    museumData.forEach(museum => {
+        museum.element.style.display = 'block';
+    });
+    noResults.style.display = 'none';
 });
 
-// // Função para limpar filtros
-// function clearFilters() {
-//     searchInput.value = '';
-//     filterButtons.forEach(btn => btn.classList.remove('active'));
-//     filterButtons[0].classList.add('active'); // Ativar "Todos"
-//     sortSelect.value = 'name';
-    
-//     museuCards.forEach(card => {
-//         card.style.display = 'block';
-//     });
-    
-//     noResults.style.display = 'none';
-// }
-
-// // Adicionar botão de limpar filtros (opcional)
-// const clearButton = document.createElement('button');
-// clearButton.textContent = 'Limpar Filtros';
-// clearButton.className = 'filter-btn';
-// clearButton.style.background = '#dc3545';
-// clearButton.style.borderColor = '#dc3545';
-// clearButton.style.color = 'white';
-
-// clearButton.addEventListener('click', clearFilters);
-
-// // Adicionar o botão após os filtros existentes
-// const filterContainer = document.querySelector('.filter-buttons');
-// filterContainer.appendChild(clearButton);

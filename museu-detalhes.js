@@ -904,4 +904,284 @@ document.addEventListener('click', (e) => {
     if (e.target.classList.contains('close') || e.target.classList.contains('modal-close')) {
         e.target.closest('.modal').style.display = 'none';
     }
+});// 
+Nova configuração do Swiper para mostrar 3 cards por vez
+function initializeNewSwiper() {
+    // Destruir instâncias anteriores
+    if (window.obrasSwiper) {
+        window.obrasSwiper.destroy(true, true);
+    }
+    if (window.equipeSwiper) {
+        window.equipeSwiper.destroy(true, true);
+    }
+    
+    // Configurar Swiper para Acervo em Destaque
+    const obrasElement = document.querySelector('.obras-swiper');
+    if (obrasElement) {
+        window.obrasSwiper = new Swiper('.obras-swiper', {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            loop: true,
+            speed: 600,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.obras-swiper .swiper-button-next',
+                prevEl: '.obras-swiper .swiper-button-prev',
+            },
+            pagination: {
+                el: '.obras-swiper .swiper-pagination',
+                clickable: true,
+                dynamicBullets: true,
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 25,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                }
+            },
+            on: {
+                init: function() {
+                    console.log('Swiper de obras inicializado com 3 slides por vez');
+                }
+            }
+        });
+    }
+    
+    // Configurar Swiper para Equipe Técnica
+    const equipeElement = document.querySelector('.equipe-swiper');
+    if (equipeElement) {
+        window.equipeSwiper = new Swiper('.equipe-swiper', {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            loop: true,
+            speed: 600,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.equipe-swiper .swiper-button-next',
+                prevEl: '.equipe-swiper .swiper-button-prev',
+            },
+            pagination: {
+                el: '.equipe-swiper .swiper-pagination',
+                clickable: true,
+                dynamicBullets: true,
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 25,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                }
+            },
+            on: {
+                init: function() {
+                    console.log('Swiper de equipe inicializado com 3 slides por vez');
+                }
+            }
+        });
+    }
+}
+
+// Substituir a inicialização antiga pela nova
+document.addEventListener('DOMContentLoaded', function() {
+    // Aguardar um pouco para garantir que o DOM esteja completamente carregado
+    setTimeout(() => {
+        initializeNewSwiper();
+    }, 500);
 });
+
+// Reinicializar na mudança de tamanho da janela
+window.addEventListener('resize', function() {
+    clearTimeout(window.resizeTimer);
+    window.resizeTimer = setTimeout(() => {
+        initializeNewSwiper();
+    }, 250);
+});
+// ====
+= CONFIGURAÇÃO CORRIGIDA DO SWIPER =====
+function initializeSwipers() {
+    console.log('Inicializando Swipers...');
+    
+    // Destruir instâncias anteriores se existirem
+    if (window.obrasSwiper) {
+        window.obrasSwiper.destroy(true, true);
+        window.obrasSwiper = null;
+    }
+    if (window.equipeSwiper) {
+        window.equipeSwiper.destroy(true, true);
+        window.equipeSwiper = null;
+    }
+    
+    // Aguardar um pouco para garantir que o DOM esteja pronto
+    setTimeout(() => {
+        // Configurar Swiper para Acervo em Destaque
+        const obrasElement = document.querySelector('.swiper-container.obras-swiper');
+        if (obrasElement) {
+            console.log('Elemento obras-swiper encontrado, inicializando...');
+            
+            window.obrasSwiper = new Swiper('.swiper-container.obras-swiper', {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                loop: true,
+                speed: 600,
+                centeredSlides: false,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: '.swiper-container.obras-swiper .swiper-button-next',
+                    prevEl: '.swiper-container.obras-swiper .swiper-button-prev',
+                },
+                pagination: {
+                    el: '.swiper-container.obras-swiper .swiper-pagination',
+                    clickable: true,
+                    dynamicBullets: true,
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 25,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    }
+                },
+                on: {
+                    init: function() {
+                        console.log('✅ Swiper de obras inicializado com sucesso!');
+                        // Forçar visibilidade dos botões
+                        const nextBtn = document.querySelector('.swiper-container.obras-swiper .swiper-button-next');
+                        const prevBtn = document.querySelector('.swiper-container.obras-swiper .swiper-button-prev');
+                        if (nextBtn) nextBtn.style.display = 'flex';
+                        if (prevBtn) prevBtn.style.display = 'flex';
+                    },
+                    slideChange: function() {
+                        console.log('Slide alterado para:', this.activeIndex);
+                    }
+                }
+            });
+        } else {
+            console.error('❌ Elemento .swiper-container.obras-swiper não encontrado');
+        }
+        
+        // Configurar Swiper para Equipe Técnica
+        const equipeElement = document.querySelector('.swiper-container.equipe-swiper');
+        if (equipeElement) {
+            console.log('Elemento equipe-swiper encontrado, inicializando...');
+            
+            window.equipeSwiper = new Swiper('.swiper-container.equipe-swiper', {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                loop: true,
+                speed: 600,
+                centeredSlides: false,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: '.swiper-container.equipe-swiper .swiper-button-next',
+                    prevEl: '.swiper-container.equipe-swiper .swiper-button-prev',
+                },
+                pagination: {
+                    el: '.swiper-container.equipe-swiper .swiper-pagination',
+                    clickable: true,
+                    dynamicBullets: true,
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 25,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    }
+                },
+                on: {
+                    init: function() {
+                        console.log('✅ Swiper de equipe inicializado com sucesso!');
+                        // Forçar visibilidade dos botões
+                        const nextBtn = document.querySelector('.swiper-container.equipe-swiper .swiper-button-next');
+                        const prevBtn = document.querySelector('.swiper-container.equipe-swiper .swiper-button-prev');
+                        if (nextBtn) nextBtn.style.display = 'flex';
+                        if (prevBtn) prevBtn.style.display = 'flex';
+                    },
+                    slideChange: function() {
+                        console.log('Slide da equipe alterado para:', this.activeIndex);
+                    }
+                }
+            });
+        } else {
+            console.error('❌ Elemento .swiper-container.equipe-swiper não encontrado');
+        }
+    }, 100);
+}
+
+// Sobrescrever a inicialização anterior
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM carregado, aguardando inicialização dos Swipers...');
+    setTimeout(() => {
+        initializeSwipers();
+    }, 1500); // Aumentar o delay para garantir que tudo esteja carregado
+});
+
+// Reinicializar na mudança de tamanho da janela
+window.addEventListener('resize', function() {
+    clearTimeout(window.resizeTimer);
+    window.resizeTimer = setTimeout(() => {
+        console.log('Redimensionamento detectado, reinicializando...');
+        initializeSwipers();
+    }, 300);
+});
+
+// Função adicional para debug
+window.debugSwiper = function() {
+    console.log('=== DEBUG SWIPER ===');
+    console.log('Obras Swiper:', window.obrasSwiper);
+    console.log('Equipe Swiper:', window.equipeSwiper);
+    console.log('Elementos encontrados:');
+    console.log('- .swiper-container.obras-swiper:', document.querySelector('.swiper-container.obras-swiper'));
+    console.log('- .swiper-container.equipe-swiper:', document.querySelector('.swiper-container.equipe-swiper'));
+    console.log('Botões de navegação:');
+    console.log('- Next obras:', document.querySelector('.swiper-container.obras-swiper .swiper-button-next'));
+    console.log('- Prev obras:', document.querySelector('.swiper-container.obras-swiper .swiper-button-prev'));
+    console.log('- Next equipe:', document.querySelector('.swiper-container.equipe-swiper .swiper-button-next'));
+    console.log('- Prev equipe:', document.querySelector('.swiper-container.equipe-swiper .swiper-button-prev'));
+};
+
+// Forçar inicialização manual se necessário
+window.forceInitSwiper = function() {
+    console.log('🔄 Forçando inicialização manual dos Swipers...');
+    initializeSwipers();
+};
