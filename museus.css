@@ -96,6 +96,7 @@
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
     margin-bottom: 2rem;
+    align-items: stretch;
 }
 
 .museu-card {
@@ -105,6 +106,9 @@
     overflow: hidden;
     transition: all 0.3s ease;
     border: 1px solid #e9ecef;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .museu-card:hover {
@@ -126,7 +130,8 @@
 } */
 
 .museu-image {
-    height: 300px;
+    height: 250px;
+    min-height: 250px;
     background: #ecba78;
     position: relative;
     display: flex;
@@ -137,6 +142,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    flex-shrink: 0;
 }
 
 .museu-overlay {
@@ -169,6 +175,10 @@
 
 .museu-content {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 280px;
 }
 
 .museu-title {
@@ -182,8 +192,9 @@
 .museu-description {
     color: #634b43;
     line-height: 1.6;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-size: 0.95rem;
+    flex-grow: 1;
 }
 
 .museu-info {
@@ -208,7 +219,9 @@
 }
 
 .btn-saiba-mais {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 0.8rem 2rem;
     background: #9f643d;
     color: white;
@@ -218,6 +231,9 @@
     transition: all 0.3s;
     text-align: center;
     width: 100%;
+    height: 3.2rem;
+    margin-top: auto;
+    flex-shrink: 0;
 }
 
 .btn-saiba-mais:hover {
@@ -263,10 +279,31 @@
     .museus-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+        align-items: stretch;
     }
     
     .museu-card {
         margin: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .museu-image {
+        height: 200px;
+        min-height: 200px;
+    }
+    
+    .museu-content {
+        min-height: 260px;
+    }
+    
+    .museu-title {
+        font-size: 1.2rem;
+    }
+    
+    .museu-description {
+        flex-grow: 1;
     }
     
     .museu-info {
@@ -288,8 +325,25 @@
         margin: 0;
     }
     
+    .museu-image {
+        height: 180px;
+        min-height: 180px;
+    }
+    
     .museu-content {
         padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        min-height: 240px;
+    }
+    
+    .museu-title {
+        font-size: 1.1rem;
+    }
+    
+    .museu-description {
+        font-size: 0.9rem;
+        flex-grow: 1;
     }
     
     .filter-btn {

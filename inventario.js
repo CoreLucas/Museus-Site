@@ -183,7 +183,10 @@ function performSearch() {
     const query = searchInput.value.toLowerCase().trim();
     const authors = document.querySelectorAll('.author-card');
     
-    authors.forEach(author => {
+    // Store search results for pagination
+    window.searchResults = [];
+    
+    authors.forEach((author, index) => {
         const name = author.querySelector('h4').textContent.toLowerCase();
         const specialty = author.querySelector('.author-specialty').textContent.toLowerCase();
         const period = author.querySelector('.author-period').textContent.toLowerCase();
@@ -192,12 +195,19 @@ function performSearch() {
         const searchText = `${name} ${specialty} ${period} ${tags.join(' ')}`;
         
         if (query === '' || searchText.includes(query)) {
-            author.style.display = 'block';
-            author.style.animation = 'fadeInUp 0.6s ease forwards';
-        } else {
-            author.style.display = 'none';
+            window.searchResults.push(index);
         }
     });
+    
+    // If search is active, show filtered results with pagination
+    if (query !== '') {
+        showSearchResults();
+    } else {
+        // If search is cleared, return to normal pagination
+        window.searchResults = null;
+        const currentPage = parseInt(document.querySelector('.page-btn.active').textContent);
+        loadPageContent(currentPage);
+    }
     
     updateResultsCount();
 }
@@ -339,8 +349,13 @@ function navigateToPage(pageNum) {
 function loadPageContent(pageNum) {
     const authors = document.querySelectorAll('.author-card');
     const authorsPerPage = 6;
+    
+    // Use search results if available, otherwise use all authors
+    const availableIndices = window.searchResults || Array.from({length: authors.length}, (_, i) => i);
+    
     const startIndex = (pageNum - 1) * authorsPerPage;
     const endIndex = startIndex + authorsPerPage;
+    const pageIndices = availableIndices.slice(startIndex, endIndex);
     
     // Hide all authors first
     authors.forEach((author, index) => {
@@ -352,27 +367,42 @@ function loadPageContent(pageNum) {
     
     // Show authors for current page with staggered animation
     setTimeout(() => {
-        authors.forEach((author, index) => {
-            if (index >= startIndex && index < endIndex) {
+        pageIndices.forEach((authorIndex, displayIndex) => {
+            const author = authors[authorIndex];
+            if (author) {
                 author.style.display = 'block';
                 
                 // Staggered animation for each visible author
                 setTimeout(() => {
                     author.style.opacity = '1';
                     author.style.transform = 'translateY(0)';
-                }, (index - startIndex) * 100);
+                }, displayIndex * 100);
             }
         });
         
         // Update pagination buttons state
-        updatePaginationButtons(pageNum);
+        updatePaginationButtons(pageNum, availableIndices.length);
     }, 100);
 }
 
-function updatePaginationButtons(currentPage) {
+function showSearchResults() {
+    // Reset to first page when showing search results
+    const pageButtons = document.querySelectorAll('.page-btn:not(.prev):not(.next)');
+    pageButtons.forEach(btn => btn.classList.remove('active'));
+    pageButtons[0].classList.add('active');
+    
+    // Load first page of search results
+    loadPageContent(1);
+}
+
+function updatePaginationButtons(currentPage, totalResults = null) {
     const prevBtn = document.querySelector('.page-btn.prev');
     const nextBtn = document.querySelector('.page-btn.next');
-    const totalPages = 3;
+    const authorsPerPage = 6;
+    
+    // Calculate total pages based on available results
+    const resultsCount = totalResults || document.querySelectorAll('.author-card').length;
+    const totalPages = Math.ceil(resultsCount / authorsPerPage);
     
     // Update prev button
     if (prevBtn) {
@@ -388,8 +418,8 @@ function updatePaginationButtons(currentPage) {
     
     // Update next button
     if (nextBtn) {
-        nextBtn.disabled = currentPage === totalPages;
-        if (currentPage === totalPages) {
+        nextBtn.disabled = currentPage >= totalPages;
+        if (currentPage >= totalPages) {
             nextBtn.style.opacity = '0.5';
             nextBtn.style.cursor = 'not-allowed';
         } else {
@@ -710,11 +740,13 @@ function closeItemModal() {
 
 // Utility functions
 function updateResultsCount() {
-    const visibleAuthors = document.querySelectorAll('.author-card[style*="display: block"], .author-card:not([style*="display: none"])');
-    const resultsHeader = document.querySelector('.results-header h3');
+    const resultsCount = window.searchResults ? window.searchResults.length : document.querySelectorAll('.author-card').length;
+    const resultsHeader = document.querySelector('.filter-section-header h3');
     
-    if (resultsHeader) {
-        resultsHeader.textContent = `Resultados da Busca (${visibleAuthors.length} autores)`;
+    if (resultsHeader && window.searchResults) {
+        resultsHeader.innerHTML = `<i class="fas fa-search"></i> RESULTADOS DA BUSCA (${resultsCount} autores)`;
+    } else if (resultsHeader) {
+        resultsHeader.innerHTML = `<i class="fas fa-users"></i> AUTORIAS`;
     }
 }
 
