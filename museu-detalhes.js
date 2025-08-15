@@ -347,48 +347,14 @@ function openBookingModal() {
     const modal = document.getElementById('bookingModal');
     modal.style.display = 'block';
     
-    // Prevenir scroll no body quando modal estiver aberta
-    document.body.style.overflow = 'hidden';
-    
-    // Prevenir scroll com eventos adicionais
-    document.addEventListener('wheel', preventScroll, { passive: false });
-    document.addEventListener('touchmove', preventScroll, { passive: false });
-    document.addEventListener('keydown', preventScrollKeys, { passive: false });
+    // Usar a mesma abordagem do modal de avaliações
+    document.body.classList.add('modal-open');
     
     // Inicializar os campos condicionais quando o modal for aberto
     initConditionalFields();
 }
 
-// Função para prevenir scroll
-function preventScroll(e) {
-    const modal = document.getElementById('bookingModal');
-    if (modal && modal.style.display === 'block') {
-        // Permitir scroll apenas dentro da modal
-        const modalBody = document.querySelector('.modal-body');
-        if (modalBody && modalBody.contains(e.target)) {
-            return; // Permitir scroll dentro da modal
-        }
-        e.preventDefault();
-    }
-}
-
-// Função para prevenir scroll com teclas
-function preventScrollKeys(e) {
-    const modal = document.getElementById('bookingModal');
-    if (modal && modal.style.display === 'block') {
-        const scrollKeys = [32, 33, 34, 35, 36, 37, 38, 39, 40]; // Space, Page Up/Down, End, Home, Arrow keys
-        const modalBody = document.querySelector('.modal-body');
-        
-        // Permitir navegação por teclado apenas dentro da modal
-        if (modalBody && modalBody.contains(document.activeElement)) {
-            return; // Permitir navegação dentro da modal
-        }
-        
-        if (scrollKeys.includes(e.keyCode)) {
-            e.preventDefault();
-        }
-    }
-}
+// Funções preventScroll removidas - agora usando classe CSS modal-open
 
 // Inicializar campos condicionais do formulário de agendamento
 function initConditionalFields() {
@@ -852,13 +818,8 @@ function initModalEnhancements() {
     function closeModal() {
         modal.style.display = 'none';
         
-        // Restaurar scroll no body
-        document.body.style.overflow = '';
-        
-        // Remover event listeners de prevenção de scroll
-        document.removeEventListener('wheel', preventScroll);
-        document.removeEventListener('touchmove', preventScroll);
-        document.removeEventListener('keydown', preventScrollKeys);
+        // Usar a mesma abordagem do modal de avaliações
+        document.body.classList.remove('modal-open');
         
         form.reset();
         // Limpar campos condicionais

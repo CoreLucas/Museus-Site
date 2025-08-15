@@ -102,7 +102,7 @@
 .museu-card {
     background: white;
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: all 0.3s ease;
     border: 1px solid #e9ecef;
@@ -113,7 +113,7 @@
 
 .museu-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 /* .museu-image {
@@ -132,7 +132,7 @@
 .museu-image {
     height: 250px;
     min-height: 250px;
-    background: #ecba78;
+    background: linear-gradient(to bottom, #c19660 0%, #d4a574 30%, #ecba78 70%, #f5d4a8 100%);
     position: relative;
     display: flex;
     align-items: center;
@@ -145,56 +145,51 @@
     flex-shrink: 0;
 }
 
-.museu-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
-    padding: 1rem;
-}
 
-.museu-tags {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.tag {
-    background: rgba(255,255,255,0.9);
-    color: #523827;
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    font-weight: 500;
-}
 
 .museu-content {
-    padding: 1.5rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    min-height: 280px;
+    min-height: 320px;
+}
+
+.museu-main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    max-height: calc(100% - 90px);
+    overflow: hidden;
 }
 
 .museu-title {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: #523827;
-    margin-bottom: 0.8rem;
-    line-height: 1.3;
+    margin-bottom: 0.3rem;
+    line-height: 1.1;
 }
 
 .museu-description {
     color: #634b43;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
-    flex-grow: 1;
+    line-height: 1.3;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.museu-footer-content {
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-shrink: 0;
+    flex-grow: 0;
+    position: relative;
+    z-index: 2;
+    padding-top: 0.5rem;
 }
 
 .museu-info {
@@ -218,27 +213,50 @@
     color: #9f643d;
 }
 
-.btn-saiba-mais {
+.museu-tags-bottom {
     display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 0.6rem;
+    min-height: 24px;
+    align-items: center;
+}
+
+.museu-tags-bottom .tag {
+    background: #f8f9fa;
+    color: #523827;
+    padding: 0.3rem 0.6rem;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: 1px solid #e9ecef;
+    transition: all 0.2s ease;
+}
+
+.btn-saiba-mais {
+    display: flex !important;
     align-items: center;
     justify-content: center;
-    padding: 0.8rem 2rem;
+    padding: 0.8rem 1.5rem;
     background: #9f643d;
     color: white;
     text-decoration: none;
-    border-radius: 25px;
+    border-radius: 20px;
     font-weight: 500;
     transition: all 0.3s;
     text-align: center;
     width: 100%;
-    height: 3.2rem;
-    margin-top: auto;
+    min-height: 40px;
+    font-size: 0.9rem;
     flex-shrink: 0;
+    position: relative;
+    z-index: 3;
+    margin-top: auto;
 }
 
 .btn-saiba-mais:hover {
     background: #cb8659;
-    transform: translateY(-2px);
 }
 
 /* Mensagem de Nenhum Resultado */
@@ -265,47 +283,55 @@
     .page-title {
         font-size: 2rem;
     }
-    
+
     .filters-container {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-    
+
     .filter-buttons {
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     .museus-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
         align-items: stretch;
     }
-    
+
     .museu-card {
         margin: 0 1rem;
         display: flex;
         flex-direction: column;
         height: auto;
     }
-    
+
     .museu-image {
         height: 200px;
         min-height: 200px;
     }
-    
+
     .museu-content {
-        min-height: 260px;
+        min-height: 300px;
     }
     
+    .museu-main-content {
+        max-height: calc(100% - 85px);
+    }
+    
+    .museu-footer-content {
+        min-height: 85px;
+    }
+
     .museu-title {
         font-size: 1.2rem;
     }
-    
+
     .museu-description {
         flex-grow: 1;
     }
-    
+
     .museu-info {
         flex-direction: column;
         gap: 0.5rem;
@@ -316,36 +342,44 @@
     .page-header {
         padding: 4rem 0 2rem;
     }
-    
+
     .page-title {
         font-size: 1.8rem;
     }
-    
+
     .museu-card {
         margin: 0;
     }
-    
+
     .museu-image {
         height: 180px;
         min-height: 180px;
     }
-    
+
     .museu-content {
         padding: 1rem;
         display: flex;
         flex-direction: column;
-        min-height: 240px;
+        min-height: 280px;
     }
     
+    .museu-main-content {
+        max-height: calc(100% - 80px);
+    }
+    
+    .museu-footer-content {
+        min-height: 80px;
+    }
+
     .museu-title {
         font-size: 1.1rem;
     }
-    
+
     .museu-description {
         font-size: 0.9rem;
         flex-grow: 1;
     }
-    
+
     .filter-btn {
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
@@ -358,6 +392,7 @@
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -368,16 +403,33 @@
     animation: fadeInUp 0.6s ease forwards;
 }
 
-.museu-card:nth-child(1) { animation-delay: 0.1s; }
-.museu-card:nth-child(2) { animation-delay: 0.2s; }
-.museu-card:nth-child(3) { animation-delay: 0.3s; }
-.museu-card:nth-child(4) { animation-delay: 0.4s; }
-.museu-card:nth-child(5) { animation-delay: 0.5s; }
-.museu-card:nth-child(6) { animation-delay: 0.6s; }
+.museu-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.museu-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.museu-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.museu-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.museu-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.museu-card:nth-child(6) {
+    animation-delay: 0.6s;
+}
 
 /* Estilos para as logos dos museus como imagem principal */
 .museu-image-logo {
-    background: #ffffff !important;
+    background: linear-gradient(to bottom, #c19660 0%, #d4a574 30%, #ecba78 70%, #f5d4a8 100%) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -385,8 +437,8 @@
 }
 
 .museu-logo-img {
-    max-width: 180px;
-    max-height: 140px;
+    max-width: 260px;
+    max-height: 220px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -399,7 +451,7 @@
     .museu-image-logo {
         padding: 1.5rem !important;
     }
-    
+
     .museu-logo-img {
         max-width: 140px;
         max-height: 115px;
@@ -410,7 +462,7 @@
     .museu-image-logo {
         padding: 1rem !important;
     }
-    
+
     .museu-logo-img {
         max-width: 120px;
         max-height: 95px;

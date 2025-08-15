@@ -461,7 +461,7 @@ html {
 
 /* Galeria Avançada */
 .gallery-section {
-    padding: 3rem 0;
+    padding: 0;
     margin: 2rem 0;
     border-radius: 8px;
 }
@@ -977,6 +977,109 @@ html {
     font-size: 1.8rem;
 }
 
+/* Botão de Avaliações e Sugestões - mesma cor do Tainacan */
+.btn-avaliacoes {
+    background: linear-gradient(135deg, #9f643d 0%, #cb8659 100%) !important;
+}
+
+.btn-avaliacoes:hover {
+    background: linear-gradient(135deg, #cb8659 0%, #9f643d 100%) !important;
+}
+
+/* Estilos para o Modal de Avaliações */
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 0.2rem;
+    margin: 1rem 0;
+}
+
+.star-rating input[type="radio"] {
+    display: none;
+}
+
+.star-rating .star {
+    font-size: 2rem;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.star-rating .star:hover,
+.star-rating .star:hover ~ .star,
+.star-rating input[type="radio"]:checked ~ .star {
+    color: #ffc107;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin: 1rem 0;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #523827;
+}
+
+.radio-label input[type="radio"] {
+    display: none;
+}
+
+.radio-custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #9f643d;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.radio-label input[type="radio"]:checked + .radio-custom {
+    background-color: #9f643d;
+}
+
+.radio-label input[type="radio"]:checked + .radio-custom::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    resize: vertical;
+    min-height: 120px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group textarea:focus {
+    outline: none;
+    border-color: #9f643d;
+}
+
+.form-group textarea::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
 
 
 .repository-options {
@@ -1030,7 +1133,7 @@ html {
 
 /* Eventos */
 .events-section {
-    padding: 4rem 0;
+    padding: 0;
     margin: 2rem 0;
     border-radius: 8px;
 }
@@ -1189,7 +1292,7 @@ html {
 
 /* Localização */
 .location-section {
-    padding: 4rem 0;
+    padding: 1rem 0;
     margin: 2rem 0;
     border-radius: 8px;
 }
@@ -1420,19 +1523,75 @@ html {
     padding: 3rem 0 1rem;
     box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
     margin-top: 2rem;
+    position: relative;
+    z-index: 1;
 }
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    align-items: start;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        text-align: center;
+    }
 }
 
 .footer-section h4 {
-    color: #ffe63d;
-    /* Amarelo vibrante padronizado com index */
-    margin-bottom: 1rem;
+    text-align: center;
+    margin: 0 0 2rem 0;
+    color: #523827;
+    /* Marrom profundo igual ao section-title */
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.footer-section h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #9f643d, #cb8659);
+    /* Mesmo gradiente do section-title */
+    border-radius: 3px;
+}
+
+.footer-logo {
+    height: 90px;
+    width: auto;
+    margin: 0.5rem;
+    object-fit: contain;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
 }
 
 .modal-content h4 {
@@ -1478,7 +1637,7 @@ html {
 .modal {
     display: none;
     position: fixed;
-    z-index: 10000;
+    z-index: 99999;
     left: 0;
     top: 0;
     width: 100%;
@@ -1490,6 +1649,18 @@ html {
     /* Prevenir scroll no fundo */
     overscroll-behavior: contain;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Garantir que o modal apareça acima de tudo */
+.modal[style*="display: block"] {
+    z-index: 99999 !important;
+}
+
+/* Prevenir scroll quando modal está aberto */
+body.modal-open {
+    overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
 }
 
 .modal-content {

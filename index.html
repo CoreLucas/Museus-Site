@@ -1,219 +1,159 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Museus UFPB - Universidade Federal da Paraíba</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-  </head>
 
-  <body>
-    <!-- Header -->
-    <header class="header">
-      <div class="container">
-        <div class="logo">
-          <a href="index.html">
-            <img src="images/SisMus.png" alt="SisMus Logo" class="logo-img" />
-          </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Museus UFPB - Universidade Federal da Paraíba</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/SisMus.png" alt="SisMus Logo" class="logo-img" />
+        </a>
+      </div>
+      <nav class="nav">
+        <ul class="nav-menu">
+          <li><a href="./index.html" class="nav-link active">INÍCIO</a></li>
+          <li><a href="./museus.html" class="nav-link">MUSEUS</a></li>
+          <li class="nav-item-with-submenu">
+            <a href="" class="nav-link">ACERVOS</a>
+            <ul class="submenu">
+              <li><a href="inventario.html">INVENTÁRIO</a></li>
+              <li><a href="">ORIENTAÇÃO TÉCNICA</a></li>
+            </ul>
+          </li>
+          <li><a href="roteiros.html" class="nav-link">ROTEIROS</a></li>
+          <li><a href="" class="nav-link">NOTÍCIAS</a></li>
+          <li class="nav-item-with-submenu">
+            <a href="" class="nav-link">SISMUS</a>
+            <ul class="submenu">
+              <li><a href="sobre.html">SOBRE</a></li>
+              <li><a href="composicao.html">COMPOSIÇÃO</a></li>
+              <li><a href="documentos.html">DOCUMENTOS</a></li>
+              <li><a href="formação.html">FORMAÇÃO</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        <nav class="nav">
-          <ul class="nav-menu">
-            <li><a href="./index.html" class="nav-link active">INÍCIO</a></li>
-            <li><a href="./museus.html" class="nav-link">MUSEUS</a></li>
-            <li class="nav-item-with-submenu">
-              <a href="" class="nav-link">ACERVOS</a>
-              <ul class="submenu">
-                <li><a href="inventario.html">INVENTÁRIO</a></li>
-                <li><a href="">ORIENTAÇÃO TÉCNICA</a></li>
-              </ul>
-            </li>
-            <li><a href="roteiros.html" class="nav-link">ROTEIROS</a></li>
-            <li><a href="" class="nav-link">NOTÍCIAS</a></li>
-            <li class="nav-item-with-submenu">
-              <a href="" class="nav-link">SISMUS</a>
-              <ul class="submenu">
-                <li><a href="sobre.html">SOBRE</a></li>
-                <li><a href="composicao.html">COMPOSIÇÃO</a></li>
-                <li><a href="documentos.html">DOCUMENTOS</a></li>
-                <li><a href="formação.html">FORMAÇÃO</a></li>
-              </ul>
-            </li>
-          </ul>
-          <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </nav>
-      </div>
-    </header>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Banner Principal -->
-    <section class="hero-section">
-      <div class="hero-content">
-        <img
-          src="./images/banner_entrada_4.png"
-          alt="Banner UFPB Museus"
-          class="hero-image"
-        />
-      </div>
-    </section>
+  <!-- Banner Principal -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <img src="./images/banner_entrada_4.png" alt="Banner UFPB Museus" class="hero-image" />
+    </div>
+  </section>
 
-    <!-- Seção de Propagandas/Divulgação -->
-    <section class="propaganda-section">
-      <div class="container">
-        <div
-          class="propaganda-item"
-          style="background-image: url('./images/museu-fachada.jpg')"
-        ></div>
-        <div
-          class="propaganda-item"
-          style="background-image: url('./images/museu-fachada.jpg')"
-        ></div>
-      </div>
-    </section>
+  <!-- Seção de Propagandas/Divulgação -->
+  <section class="propaganda-section">
+    <div class="container">
+      <div class="propaganda-item" style="background-image: url('./images/museu-fachada.jpg')"></div>
+      <div class="propaganda-item" style="background-image: url('./images/museu-fachada.jpg')"></div>
+    </div>
+  </section>
 
-    <!-- Museus em Destaque -->
-    <section id="museus" class="museus-destaque">
-      <div class="container">
-        <h2 class="section-title">MUSEUS EM DESTAQUE</h2>
-        <div class="museus-grid">
-          <div class="museu-card">
-            <div
-              class="museu-image"
-              style="background-image: url('./images/museu-fachada.jpg')"
-            ></div>
-            <h3>MUSEU CASA HERMANO JOSÉ</h3>
-            <a href="./museu-detalhes.html" class="btn-ver-mais">Ver mais</a>
-          </div>
-          <div class="museu-card">
-            <div
-              class="museu-image"
-              style="background-image: url('./images/museu-fachada.jpg')"
-            ></div>
-            <h3>PINACOTECA</h3>
-            <a href="#" class="btn-ver-mais">Ver mais</a>
-          </div>
-          <div class="museu-card">
-            <div
-              class="museu-image"
-              style="background-image: url('./images/museu-fachada.jpg')"
-            ></div>
-            <h3>OUTRO ACERVO</h3>
-            <a href="#" class="btn-ver-mais">Ver mais</a>
-          </div>
+  <!-- Museus em Destaque -->
+  <section id="museus" class="museus-destaque">
+    <div class="container">
+      <h2 class="section-title">MUSEUS EM DESTAQUE</h2>
+      <div class="museus-grid">
+        <div class="museu-card">
+          <div class="museu-image" style="background-image: url('./images/museu-fachada.jpg')"></div>
+          <h3>MUSEU CASA HERMANO JOSÉ</h3>
+          <a href="./museu-detalhes.html" class="btn-ver-mais">Ver mais</a>
+        </div>
+        <div class="museu-card">
+          <div class="museu-image" style="background-image: url('./images/museu-fachada.jpg')"></div>
+          <h3>PINACOTECA</h3>
+          <a href="#" class="btn-ver-mais">Ver mais</a>
+        </div>
+        <div class="museu-card">
+          <div class="museu-image" style="background-image: url('./images/museu-fachada.jpg')"></div>
+          <h3>OUTRO ACERVO</h3>
+          <a href="#" class="btn-ver-mais">Ver mais</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Notícias Relevantes -->
-    <section id="noticias" class="noticias">
-      <div class="container">
-        <h2 class="section-title">NOTÍCIAS RELEVANTES</h2>
-        <div class="noticias-grid">
-          <div class="noticia-card">
-            <div class="noticia-image">
-              <span>NOTÍCIA 1</span>
-            </div>
-            <h3>Título da Notícia 1</h3>
-            <p>
-              Resumo da notícia sobre eventos culturais ou exposições dos
-              museus...
-            </p>
-            <a href="#" class="btn-ler-mais">Ler mais</a>
+  <!-- Notícias Relevantes -->
+  <section id="noticias" class="noticias">
+    <div class="container">
+      <h2 class="section-title">NOTÍCIAS RELEVANTES</h2>
+      <div class="noticias-grid">
+        <div class="noticia-card">
+          <div class="noticia-image">
+            <span>NOTÍCIA 1</span>
           </div>
-          <div class="noticia-card">
-            <div class="noticia-image">
-              <span>NOTÍCIA 2</span>
-            </div>
-            <h3>Título da Notícia 2</h3>
-            <p>
-              Resumo da notícia sobre novos acervos ou atividades
-              educacionais...
-            </p>
-            <a href="#" class="btn-ler-mais">Ler mais</a>
+          <h3>Título da Notícia 1</h3>
+          <p>
+            Resumo da notícia sobre eventos culturais ou exposições dos
+            museus...
+          </p>
+          <a href="#" class="btn-ler-mais">Ler mais</a>
+        </div>
+        <div class="noticia-card">
+          <div class="noticia-image">
+            <span>NOTÍCIA 2</span>
           </div>
-          <div class="noticia-card">
-            <div class="noticia-image">
-              <span>NOTÍCIA 3</span>
-            </div>
-            <h3>Título da Notícia 3</h3>
-            <p>Resumo da notícia sobre parcerias ou eventos especiais...</p>
-            <a href="#" class="btn-ler-mais">Ler mais</a>
+          <h3>Título da Notícia 2</h3>
+          <p>
+            Resumo da notícia sobre novos acervos ou atividades
+            educacionais...
+          </p>
+          <a href="#" class="btn-ler-mais">Ler mais</a>
+        </div>
+        <div class="noticia-card">
+          <div class="noticia-image">
+            <span>NOTÍCIA 3</span>
+          </div>
+          <h3>Título da Notícia 3</h3>
+          <p>Resumo da notícia sobre parcerias ou eventos especiais...</p>
+          <a href="#" class="btn-ler-mais">Ler mais</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content single-section">
+        <div class="footer-section">
+          <h4>Realização</h4>
+          <div class="footer-logos">
+            <img src="images/logo_realizacao.png" alt="PROEX Logo" class="footer-logo" />
+          </div>
+          <h4>Parcerias</h4>
+          <div class="footer-logos">
+            <img src="images/logo_parceria.png" alt="PROEX Logo" class="footer-logo" />
           </div>
         </div>
       </div>
-    </section>
+    </div>
+    <div class="footer-bottom">
+      <p>
+        &copy; 2025 Universidade Federal da Paraíba - Todos os direitos
+        reservados
+      </p>
+    </div>
+  </footer>
 
-    <!-- Rodapé -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h4>Contato</h4>
-            <p><i class="fas fa-phone"></i> (83) 3216-7000</p>
-            <p><i class="fas fa-envelope"></i> museus@ufpb.br</p>
-            <p><i class="fas fa-map-marker-alt"></i> João Pessoa - PB</p>
-          </div>
-          <div class="footer-section">
-            <h4>Realização</h4>
-            <img
-              src="images/proex_logo.png"
-              alt="PROEX Logo"
-              class="footer-logo"
-            />
-            <img
-              src="images/ufpb_logo.png"
-              alt="UFPB Logo"
-              class="footer-logo"
-            />
-            <img
-              src="images/ufpb_logo.png"
-              alt="UFPB Logo"
-              class="footer-logo"
-            />
-          </div>
-          <div class="footer-section">
-            <h4>Parcerias</h4>
-            <img
-              src="images/proex_logo.png"
-              alt="PROEX Logo"
-              class="footer-logo"
-            />
-            <img
-              src="images/ufpb_logo.png"
-              alt="UFPB Logo"
-              class="footer-logo"
-            />
-            <img
-              src="images/ufpb_logo.png"
-              alt="UFPB Logo"
-              class="footer-logo"
-            />
-            <img
-              src="images/ufpb_logo.png"
-              alt="UFPB Logo"
-              class="footer-logo"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>
-          &copy; 2025 Universidade Federal da Paraíba - Todos os direitos
-          reservados
-        </p>
-      </div>
-    </footer>
+  <script src="script.js"></script>
+</body>
 
-    <script src="script.js"></script>
-  </body>
 </html>

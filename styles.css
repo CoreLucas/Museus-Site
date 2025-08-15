@@ -213,10 +213,13 @@ body {
 /* Hero Section Dinâmica */
 .hero-section {
     position: relative;
-    margin-top: 76px; /* Compensa a altura do header fixo */
+    margin-top: 76px;
+    /* Compensa a altura do header fixo */
     width: 100%;
-    height: auto; /* Altura automática baseada na imagem */
-    max-height: 70vh; /* Controla a altura máxima em monitores ultrawide */
+    height: auto;
+    /* Altura automática baseada na imagem */
+    max-height: 70vh;
+    /* Controla a altura máxima em monitores ultrawide */
     overflow: hidden;
 }
 
@@ -230,9 +233,12 @@ body {
     width: 100%;
     height: auto;
     display: block;
-    max-height: 70vh; /* Altura máxima para controlar em ultrawide */
-    object-fit: cover; /* Preenche largura mantendo proporção */
-    object-position: center; /* Centraliza o foco da imagem */
+    max-height: 70vh;
+    /* Altura máxima para controlar em ultrawide */
+    object-fit: cover;
+    /* Preenche largura mantendo proporção */
+    object-position: center;
+    /* Centraliza o foco da imagem */
 }
 
 .hero-overlay {
@@ -299,9 +305,10 @@ body {
 /* Controle para diferentes resoluções */
 @media (min-width: 1920px) {
     .hero-section {
-        max-height: 60vh; /* Reduz altura em telas grandes */
+        max-height: 60vh;
+        /* Reduz altura em telas grandes */
     }
-    
+
     .hero-image {
         max-height: 60vh;
     }
@@ -309,9 +316,10 @@ body {
 
 @media (min-width: 2560px) {
     .hero-section {
-        max-height: 50vh; /* Ainda menor em monitores 2K+ */
+        max-height: 50vh;
+        /* Ainda menor em monitores 2K+ */
     }
-    
+
     .hero-image {
         max-height: 50vh;
     }
@@ -319,9 +327,10 @@ body {
 
 @media (min-width: 3440px) {
     .hero-section {
-        max-height: 45vh; /* Controle máximo para ultrawide 21:9+ */
+        max-height: 45vh;
+        /* Controle máximo para ultrawide 21:9+ */
     }
-    
+
     .hero-image {
         max-height: 45vh;
     }
@@ -461,7 +470,7 @@ body {
 /* Notícias */
 .noticias {
     padding: 4rem 0;
-    background: #ecba78;
+    background: #fff3d8;
     /* Dourado claro para fundo */
 }
 
@@ -528,7 +537,7 @@ body {
 
 /* Footer */
 .footer {
-    background: #873b4b;
+    background: #ecba78;
     /* Azul petróleo escuro para footer */
     color: white;
     padding: 3rem 0 1rem;
@@ -544,15 +553,66 @@ body {
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    align-items: start;
+    text-align: center;
+}
+
+/* Footer com uma única seção (index.html) */
+.footer-content.single-section {
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
+/* Garantir alinhamento perfeito entre section-title e footer h4 */
+.section-title,
+.footer-section h4 {
+    text-align: center;
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.section-title::after,
+.footer-section h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        text-align: center;
+    }
 }
 
 .footer-section h4 {
-    margin-bottom: 1rem;
-    color: #ffe63d;
-    /* Amarelo vibrante para títulos do footer */
+    text-align: center;
+    margin: 0 0 2rem 0;
+    color: #523827;
+    /* Marrom profundo igual ao section-title */
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.footer-section h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #9f643d, #cb8659);
+    /* Mesmo gradiente do section-title */
+    border-radius: 3px;
 }
 
 .footer-section ul {
@@ -561,7 +621,7 @@ body {
 
 .footer-section p {
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .footer-section ul li {
@@ -657,7 +717,7 @@ body {
 .footer-bottom {
     text-align: center;
     /* padding-top: 1rem; */
-    color: #ecba78;
+    color: #523827;;
     /* Dourado claro para texto */
 }
 
@@ -738,8 +798,27 @@ body {
 }
 
 .footer-logo {
-    height: 100px;
+    height: 90px;
     width: auto;
+    margin: 0.5rem;
+    object-fit: contain;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
 }
 
 @media (max-width: 768px) {
