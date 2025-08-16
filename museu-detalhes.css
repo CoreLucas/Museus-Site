@@ -1007,8 +1007,8 @@ html {
 }
 
 .star-rating .star:hover,
-.star-rating .star:hover ~ .star,
-.star-rating input[type="radio"]:checked ~ .star {
+.star-rating .star:hover~.star,
+.star-rating input[type="radio"]:checked~.star {
     color: #ffc107;
 }
 
@@ -1041,11 +1041,11 @@ html {
     transition: all 0.2s ease;
 }
 
-.radio-label input[type="radio"]:checked + .radio-custom {
+.radio-label input[type="radio"]:checked+.radio-custom {
     background-color: #9f643d;
 }
 
-.radio-label input[type="radio"]:checked + .radio-custom::after {
+.radio-label input[type="radio"]:checked+.radio-custom::after {
     content: '';
     width: 8px;
     height: 8px;
@@ -1517,11 +1517,10 @@ html {
 
 /* Footer Aprimorado */
 .footer {
-    background: #873b4b;
-    /* Azul petróleo escuro padronizado com index */
+    background: #ecba78;
+    /* Cor padronizada com o styles.css */
     color: white;
     padding: 3rem 0 1rem;
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
     margin-top: 2rem;
     position: relative;
     z-index: 1;
@@ -2475,7 +2474,8 @@ body.modal-open {
 .swiper-container.equipe-swiper {
     width: 100%;
     height: auto;
-    padding: 20px 60px; /* Padding adequado para botões internos */
+    padding: 20px 60px;
+    /* Padding adequado para botões internos */
     margin: 2rem auto;
     max-width: 1400px;
     position: relative;
@@ -2699,7 +2699,9 @@ body.modal-open {
     .swiper-container.equipe-swiper {
         padding: 20px 40px;
     }
-}/* ===== 
+}
+
+/* ===== 
 ESTILOS LIMPOS PARA BOTÕES SWIPER ===== */
 .swiper-container.obras-swiper .swiper-button-next,
 .swiper-container.obras-swiper .swiper-button-prev,
@@ -2707,7 +2709,7 @@ ESTILOS LIMPOS PARA BOTÕES SWIPER ===== */
 .swiper-container.equipe-swiper .swiper-button-prev {
     /* Reset de estilos */
     all: unset !important;
-    
+
     /* Estilos básicos */
     position: absolute !important;
     top: 50% !important;
@@ -2715,27 +2717,27 @@ ESTILOS LIMPOS PARA BOTÕES SWIPER ===== */
     width: 44px !important;
     height: 44px !important;
     border-radius: 50% !important;
-    
+
     /* Visual */
     background: linear-gradient(135deg, #9f643d 0%, #cb8659 100%) !important;
     color: white !important;
     cursor: pointer !important;
-    border: 2px solid rgba(255,255,255,0.3) !important;
-    
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+
     /* Layout */
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    
+
     /* Interação */
     z-index: 999 !important;
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
-    
+
     /* Transição */
     transition: all 0.3s ease !important;
-    
+
     /* Sombra */
     box-shadow: 0 4px 15px rgba(159, 100, 61, 0.4) !important;
 }
@@ -2759,7 +2761,7 @@ ESTILOS LIMPOS PARA BOTÕES SWIPER ===== */
     background: linear-gradient(135deg, #cb8659 0%, #9f643d 100%) !important;
     transform: translateY(-50%) scale(1.1) !important;
     box-shadow: 0 6px 20px rgba(159, 100, 61, 0.6) !important;
-    border-color: rgba(255,255,255,0.5) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
 }
 
 /* Ícones */
@@ -2784,9 +2786,12 @@ ESTILOS LIMPOS PARA BOTÕES SWIPER ===== */
 .swiper-container.obras-swiper .swiper-wrapper,
 .swiper-container.equipe-swiper .swiper-wrapper {
     overflow: visible !important;
-}/* R
+}
+
+/* R
 esponsividade para os botões */
 @media (max-width: 1200px) {
+
     .swiper-container.obras-swiper .swiper-button-next,
     .swiper-container.equipe-swiper .swiper-button-next {
         right: -50px !important;
@@ -2799,11 +2804,12 @@ esponsividade para os botões */
 }
 
 @media (max-width: 768px) {
+
     .swiper-container.obras-swiper,
     .swiper-container.equipe-swiper {
         padding: 20px 60px;
     }
-    
+
     .swiper-container.obras-swiper .swiper-button-next,
     .swiper-container.equipe-swiper .swiper-button-next {
         right: -30px !important;
@@ -2817,7 +2823,7 @@ esponsividade para os botões */
         width: 36px !important;
         height: 36px !important;
     }
-    
+
     .swiper-container.obras-swiper .swiper-button-next:after,
     .swiper-container.obras-swiper .swiper-button-prev:after,
     .swiper-container.equipe-swiper .swiper-button-next:after,
@@ -2827,11 +2833,12 @@ esponsividade para os botões */
 }
 
 @media (max-width: 480px) {
+
     .swiper-container.obras-swiper,
     .swiper-container.equipe-swiper {
         padding: 20px 50px;
     }
-    
+
     .swiper-container.obras-swiper .swiper-button-next,
     .swiper-container.equipe-swiper .swiper-button-next {
         right: -25px !important;
@@ -2845,16 +2852,19 @@ esponsividade para os botões */
         width: 32px !important;
         height: 32px !important;
     }
-    
+
     .swiper-container.obras-swiper .swiper-button-next:after,
     .swiper-container.obras-swiper .swiper-button-prev:after,
     .swiper-container.equipe-swiper .swiper-button-next:after,
     .swiper-container.equipe-swiper .swiper-button-prev:after {
         font-size: 12px !important;
     }
-}/* ===== 
+}
+
+/* ===== 
 RESPONSIVIDADE CORRIGIDA PARA BOTÕES ===== */
 @media (max-width: 1200px) {
+
     .swiper-container.obras-swiper .swiper-button-next,
     .swiper-container.equipe-swiper .swiper-button-next {
         right: 15px !important;
@@ -2867,11 +2877,12 @@ RESPONSIVIDADE CORRIGIDA PARA BOTÕES ===== */
 }
 
 @media (max-width: 768px) {
+
     .swiper-container.obras-swiper,
     .swiper-container.equipe-swiper {
         padding: 20px 50px;
     }
-    
+
     .swiper-container.obras-swiper .swiper-button-next,
     .swiper-container.equipe-swiper .swiper-button-next {
         right: 10px !important;
@@ -2885,7 +2896,7 @@ RESPONSIVIDADE CORRIGIDA PARA BOTÕES ===== */
         width: 36px !important;
         height: 36px !important;
     }
-    
+
     .swiper-container.obras-swiper .swiper-button-next:after,
     .swiper-container.obras-swiper .swiper-button-prev:after,
     .swiper-container.equipe-swiper .swiper-button-next:after,
@@ -2895,11 +2906,12 @@ RESPONSIVIDADE CORRIGIDA PARA BOTÕES ===== */
 }
 
 @media (max-width: 480px) {
+
     .swiper-container.obras-swiper,
     .swiper-container.equipe-swiper {
         padding: 20px 40px;
     }
-    
+
     .swiper-container.obras-swiper .swiper-button-next,
     .swiper-container.equipe-swiper .swiper-button-next {
         right: 5px !important;
@@ -2913,7 +2925,7 @@ RESPONSIVIDADE CORRIGIDA PARA BOTÕES ===== */
         width: 32px !important;
         height: 32px !important;
     }
-    
+
     .swiper-container.obras-swiper .swiper-button-next:after,
     .swiper-container.obras-swiper .swiper-button-prev:after,
     .swiper-container.equipe-swiper .swiper-button-next:after,
