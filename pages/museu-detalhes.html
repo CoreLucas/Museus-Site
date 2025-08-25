@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
   <script src="https://unpkg.com/three@0.150.0/build/three.min.js"></script>
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -903,6 +904,330 @@
         closeAvaliacoesModal();
       });
     });
+
+    // Event listeners para o modal de agendamento
+    const bookingModal = document.getElementById('bookingModal');
+    const cancelBooking = document.getElementById('cancelBooking');
+    const visitRequestForm = document.getElementById('visitRequestForm');
+
+    // Fechar modal de agendamento
+    function closeBookingModal() {
+      bookingModal.style.display = 'none';
+      document.body.classList.remove('modal-open');
+      visitRequestForm.reset();
+    }
+
+    // Botão cancelar agendamento
+    if (cancelBooking) {
+      cancelBooking.addEventListener('click', closeBookingModal);
+    }
+
+    // Fechar ao clicar no X do modal de agendamento
+    const bookingCloseBtn = bookingModal.querySelector('.modal-close');
+    if (bookingCloseBtn) {
+      bookingCloseBtn.addEventListener('click', closeBookingModal);
+    }
+
+    // Fechar ao clicar fora do modal de agendamento
+    bookingModal.addEventListener('click', function (e) {
+      if (e.target === bookingModal) {
+        closeBookingModal();
+      }
+    });
+
+    // Submissão do formulário de agendamento
+    visitRequestForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Mostrar loading
+      const submitBtn = document.querySelector('.btn-submit');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Enviando...';
+      submitBtn.disabled = true;
+
+      // Coletar dados do formulário
+      const formData = new FormData(visitRequestForm);
+      
+      // Dados do responsável
+      const responsibleName = formData.get('responsibleName') || document.getElementById('responsibleName').value;
+      const responsibleEmail = formData.get('responsibleEmail') || document.getElementById('responsibleEmail').value;
+      const responsiblePhone = formData.get('responsiblePhone') || document.getElementById('responsiblePhone').value;
+      
+      // Dados da visita
+      const visitDate = formData.get('visitDate') || document.getElementById('visitDate').value;
+      const visitTime = formData.get('visitTime') || document.getElementById('visitTime').value;
+      const peopleCount = formData.get('peopleCount') || document.getElementById('peopleCount').value;
+      const groupType = formData.get('groupType') || document.getElementById('groupType').value;
+      
+      // Dados condicionais
+      const institution = document.getElementById('institution').value;
+      const originCity = document.getElementById('originCity').value;
+      const neighborhood = document.getElementById('neighborhood').value;
+      const disabilityType = document.getElementById('disabilityType').value;
+      const accessibilityNotes = document.getElementById('accessibilityNotes').value;
+      const generalNotes = document.getElementById('generalNotes').value;
+
+      // Preparar dados para envio
+      const emailData = {
+        // Dados do responsável
+        responsible_name: responsibleName,
+        responsible_email: responsibleEmail,
+        responsible_phone: responsiblePhone,
+        
+        // Dados da visita
+        visit_date: new Date(visitDate).toLocaleDateString('pt-BR'),
+        visit_time: visitTime,
+        people_count: peopleCount,
+        group_type: getGroupTypeLabel(groupType),
+        
+        // Dados condicionais
+        institution: institution || 'Não informado',
+        origin_city: originCity || 'Não informado',
+        neighborhood: neighborhood || 'Não informado',
+        disability_type: disabilityType !== 'nenhuma' ? getDisabilityTypeLabel(disabilityType) : 'Nenhuma necessidade especial',
+        accessibility_notes: accessibilityNotes || 'Nenhuma observação',
+        general_notes: generalNotes || 'Nenhuma observação',
+        
+        // Metadados
+        submission_date: new Date().toLocaleString('pt-BR'),
+        page_url: window.location.href
+      };
+
+      // Enviar email diretamente
+      sendEmail(emailData, submitBtn, originalText);
+    });
+
+    // Função principal para envio de email
+    function sendEmail(data, submitBtn, originalText) {
+      // Preparar mensagem formatada
+      let message = `SOLICITAÇÃO DE VISITA - MUSEU CASA HERMANO JOSÉ\n\n`;
+      message += `=== DADOS DO RESPONSÁVEL ===\n`;
+      message += `Nome: ${data.responsible_name}\n`;
+      message += `Email: ${data.responsible_email}\n`;
+      message += `Telefone: ${data.responsible_phone}\n\n`;
+      
+      message += `=== DADOS DA VISITA ===\n`;
+      message += `Data solicitada: ${data.visit_date}\n`;
+      message += `Horário: ${data.visit_time}\n`;
+      message += `Número de pessoas: ${data.people_count}\n`;
+      message += `Tipo de grupo: ${data.group_type}\n\n`;
+      
+      if (data.institution !== 'Não informado') {
+        message += `Instituição: ${data.institution}\n`;
+      }
+      if (data.origin_city !== 'Não informado') {
+        message += `Cidade de origem: ${data.origin_city}\n`;
+      }
+      if (data.neighborhood !== 'Não informado') {
+        message += `Bairro: ${data.neighborhood}\n`;
+      }
+      
+      if (data.disability_type !== 'Nenhuma necessidade especial') {
+        message += `\n=== ACESSIBILIDADE ===\n`;
+        message += `Tipo de necessidade especial: ${data.disability_type}\n`;
+        if (data.accessibility_notes !== 'Nenhuma observação') {
+          message += `Observações sobre acessibilidade: ${data.accessibility_notes}\n`;
+        }
+      }
+      
+      if (data.general_notes !== 'Nenhuma observação') {
+        message += `\n=== OBSERVAÇÕES GERAIS ===\n`;
+        message += `${data.general_notes}\n`;
+      }
+      
+      message += `\n---\nSolicitação enviada em: ${data.submission_date}\n`;
+      message += `Site: ${data.page_url}`;
+
+      // Resetar botão
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+
+      // Verificar se está em localhost
+      const isLocalhost = window.location.hostname === 'localhost' || 
+                         window.location.hostname === '127.0.0.1' || 
+                         window.location.hostname === '' ||
+                         window.location.protocol === 'file:';
+
+      if (isLocalhost) {
+        // Em localhost, usar método mailto
+        sendViaMailto(data, message);
+      } else {
+        // Online, usar FormSubmit
+        sendViaFormSubmit(data, message);
+      }
+    }
+
+    // Método para localhost - mailto
+    function sendViaMailto(data, message) {
+      const subject = encodeURIComponent(`Solicitação de Visita - ${data.responsible_name} - ${data.visit_date}`);
+      const body = encodeURIComponent(message);
+      const mailtoLink = `mailto:corelucas1@gmail.com?subject=${subject}&body=${body}`;
+
+      // Abrir cliente de email
+      window.location.href = mailtoLink;
+
+      // Mostrar instruções para localhost
+      alert('📧 MODO LOCALHOST DETECTADO\n\n' +
+            '✅ O cliente de email padrão será aberto com todos os dados preenchidos.\n\n' +
+            '📝 Para testar o envio automático:\n' +
+            '1. Hospede o site online (GitHub Pages, Netlify, etc.)\n' +
+            '2. O sistema enviará emails automaticamente\n\n' +
+            '📧 Email será enviado para: corelucas1@gmail.com\n\n' +
+            'Obrigado pelo interesse!');
+
+      closeBookingModal();
+    }
+
+    // Método para servidor online - FormSubmit
+    function sendViaFormSubmit(data, message) {
+      const form = document.createElement('form');
+      form.action = 'https://formsubmit.co/corelucas1@gmail.com';
+      form.method = 'POST';
+      form.target = '_blank';
+
+      // Configurações do FormSubmit
+      const configs = {
+        '_subject': `Solicitação de Visita - ${data.responsible_name} - ${data.visit_date}`,
+        '_captcha': 'false',
+        '_template': 'box',
+        '_next': window.location.origin + '/obrigado.html', // Página de agradecimento
+      };
+
+      // Dados do formulário
+      const formFields = {
+        ...configs,
+        'Nome': data.responsible_name,
+        'Email': data.responsible_email,
+        'Telefone': data.responsible_phone,
+        'Data da Visita': data.visit_date,
+        'Horário': data.visit_time,
+        'Número de Pessoas': data.people_count,
+        'Tipo de Grupo': data.group_type,
+        'Instituição': data.institution,
+        'Cidade': data.origin_city,
+        'Bairro': data.neighborhood,
+        'Acessibilidade': data.disability_type,
+        'Observações de Acessibilidade': data.accessibility_notes,
+        'Observações Gerais': data.general_notes,
+        'Mensagem Completa': message
+      };
+
+      // Criar inputs ocultos
+      Object.entries(formFields).forEach(([name, value]) => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = name;
+        input.value = value || '';
+        form.appendChild(input);
+      });
+
+      // Adicionar ao DOM e enviar
+      document.body.appendChild(form);
+      
+      // Mostrar mensagem antes do envio
+      alert('📧 Enviando solicitação...\n\nUma nova aba será aberta para confirmar o envio. Sua solicitação será enviada automaticamente para corelucas1@gmail.com');
+      
+      // Enviar formulário
+      form.submit();
+      
+      // Remover formulário após envio
+      setTimeout(() => {
+        if (document.body.contains(form)) {
+          document.body.removeChild(form);
+        }
+      }, 1000);
+
+      // Mostrar mensagem de confirmação
+      setTimeout(() => {
+        alert('✅ Solicitação enviada!\n\nSua solicitação foi enviada com sucesso. Você receberá uma confirmação em breve no email informado.\n\nObrigado pelo interesse!');
+        closeBookingModal();
+      }, 2000);
+    }
+
+    // Função fallback para envio via mailto
+    function sendViaMailto(data, submitBtn, originalText) {
+      // Preparar o corpo do email
+      let emailBody = `SOLICITAÇÃO DE VISITA - MUSEU CASA HERMANO JOSÉ\n\n`;
+      emailBody += `=== DADOS DO RESPONSÁVEL ===\n`;
+      emailBody += `Nome: ${data.responsible_name}\n`;
+      emailBody += `Email: ${data.responsible_email}\n`;
+      emailBody += `Telefone: ${data.responsible_phone}\n\n`;
+      
+      emailBody += `=== DADOS DA VISITA ===\n`;
+      emailBody += `Data solicitada: ${data.visit_date}\n`;
+      emailBody += `Horário: ${data.visit_time}\n`;
+      emailBody += `Número de pessoas: ${data.people_count}\n`;
+      emailBody += `Tipo de grupo: ${data.group_type}\n\n`;
+      
+      // Adicionar dados condicionais se preenchidos
+      if (data.institution !== 'Não informado') {
+        emailBody += `Instituição: ${data.institution}\n`;
+      }
+      if (data.origin_city !== 'Não informado') {
+        emailBody += `Cidade de origem: ${data.origin_city}\n`;
+      }
+      if (data.neighborhood !== 'Não informado') {
+        emailBody += `Bairro: ${data.neighborhood}\n`;
+      }
+      
+      if (data.disability_type !== 'Nenhuma necessidade especial') {
+        emailBody += `\n=== ACESSIBILIDADE ===\n`;
+        emailBody += `Tipo de necessidade especial: ${data.disability_type}\n`;
+        if (data.accessibility_notes !== 'Nenhuma observação') {
+          emailBody += `Observações sobre acessibilidade: ${data.accessibility_notes}\n`;
+        }
+      }
+      
+      if (data.general_notes !== 'Nenhuma observação') {
+        emailBody += `\n=== OBSERVAÇÕES GERAIS ===\n`;
+        emailBody += `${data.general_notes}\n`;
+      }
+      
+      emailBody += `\n---\nSolicitação enviada em: ${data.submission_date}\n`;
+      emailBody += `Site: ${data.page_url}`;
+
+      // Criar link mailto
+      const subject = encodeURIComponent(data.subject);
+      const body = encodeURIComponent(emailBody);
+      const mailtoLink = `mailto:corelucas1@gmail.com?subject=${subject}&body=${body}`;
+
+      // Resetar botão
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+
+      // Abrir cliente de email
+      window.location.href = mailtoLink;
+
+      // Mostrar mensagem de confirmação
+      alert('📧 Cliente de email será aberto!\n\nSua solicitação foi preparada e o cliente de email padrão será aberto para envio.\n\nSe não abrir automaticamente, copie os dados e envie manualmente para: corelucas1@gmail.com\n\nAguarde o contato do museu para confirmação da visita.');
+
+      closeBookingModal();
+    }
+
+    // Funções auxiliares para labels
+    function getGroupTypeLabel(value) {
+      const labels = {
+        'academico': 'Acadêmico/Universitário',
+        'escolar': 'Escolar',
+        'familiar': 'Familiar',
+        'turistico': 'Turístico',
+        'corporativo': 'Corporativo'
+      };
+      return labels[value] || value;
+    }
+
+    function getDisabilityTypeLabel(value) {
+      const labels = {
+        'visual': 'Deficiência Visual',
+        'auditiva': 'Deficiência Auditiva',
+        'motora': 'Deficiência Motora',
+        'intelectual': 'Deficiência Intelectual',
+        'multipla': 'Deficiência Múltipla',
+        'outra': 'Outra necessidade especial',
+        'nenhuma': 'Nenhuma'
+      };
+      return labels[value] || value;
+    }
   </script>
 </body>
 
