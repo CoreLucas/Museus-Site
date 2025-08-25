@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste FormSubmit</title>
+</head>
+<body>
+    <h1>Teste de Ativação do FormSubmit</h1>
+    <p>Este formulário é para ativar o serviço FormSubmit pela primeira vez.</p>
+    
+    <form action="https://formsubmit.co/corelucas1@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Ativação do FormSubmit - Museu Casa Hermano José">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://corelucas1.github.io/Museus-Site/obrigado.html">
+        
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" value="Teste de Ativação" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" name="email" value="teste@teste.com" required>
+        
+        <label for="mensagem">Mensagem:</label>
+        <textarea name="mensagem">Este é um teste para ativar o FormSubmit para o email corelucas1@gmail.com</textarea>
+        
+        <button type="submit">Ativar FormSubmit</button>
+    </form>
+    
+    <p><strong>Instruções:</strong></p>
+    <ol>
+        <li>Clique em "Ativar FormSubmit"</li>
+        <li>Você será redirecionado para uma página de confirmação do FormSubmit</li>
+        <li>Verifique o email corelucas1@gmail.com</li>
+        <li>Clique no link de confirmação no email</li>
+        <li>Após isso, o formulário principal funcionará</li>
+    </ol>
+</body>
+</html>

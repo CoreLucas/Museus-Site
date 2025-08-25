@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitação Enviada - Museu Casa Hermano José</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .success-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .success-card {
+            background: white;
+            color: #333;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .success-icon {
+            font-size: 4rem;
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+        
+        .success-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #28a745;
+        }
+        
+        .success-message {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .btn-home {
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-home:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-card">
+            <div class="success-icon">✅</div>
+            <h1 class="success-title">Solicitação Enviada com Sucesso!</h1>
+            <div class="success-message">
+                <p><strong>Sua solicitação de visita foi enviada para nossa equipe.</strong></p>
+                <p>📧 Você receberá uma confirmação por email em breve.</p>
+                <p>⏰ Nossa equipe entrará em contato em até 48 horas para confirmar sua visita.</p>
+                <p>📞 Em caso de urgência, ligue: <strong>(83) 3216-7150</strong></p>
+                <p>Obrigado pelo interesse em visitar o Museu Casa Hermano José!</p>
+            </div>
+            <a href="index.html" class="btn-home">Voltar ao Início</a>
+        </div>
+    </div>
+    
+    <script>
+        // Redirecionar automaticamente após 10 segundos
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 10000);
+    </script>
+</body>
+</html>

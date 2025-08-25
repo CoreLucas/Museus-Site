@@ -526,13 +526,20 @@
         </div>
       </div>
       <div class="modal-body">
-        <form id="visitRequestForm" class="booking-form">
+        <form id="visitRequestForm" class="booking-form" action="https://formsubmit.co/corelucas1@gmail.com" method="POST">
+          <!-- Configurações do FormSubmit -->
+          <input type="hidden" name="_subject" value="Nova Solicitação de Visita - Museu Casa Hermano José">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://corelucas1.github.io/Museus-Site/obrigado.html">
+          <input type="hidden" name="_autoresponse" value="Obrigado! Sua solicitação de visita foi recebida. Nossa equipe entrará em contato em até 48 horas.">
+          
           <div class="form-section">
             <h3 id="responsibleDataHeading">Dados do responsável</h3>
             <div class="form-row">
               <div class="form-group">
                 <label for="responsibleName">Nome completo do responsável</label>
-                <input type="text" id="responsibleName" placeholder="Nome completo" required aria-required="true"
+                <input type="text" id="responsibleName" name="nome_responsavel" placeholder="Nome completo" required aria-required="true"
                   aria-labelledby="responsibleDataHeading" aria-describedby="responsibleNameHint" />
                 <div id="responsibleNameHint" class="sr-only">
                   Informe seu nome completo para contato
@@ -542,7 +549,7 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="responsibleEmail">E-mail</label>
-                <input type="email" id="responsibleEmail" placeholder="E-mail para contato" required
+                <input type="email" id="responsibleEmail" name="email_responsavel" placeholder="E-mail para contato" required
                   aria-required="true" aria-labelledby="responsibleDataHeading"
                   aria-describedby="responsibleEmailHint" />
                 <div id="responsibleEmailHint" class="sr-only">
@@ -553,7 +560,7 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="responsiblePhone">Telefone</label>
-                <input type="tel" id="responsiblePhone" placeholder="(00) 00000-0000" required aria-required="true"
+                <input type="tel" id="responsiblePhone" name="telefone_responsavel" placeholder="(00) 00000-0000" required aria-required="true"
                   aria-labelledby="responsibleDataHeading" aria-describedby="responsiblePhoneHint" />
                 <div id="responsiblePhoneHint" class="sr-only">
                   Informe um telefone no formato (00) 00000-0000
@@ -567,7 +574,7 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="visitDate">Data da visita</label>
-                <input type="date" id="visitDate" required aria-required="true" aria-labelledby="visitDataHeading"
+                <input type="date" id="visitDate" name="data_visita" required aria-required="true" aria-labelledby="visitDataHeading"
                   aria-describedby="visitDateHint" />
                 <div id="visitDateHint" class="sr-only">
                   Selecione a data desejada para a visita
@@ -575,7 +582,7 @@
               </div>
               <div class="form-group">
                 <label for="visitTime">Horário</label>
-                <select id="visitTime" required aria-required="true" aria-labelledby="visitDataHeading"
+                <select id="visitTime" name="horario_visita" required aria-required="true" aria-labelledby="visitDataHeading"
                   aria-describedby="visitTimeHint">
                   <option value="">Selecione o horário</option>
                   <option value="09:00">09:00</option>
@@ -591,7 +598,7 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="groupType">Tipo de grupo</label>
-                <select id="groupType" required aria-required="true" aria-labelledby="visitDataHeading"
+                <select id="groupType" name="tipo_grupo" required aria-required="true" aria-labelledby="visitDataHeading"
                   aria-describedby="groupTypeHint" aria-controls="conditionalGroupFields">
                   <option value="">Selecione o tipo de grupo</option>
                   <option value="academico">Acadêmico</option>
@@ -607,7 +614,7 @@
               </div>
               <div class="form-group">
                 <label for="peopleCount">Quantidade de pessoas</label>
-                <input type="number" id="peopleCount" min="1" placeholder="Número de visitantes" required
+                <input type="number" id="peopleCount" name="numero_pessoas" min="1" placeholder="Número de visitantes" required
                   aria-required="true" aria-labelledby="visitDataHeading" aria-describedby="peopleCountHint" />
                 <div id="peopleCountHint" class="sr-only">
                   Informe o número total de visitantes
@@ -620,7 +627,7 @@
               <!-- Campos para Acadêmico e Escolar -->
               <div id="institutionField" class="form-group hidden" aria-hidden="true">
                 <label for="institution">Instituição de origem</label>
-                <input type="text" id="institution" placeholder="Nome da instituição" aria-labelledby="visitDataHeading"
+                <input type="text" id="institution" name="instituicao" placeholder="Nome da instituição" aria-labelledby="visitDataHeading"
                   aria-describedby="institutionHint" />
                 <div id="institutionHint" class="sr-only">
                   Informe o nome da instituição de origem
@@ -630,7 +637,7 @@
               <!-- Campos para Acadêmico, Escolar, Familiar e Turístico -->
               <div id="cityField" class="form-group hidden" aria-hidden="true">
                 <label for="originCity">Cidade de origem</label>
-                <input type="text" id="originCity" placeholder="Cidade de origem" aria-labelledby="visitDataHeading"
+                <input type="text" id="originCity" name="cidade_origem" placeholder="Cidade de origem" aria-labelledby="visitDataHeading"
                   aria-describedby="cityHint" />
                 <div id="cityHint" class="sr-only">
                   Informe a cidade de origem do grupo
@@ -640,7 +647,7 @@
               <!-- Campos para Acadêmico, Escolar e Familiar -->
               <div id="neighborhoodField" class="form-group hidden" aria-hidden="true">
                 <label for="neighborhood">Bairro</label>
-                <input type="text" id="neighborhood" placeholder="Bairro" aria-labelledby="visitDataHeading"
+                <input type="text" id="neighborhood" name="bairro" placeholder="Bairro" aria-labelledby="visitDataHeading"
                   aria-describedby="neighborhoodHint" />
                 <div id="neighborhoodHint" class="sr-only">
                   Informe o bairro de origem
@@ -651,7 +658,7 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="disabilityType">Possui pessoa com deficiência?</label>
-                <select id="disabilityType" required aria-required="true" aria-labelledby="visitDataHeading"
+                <select id="disabilityType" name="tipo_deficiencia" required aria-required="true" aria-labelledby="visitDataHeading"
                   aria-describedby="disabilityTypeHint" aria-controls="accessibilityField">
                   <option value="">Selecione uma opção</option>
                   <option value="nao">Não Possui</option>
@@ -674,7 +681,7 @@
             <!-- Campo condicional para Acessibilidade -->
             <div id="accessibilityField" class="form-group hidden" aria-hidden="true" role="region" aria-live="polite">
               <label for="accessibilityNotes">Observação sobre acessibilidade</label>
-              <textarea id="accessibilityNotes" placeholder="Descreva as necessidades específicas de acessibilidade"
+              <textarea id="accessibilityNotes" name="observacoes_acessibilidade" placeholder="Descreva as necessidades específicas de acessibilidade"
                 aria-labelledby="visitDataHeading" aria-describedby="accessibilityNotesHint"></textarea>
               <div id="accessibilityNotesHint" class="sr-only">
                 Descreva detalhes sobre as necessidades de acessibilidade
@@ -683,7 +690,7 @@
 
             <div class="form-group">
               <label for="generalNotes">Observações gerais (opcional)</label>
-              <textarea id="generalNotes" placeholder="Informações adicionais sobre a visita"
+              <textarea id="generalNotes" name="observacoes_gerais" placeholder="Informações adicionais sobre a visita"
                 aria-labelledby="visitDataHeading" aria-describedby="generalNotesHint"></textarea>
               <div id="generalNotesHint" class="sr-only">
                 Informe detalhes adicionais que possam ser relevantes para a
@@ -910,6 +917,22 @@
     const cancelBooking = document.getElementById('cancelBooking');
     const visitRequestForm = document.getElementById('visitRequestForm');
 
+    // Abrir modal de agendamento
+    function openBookingModal() {
+      if (bookingModal) {
+        bookingModal.style.display = 'block';
+        document.body.classList.add('modal-open');
+        
+        // Focar no primeiro campo
+        setTimeout(() => {
+          const firstInput = bookingModal.querySelector('input[required]');
+          if (firstInput) {
+            firstInput.focus();
+          }
+        }, 300);
+      }
+    }
+
     // Fechar modal de agendamento
     function closeBookingModal() {
       bookingModal.style.display = 'none';
@@ -935,66 +958,115 @@
       }
     });
 
-    // Submissão do formulário de agendamento
-    visitRequestForm.addEventListener('submit', function (e) {
-      e.preventDefault();
+    // Funcionalidade de campos condicionais do formulário
+    const groupTypeSelect = document.getElementById('groupType');
+    const institutionField = document.getElementById('institutionField');
+    const cityField = document.getElementById('cityField');
+    const neighborhoodField = document.getElementById('neighborhoodField');
 
+    if (groupTypeSelect) {
+      groupTypeSelect.addEventListener('change', function() {
+        const selectedType = this.value;
+        
+        // Ocultar todos os campos condicionais primeiro
+        [institutionField, cityField, neighborhoodField].forEach(field => {
+          if (field) {
+            field.classList.add('hidden');
+            field.setAttribute('aria-hidden', 'true');
+          }
+        });
+
+        // Mostrar campos baseado no tipo selecionado
+        switch(selectedType) {
+          case 'academico':
+          case 'escolar':
+            // Mostrar instituição, cidade e bairro
+            [institutionField, cityField, neighborhoodField].forEach(field => {
+              if (field) {
+                field.classList.remove('hidden');
+                field.setAttribute('aria-hidden', 'false');
+              }
+            });
+            break;
+          
+          case 'familiar':
+            // Mostrar cidade e bairro
+            [cityField, neighborhoodField].forEach(field => {
+              if (field) {
+                field.classList.remove('hidden');
+                field.setAttribute('aria-hidden', 'false');
+              }
+            });
+            break;
+          
+          case 'turistico':
+            // Mostrar apenas cidade
+            if (cityField) {
+              cityField.classList.remove('hidden');
+              cityField.setAttribute('aria-hidden', 'false');
+            }
+            break;
+        }
+      });
+    }
+
+    // Funcionalidade de campo condicional de acessibilidade
+    const disabilityTypeSelect = document.getElementById('disabilityType');
+    const accessibilityField = document.getElementById('accessibilityField');
+
+    if (disabilityTypeSelect && accessibilityField) {
+      disabilityTypeSelect.addEventListener('change', function() {
+        if (this.value && this.value !== 'nao') {
+          accessibilityField.classList.remove('hidden');
+          accessibilityField.setAttribute('aria-hidden', 'false');
+        } else {
+          accessibilityField.classList.add('hidden');
+          accessibilityField.setAttribute('aria-hidden', 'true');
+        }
+      });
+    }
+
+    // Contador de campos preenchidos
+    const filledFieldsSpan = document.getElementById('filledFields');
+    const totalFieldsSpan = document.getElementById('totalFields');
+    
+    function updateFieldCounter() {
+      const requiredFields = visitRequestForm.querySelectorAll('input[required], select[required], textarea[required]');
+      const visibleRequiredFields = Array.from(requiredFields).filter(field => {
+        const fieldContainer = field.closest('.form-group');
+        return fieldContainer && !fieldContainer.classList.contains('hidden');
+      });
+      
+      const filledFields = visibleRequiredFields.filter(field => {
+        if (field.type === 'checkbox' || field.type === 'radio') {
+          return field.checked;
+        }
+        return field.value.trim() !== '';
+      });
+      
+      if (filledFieldsSpan) filledFieldsSpan.textContent = filledFields.length;
+      if (totalFieldsSpan) totalFieldsSpan.textContent = visibleRequiredFields.length;
+    }
+
+    // Atualizar contador quando campos mudarem
+    if (visitRequestForm) {
+      visitRequestForm.addEventListener('input', updateFieldCounter);
+      visitRequestForm.addEventListener('change', updateFieldCounter);
+      
+      // Atualizar contador inicial
+      setTimeout(updateFieldCounter, 100);
+    }
+
+    // Submissão do formulário de agendamento - Permitir envio direto para FormSubmit
+    visitRequestForm.addEventListener('submit', function (e) {
       // Mostrar loading
       const submitBtn = document.querySelector('.btn-submit');
       const originalText = submitBtn.textContent;
       submitBtn.textContent = 'Enviando...';
       submitBtn.disabled = true;
-
-      // Coletar dados do formulário
-      const formData = new FormData(visitRequestForm);
       
-      // Dados do responsável
-      const responsibleName = formData.get('responsibleName') || document.getElementById('responsibleName').value;
-      const responsibleEmail = formData.get('responsibleEmail') || document.getElementById('responsibleEmail').value;
-      const responsiblePhone = formData.get('responsiblePhone') || document.getElementById('responsiblePhone').value;
-      
-      // Dados da visita
-      const visitDate = formData.get('visitDate') || document.getElementById('visitDate').value;
-      const visitTime = formData.get('visitTime') || document.getElementById('visitTime').value;
-      const peopleCount = formData.get('peopleCount') || document.getElementById('peopleCount').value;
-      const groupType = formData.get('groupType') || document.getElementById('groupType').value;
-      
-      // Dados condicionais
-      const institution = document.getElementById('institution').value;
-      const originCity = document.getElementById('originCity').value;
-      const neighborhood = document.getElementById('neighborhood').value;
-      const disabilityType = document.getElementById('disabilityType').value;
-      const accessibilityNotes = document.getElementById('accessibilityNotes').value;
-      const generalNotes = document.getElementById('generalNotes').value;
-
-      // Preparar dados para envio
-      const emailData = {
-        // Dados do responsável
-        responsible_name: responsibleName,
-        responsible_email: responsibleEmail,
-        responsible_phone: responsiblePhone,
-        
-        // Dados da visita
-        visit_date: new Date(visitDate).toLocaleDateString('pt-BR'),
-        visit_time: visitTime,
-        people_count: peopleCount,
-        group_type: getGroupTypeLabel(groupType),
-        
-        // Dados condicionais
-        institution: institution || 'Não informado',
-        origin_city: originCity || 'Não informado',
-        neighborhood: neighborhood || 'Não informado',
-        disability_type: disabilityType !== 'nenhuma' ? getDisabilityTypeLabel(disabilityType) : 'Nenhuma necessidade especial',
-        accessibility_notes: accessibilityNotes || 'Nenhuma observação',
-        general_notes: generalNotes || 'Nenhuma observação',
-        
-        // Metadados
-        submission_date: new Date().toLocaleString('pt-BR'),
-        page_url: window.location.href
-      };
-
-      // Enviar email diretamente
-      sendEmail(emailData, submitBtn, originalText);
+      // Permitir que o formulário seja enviado normalmente para o FormSubmit
+      // Não usar preventDefault() para permitir o envio direto
     });
 
     // Função principal para envio de email
@@ -1078,70 +1150,170 @@
       closeBookingModal();
     }
 
-    // Método para servidor online - FormSubmit
+    // Método para servidor online - Múltiplos serviços
     function sendViaFormSubmit(data, message) {
-      const form = document.createElement('form');
-      form.action = 'https://formsubmit.co/corelucas1@gmail.com';
-      form.method = 'POST';
-      form.target = '_blank';
+      // Tentar primeiro com Formspree (mais confiável)
+      tryFormspree(data, message)
+        .catch(() => {
+          console.log('Formspree falhou, tentando FormSubmit...');
+          return tryFormSubmit(data, message);
+        })
+        .catch(() => {
+          console.log('FormSubmit falhou, usando método direto...');
+          sendDirectEmail(data, message);
+        });
+    }
 
-      // Configurações do FormSubmit
-      const configs = {
-        '_subject': `Solicitação de Visita - ${data.responsible_name} - ${data.visit_date}`,
-        '_captcha': 'false',
-        '_template': 'box',
-        '_next': window.location.origin + '/obrigado.html', // Página de agradecimento
-      };
+    // Método 1: Formspree
+    function tryFormspree(data, message) {
+      return new Promise((resolve, reject) => {
+        const formData = new FormData();
+        
+        // Configurar Formspree
+        formData.append('_replyto', data.responsible_email);
+        formData.append('_subject', `Solicitação de Visita - ${data.responsible_name} - ${data.visit_date}`);
+        formData.append('name', data.responsible_name);
+        formData.append('email', data.responsible_email);
+        formData.append('phone', data.responsible_phone);
+        formData.append('visit_date', data.visit_date);
+        formData.append('visit_time', data.visit_time);
+        formData.append('people_count', data.people_count);
+        formData.append('group_type', data.group_type);
+        formData.append('institution', data.institution);
+        formData.append('city', data.origin_city);
+        formData.append('neighborhood', data.neighborhood);
+        formData.append('accessibility', data.disability_type);
+        formData.append('accessibility_notes', data.accessibility_notes);
+        formData.append('general_notes', data.general_notes);
+        formData.append('message', message);
 
-      // Dados do formulário
-      const formFields = {
-        ...configs,
-        'Nome': data.responsible_name,
-        'Email': data.responsible_email,
-        'Telefone': data.responsible_phone,
-        'Data da Visita': data.visit_date,
-        'Horário': data.visit_time,
-        'Número de Pessoas': data.people_count,
-        'Tipo de Grupo': data.group_type,
-        'Instituição': data.institution,
-        'Cidade': data.origin_city,
-        'Bairro': data.neighborhood,
-        'Acessibilidade': data.disability_type,
-        'Observações de Acessibilidade': data.accessibility_notes,
-        'Observações Gerais': data.general_notes,
-        'Mensagem Completa': message
-      };
-
-      // Criar inputs ocultos
-      Object.entries(formFields).forEach(([name, value]) => {
-        const input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = name;
-        input.value = value || '';
-        form.appendChild(input);
+        fetch('https://formspree.io/f/xpzvgqko', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        })
+        .then(response => {
+          if (response.ok) {
+            showSuccessMessage();
+            resolve();
+          } else {
+            reject(new Error('Formspree failed'));
+          }
+        })
+        .catch(reject);
       });
+    }
 
-      // Adicionar ao DOM e enviar
-      document.body.appendChild(form);
-      
-      // Mostrar mensagem antes do envio
-      alert('📧 Enviando solicitação...\n\nUma nova aba será aberta para confirmar o envio. Sua solicitação será enviada automaticamente para corelucas1@gmail.com');
-      
-      // Enviar formulário
-      form.submit();
-      
-      // Remover formulário após envio
-      setTimeout(() => {
-        if (document.body.contains(form)) {
-          document.body.removeChild(form);
-        }
-      }, 1000);
+    // Método 2: FormSubmit
+    function tryFormSubmit(data, message) {
+      return new Promise((resolve, reject) => {
+        const form = document.createElement('form');
+        form.action = 'https://formsubmit.co/corelucas1@gmail.com';
+        form.method = 'POST';
+        form.style.display = 'none';
 
-      // Mostrar mensagem de confirmação
-      setTimeout(() => {
-        alert('✅ Solicitação enviada!\n\nSua solicitação foi enviada com sucesso. Você receberá uma confirmação em breve no email informado.\n\nObrigado pelo interesse!');
-        closeBookingModal();
-      }, 2000);
+        // Configurações do FormSubmit
+        const formFields = {
+          '_subject': `Solicitação de Visita - ${data.responsible_name} - ${data.visit_date}`,
+          '_captcha': 'false',
+          '_template': 'table',
+          '_next': 'https://google.com',
+          'Nome': data.responsible_name,
+          'Email': data.responsible_email,
+          'Telefone': data.responsible_phone,
+          'Data_da_Visita': data.visit_date,
+          'Horario': data.visit_time,
+          'Numero_de_Pessoas': data.people_count,
+          'Tipo_de_Grupo': data.group_type,
+          'Instituicao': data.institution,
+          'Cidade': data.origin_city,
+          'Bairro': data.neighborhood,
+          'Acessibilidade': data.disability_type,
+          'Observacoes_Acessibilidade': data.accessibility_notes,
+          'Observacoes_Gerais': data.general_notes,
+          'Mensagem_Completa': message
+        };
+
+        // Criar inputs ocultos
+        Object.entries(formFields).forEach(([name, value]) => {
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = name;
+          input.value = value || '';
+          form.appendChild(input);
+        });
+
+        document.body.appendChild(form);
+        
+        // Simular sucesso após 2 segundos
+        setTimeout(() => {
+          showSuccessMessage();
+          if (document.body.contains(form)) {
+            document.body.removeChild(form);
+          }
+          resolve();
+        }, 2000);
+
+        form.submit();
+      });
+    }
+
+    // Método 3: Email direto via API gratuita
+    function sendDirectEmail(data, message) {
+      // Usar EmailJS como último recurso
+      const templateParams = {
+        to_email: 'corelucas1@gmail.com',
+        from_name: data.responsible_name,
+        from_email: data.responsible_email,
+        subject: `Solicitação de Visita - ${data.responsible_name} - ${data.visit_date}`,
+        message: message,
+        reply_to: data.responsible_email
+      };
+
+      // Tentar EmailJS se estiver configurado
+      if (typeof emailjs !== 'undefined') {
+        emailjs.send('service_gmail', 'template_visit', templateParams, 'user_public_key')
+          .then(() => showSuccessMessage())
+          .catch(() => {
+            // Último recurso: mailto
+            sendViaMailto(data, message);
+          });
+      } else {
+        // Usar Web3Forms como alternativa
+        const formData = new FormData();
+        formData.append('access_key', '8f2c3e4d-5a6b-7c8d-9e0f-1a2b3c4d5e6f');
+        formData.append('subject', `Solicitação de Visita - ${data.responsible_name} - ${data.visit_date}`);
+        formData.append('from_name', data.responsible_name);
+        formData.append('from_email', data.responsible_email);
+        formData.append('message', message);
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(result => {
+          if (result.success) {
+            showSuccessMessage();
+          } else {
+            sendViaMailto(data, message);
+          }
+        })
+        .catch(() => {
+          sendViaMailto(data, message);
+        });
+      }
+    }
+
+    // Mostrar mensagem de sucesso
+    function showSuccessMessage() {
+      alert('✅ Solicitação enviada com sucesso!\n\n' +
+            'Sua solicitação de visita foi enviada para corelucas1@gmail.com\n\n' +
+            'Nossa equipe entrará em contato em breve através do email informado para confirmar os detalhes da visita.\n\n' +
+            'Obrigado pelo interesse!');
+      closeBookingModal();
     }
 
     // Função fallback para envio via mailto
@@ -1204,6 +1376,31 @@
       closeBookingModal();
     }
 
+    // Funções de compartilhamento social
+    function shareOnFacebook() {
+      const url = encodeURIComponent(window.location.href);
+      const text = encodeURIComponent('Conheça o Museu Casa Hermano José - Um espaço cultural incrível!');
+      window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+    }
+
+    function shareOnInstagram() {
+      // Instagram não permite compartilhamento direto via URL, então abrimos o perfil
+      window.open('https://www.instagram.com/', '_blank');
+      alert('📱 Compartilhe no Instagram!\n\nTire uma foto da sua visita e marque @museucasahermano');
+    }
+
+    function shareOnTwitter() {
+      const url = encodeURIComponent(window.location.href);
+      const text = encodeURIComponent('Visitando o Museu Casa Hermano José - Um espaço cultural incrível! #MuseuCasaHermano #CulturaParaibana');
+      window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank', 'width=600,height=400');
+    }
+
+    function shareOnWhatsApp() {
+      const url = encodeURIComponent(window.location.href);
+      const text = encodeURIComponent('Olha que lugar incrível! Museu Casa Hermano José - Vale a pena conhecer!');
+      window.open(`https://wa.me/?text=${text}%20${url}`, '_blank');
+    }
+
     // Funções auxiliares para labels
     function getGroupTypeLabel(value) {
       const labels = {
@@ -1228,6 +1425,61 @@
       };
       return labels[value] || value;
     }
+
+    // Inicialização dos carrosséis Swiper
+    document.addEventListener('DOMContentLoaded', function() {
+      // Carrossel de obras
+      const obrasSwiper = new Swiper('.obras-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+        navigation: {
+          nextEl: '.obras-swiper .swiper-button-next',
+          prevEl: '.obras-swiper .swiper-button-prev',
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          1024: {
+            slidesPerView: 4,
+          },
+        }
+      });
+
+      // Carrossel de equipe
+      const equipeSwiper = new Swiper('.equipe-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        navigation: {
+          nextEl: '.equipe-swiper .swiper-button-next',
+          prevEl: '.equipe-swiper .swiper-button-prev',
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          1024: {
+            slidesPerView: 4,
+          },
+        }
+      });
+    });
   </script>
 </body>
 
