@@ -658,22 +658,40 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="disabilityType">Possui pessoa com deficiência?</label>
-                <select id="disabilityType" name="tipo_deficiencia" required aria-required="true" aria-labelledby="visitDataHeading"
-                  aria-describedby="disabilityTypeHint" aria-controls="accessibilityField">
-                  <option value="">Selecione uma opção</option>
-                  <option value="nao">Não Possui</option>
-                  <option value="auditiva">Auditiva</option>
-                  <option value="fisica">Física</option>
-                  <option value="intelectual">Intelectual</option>
-                  <option value="mental">Mental</option>
-                  <option value="psicossocial">
-                    Psicossocial ou por Saúde Mental
-                  </option>
-                  <option value="visual">Visual</option>
-                  <option value="outra">Outra</option>
-                </select>
+                <div class="disability-options" id="disabilityType" aria-labelledby="visitDataHeading" aria-describedby="disabilityTypeHint">
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="tipo_deficiencia" value="auditiva" id="disability-auditiva">
+                    <span class="checkbox-custom"></span>
+                    Auditiva
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="tipo_deficiencia" value="fisica" id="disability-fisica">
+                    <span class="checkbox-custom"></span>
+                    Física
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="tipo_deficiencia" value="intelectual" id="disability-intelectual">
+                    <span class="checkbox-custom"></span>
+                    Intelectual
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="tipo_deficiencia" value="mental" id="disability-mental">
+                    <span class="checkbox-custom"></span>
+                    Mental
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="tipo_deficiencia" value="psicossocial" id="disability-psicossocial">
+                    <span class="checkbox-custom"></span>
+                    Psicossocial
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="tipo_deficiencia" value="visual" id="disability-visual">
+                    <span class="checkbox-custom"></span>
+                    Visual
+                  </label>
+                </div>
                 <div id="disabilityTypeHint" class="sr-only">
-                  Selecione se algum visitante possui necessidades especiais
+                  Selecione uma ou mais opções se algum visitante possui necessidades especiais
                 </div>
               </div>
             </div>
@@ -1010,19 +1028,24 @@
       });
     }
 
-    // Funcionalidade de campo condicional de acessibilidade
-    const disabilityTypeSelect = document.getElementById('disabilityType');
+    // Funcionalidade de campo condicional de acessibilidade com seleção múltipla
+    const disabilityCheckboxes = document.querySelectorAll('input[name="tipo_deficiencia"]');
     const accessibilityField = document.getElementById('accessibilityField');
 
-    if (disabilityTypeSelect && accessibilityField) {
-      disabilityTypeSelect.addEventListener('change', function() {
-        if (this.value && this.value !== 'nao') {
-          accessibilityField.classList.remove('hidden');
-          accessibilityField.setAttribute('aria-hidden', 'false');
-        } else {
-          accessibilityField.classList.add('hidden');
-          accessibilityField.setAttribute('aria-hidden', 'true');
-        }
+    if (disabilityCheckboxes.length > 0 && accessibilityField) {
+      disabilityCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+          // Mostrar/ocultar campo de observações baseado em qualquer seleção
+          const hasDisability = Array.from(disabilityCheckboxes).some(cb => cb.checked);
+
+          if (hasDisability) {
+            accessibilityField.classList.remove('hidden');
+            accessibilityField.setAttribute('aria-hidden', 'false');
+          } else {
+            accessibilityField.classList.add('hidden');
+            accessibilityField.setAttribute('aria-hidden', 'true');
+          }
+        });
       });
     }
 
@@ -1037,6 +1060,9 @@
         return fieldContainer && !fieldContainer.classList.contains('hidden');
       });
       
+      // Adicionar campo de deficiência como obrigatório
+      const disabilityFieldFilled = document.querySelectorAll('input[name="tipo_deficiencia"]:checked').length > 0;
+      
       const filledFields = visibleRequiredFields.filter(field => {
         if (field.type === 'checkbox' || field.type === 'radio') {
           return field.checked;
@@ -1044,14 +1070,24 @@
         return field.value.trim() !== '';
       });
       
-      if (filledFieldsSpan) filledFieldsSpan.textContent = filledFields.length;
-      if (totalFieldsSpan) totalFieldsSpan.textContent = visibleRequiredFields.length;
+      // Contar campo de deficiência separadamente
+      const totalFields = visibleRequiredFields.length + 1; // +1 para campo de deficiência
+      const filledCount = filledFields.length + (disabilityFieldFilled ? 1 : 0);
+      
+      if (filledFieldsSpan) filledFieldsSpan.textContent = filledCount;
+      if (totalFieldsSpan) totalFieldsSpan.textContent = totalFields;
     }
 
     // Atualizar contador quando campos mudarem
     if (visitRequestForm) {
       visitRequestForm.addEventListener('input', updateFieldCounter);
       visitRequestForm.addEventListener('change', updateFieldCounter);
+      
+      // Adicionar listener específico para checkboxes de deficiência
+      const disabilityCheckboxes = visitRequestForm.querySelectorAll('input[name="tipo_deficiencia"]');
+      disabilityCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', updateFieldCounter);
+      });
       
       // Atualizar contador inicial
       setTimeout(updateFieldCounter, 100);
@@ -1415,13 +1451,12 @@
 
     function getDisabilityTypeLabel(value) {
       const labels = {
-        'visual': 'Deficiência Visual',
         'auditiva': 'Deficiência Auditiva',
-        'motora': 'Deficiência Motora',
+        'fisica': 'Deficiência Física',
         'intelectual': 'Deficiência Intelectual',
-        'multipla': 'Deficiência Múltipla',
-        'outra': 'Outra necessidade especial',
-        'nenhuma': 'Nenhuma'
+        'mental': 'Deficiência Mental',
+        'psicossocial': 'Deficiência Psicossocial',
+        'visual': 'Deficiência Visual'
       };
       return labels[value] || value;
     }
