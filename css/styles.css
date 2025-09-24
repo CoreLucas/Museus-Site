@@ -93,9 +93,10 @@ body {
 
 .nav-link.active {
     color: #ffe63d !important;
-    background: rgba(255, 230, 61, 0.15) !important;
+    background: rgba(255, 230, 61, 0.2) !important;
     font-weight: 600 !important;
     border-radius: 4px;
+    border-bottom: 2px solid #ffe63d;
 }
 
 .hamburger {
