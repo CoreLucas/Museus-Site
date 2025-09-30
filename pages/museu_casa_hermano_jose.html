@@ -1514,61 +1514,6 @@
       };
       return labels[value] || value;
     }
-
-    // Inicialização dos carrosséis Swiper
-    document.addEventListener('DOMContentLoaded', function() {
-      // Carrossel de obras
-      const obrasSwiper = new Swiper('.obras-swiper', {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        loop: true,
-        autoplay: {
-          delay: 4000,
-          disableOnInteraction: false,
-        },
-        navigation: {
-          nextEl: '.obras-swiper .swiper-button-next',
-          prevEl: '.obras-swiper .swiper-button-prev',
-        },
-        breakpoints: {
-          640: {
-            slidesPerView: 2,
-          },
-          768: {
-            slidesPerView: 3,
-          },
-          1024: {
-            slidesPerView: 4,
-          },
-        }
-      });
-
-      // Carrossel de equipe
-      const equipeSwiper = new Swiper('.equipe-swiper', {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        loop: true,
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false,
-        },
-        navigation: {
-          nextEl: '.equipe-swiper .swiper-button-next',
-          prevEl: '.equipe-swiper .swiper-button-prev',
-        },
-        breakpoints: {
-          640: {
-            slidesPerView: 2,
-          },
-          768: {
-            slidesPerView: 3,
-          },
-          1024: {
-            slidesPerView: 4,
-          },
-        }
-      });
-    });
   </script>
 </body>
 
