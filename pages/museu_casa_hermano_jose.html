@@ -387,7 +387,7 @@
     <!-- Repositório Digital -->
     <div class="digital-repository">
       <button class="btn-repository"
-        onclick="window.open('https://dev-acervosmuseaisufpb.pantheonsite.io/museu-casa-hermano-jose/', '_blank')">
+        onclick="window.open('https://www.ufpb.br/museus/museu-casa-hermano-jose', '_blank')">
         <i class="fas fa-database"></i>
         <span class="btn-text">
           <strong>TAINACAN - REPOSITÓRIO DIGITAL</strong>
@@ -878,8 +878,21 @@
   <script>
     // Função para abrir modal de avaliações e sugestões
     function openAvaliacoesModal() {
-      document.getElementById('avaliacoesModal').style.display = 'block';
-      document.body.classList.add('modal-open');
+      const modal = document.getElementById('avaliacoesModal');
+      if (modal) {
+        modal.style.display = 'block';
+        document.body.classList.add('modal-open');
+        
+        // Focar no primeiro elemento interativo do modal
+        setTimeout(() => {
+          const firstStar = modal.querySelector('input[name="rating"]');
+          if (firstStar) {
+            firstStar.focus();
+          }
+        }, 300);
+      } else {
+        console.error('Modal de avaliações não encontrado');
+      }
     }
 
     // Event listeners para o modal de avaliações
@@ -887,6 +900,12 @@
       const avaliacoesModal = document.getElementById('avaliacoesModal');
       const cancelAvaliacao = document.getElementById('cancelAvaliacao');
       const avaliacaoForm = document.getElementById('avaliacaoForm');
+
+      // Verificar se os elementos existem antes de adicionar event listeners
+      if (!avaliacoesModal || !avaliacaoForm) {
+        console.error('Elementos do modal de avaliações não encontrados');
+        return;
+      }
 
       // Fechar modal
       function closeAvaliacoesModal() {
@@ -923,6 +942,12 @@
         const comentarios = formData.get('comentarios');
         const recomendacao = formData.get('recomendacao');
 
+        // Validar se pelo menos a avaliação geral foi preenchida
+        if (!rating) {
+          alert('Por favor, selecione uma avaliação geral (estrelas) antes de enviar.');
+          return;
+        }
+
         // Simular envio (aqui você integraria com backend)
         alert('Obrigado pela sua avaliação!\n\nSua opinião é muito importante para nós e nos ajuda a melhorar continuamente nossos serviços.\n\nEm breve implementaremos o sistema completo de avaliações.');
 
@@ -931,102 +956,131 @@
     });
 
     // Event listeners para o modal de agendamento
-    const bookingModal = document.getElementById('bookingModal');
-    const cancelBooking = document.getElementById('cancelBooking');
-    const visitRequestForm = document.getElementById('visitRequestForm');
+    document.addEventListener('DOMContentLoaded', function() {
+      const bookingModal = document.getElementById('bookingModal');
+      const cancelBooking = document.getElementById('cancelBooking');
+      const visitRequestForm = document.getElementById('visitRequestForm');
 
-    // Abrir modal de agendamento
-    function openBookingModal() {
-      if (bookingModal) {
-        bookingModal.style.display = 'block';
-        document.body.classList.add('modal-open');
-        
-        // Focar no primeiro campo
-        setTimeout(() => {
-          const firstInput = bookingModal.querySelector('input[required]');
-          if (firstInput) {
-            firstInput.focus();
-          }
-        }, 300);
+      // Verificar se os elementos existem
+      if (!bookingModal || !visitRequestForm) {
+        console.error('Elementos do modal de agendamento não encontrados');
+        return;
       }
-    }
 
-    // Fechar modal de agendamento
-    function closeBookingModal() {
-      bookingModal.style.display = 'none';
-      document.body.classList.remove('modal-open');
-      visitRequestForm.reset();
-    }
-
-    // Botão cancelar agendamento
-    if (cancelBooking) {
-      cancelBooking.addEventListener('click', closeBookingModal);
-    }
-
-    // Fechar ao clicar no X do modal de agendamento
-    const bookingCloseBtn = bookingModal.querySelector('.modal-close');
-    if (bookingCloseBtn) {
-      bookingCloseBtn.addEventListener('click', closeBookingModal);
-    }
-
-    // Fechar ao clicar fora do modal de agendamento
-    bookingModal.addEventListener('click', function (e) {
-      if (e.target === bookingModal) {
-        closeBookingModal();
-      }
-    });
-
-    // Funcionalidade de campos condicionais do formulário
-    const groupTypeSelect = document.getElementById('groupType');
-    const institutionField = document.getElementById('institutionField');
-    const cityField = document.getElementById('cityField');
-    const neighborhoodField = document.getElementById('neighborhoodField');
-
-    if (groupTypeSelect) {
-      groupTypeSelect.addEventListener('change', function() {
-        const selectedType = this.value;
-        
-        // Ocultar todos os campos condicionais primeiro
-        [institutionField, cityField, neighborhoodField].forEach(field => {
-          if (field) {
-            field.classList.add('hidden');
-            field.setAttribute('aria-hidden', 'true');
-          }
-        });
-
-        // Mostrar campos baseado no tipo selecionado
-        switch(selectedType) {
-          case 'academico':
-          case 'escolar':
-            // Mostrar instituição, cidade e bairro
-            [institutionField, cityField, neighborhoodField].forEach(field => {
-              if (field) {
-                field.classList.remove('hidden');
-                field.setAttribute('aria-hidden', 'false');
-              }
-            });
-            break;
+      // Abrir modal de agendamento
+      window.openBookingModal = function() {
+        if (bookingModal) {
+          bookingModal.style.display = 'block';
+          document.body.classList.add('modal-open');
           
-          case 'familiar':
-            // Mostrar cidade e bairro
-            [cityField, neighborhoodField].forEach(field => {
-              if (field) {
-                field.classList.remove('hidden');
-                field.setAttribute('aria-hidden', 'false');
-              }
-            });
-            break;
-          
-          case 'turistico':
-            // Mostrar apenas cidade
-            if (cityField) {
-              cityField.classList.remove('hidden');
-              cityField.setAttribute('aria-hidden', 'false');
+          // Focar no primeiro campo
+          setTimeout(() => {
+            const firstInput = bookingModal.querySelector('input[required]');
+            if (firstInput) {
+              firstInput.focus();
             }
-            break;
+          }, 300);
+        }
+      };
+
+      // Fechar modal de agendamento
+      function closeBookingModal() {
+        bookingModal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+        visitRequestForm.reset();
+      }
+
+      // Botão cancelar agendamento
+      if (cancelBooking) {
+        cancelBooking.addEventListener('click', closeBookingModal);
+      }
+
+      // Fechar ao clicar no X do modal de agendamento
+      const bookingCloseBtn = bookingModal.querySelector('.modal-close');
+      if (bookingCloseBtn) {
+        bookingCloseBtn.addEventListener('click', closeBookingModal);
+      }
+
+      // Fechar ao clicar fora do modal de agendamento
+      bookingModal.addEventListener('click', function (e) {
+        if (e.target === bookingModal) {
+          closeBookingModal();
         }
       });
-    }
+
+      // Funcionalidade de campos condicionais do formulário
+      const groupTypeSelect = document.getElementById('groupType');
+      const institutionField = document.getElementById('institutionField');
+      const cityField = document.getElementById('cityField');
+      const neighborhoodField = document.getElementById('neighborhoodField');
+
+      if (groupTypeSelect) {
+        groupTypeSelect.addEventListener('change', function() {
+          const selectedType = this.value;
+          
+          // Ocultar todos os campos condicionais primeiro
+          [institutionField, cityField, neighborhoodField].forEach(field => {
+            if (field) {
+              field.classList.add('hidden');
+              field.setAttribute('aria-hidden', 'true');
+            }
+          });
+
+          // Mostrar campos baseado no tipo selecionado
+          switch(selectedType) {
+            case 'academico':
+            case 'escolar':
+              // Mostrar instituição, cidade e bairro
+              [institutionField, cityField, neighborhoodField].forEach(field => {
+                if (field) {
+                  field.classList.remove('hidden');
+                  field.setAttribute('aria-hidden', 'false');
+                }
+              });
+              break;
+            
+            case 'familiar':
+              // Mostrar cidade e bairro
+              [cityField, neighborhoodField].forEach(field => {
+                if (field) {
+                  field.classList.remove('hidden');
+                  field.setAttribute('aria-hidden', 'false');
+                }
+              });
+              break;
+            
+            case 'turistico':
+              // Mostrar cidade
+              if (cityField) {
+                cityField.classList.remove('hidden');
+                cityField.setAttribute('aria-hidden', 'false');
+              }
+              break;
+            
+            case 'corporativo':
+              // Mostrar instituição e cidade
+              [institutionField, cityField].forEach(field => {
+                if (field) {
+                  field.classList.remove('hidden');
+                  field.setAttribute('aria-hidden', 'false');
+                }
+              });
+              break;
+          }
+        });
+      }
+
+      // Submissão do formulário de agendamento
+      if (visitRequestForm) {
+        visitRequestForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          handleFormSubmission();
+        });
+      }
+
+      // Tornar closeBookingModal disponível globalmente para uso nas funções de envio
+      window.closeBookingModal = closeBookingModal;
+    });
 
     // Funcionalidade de campo condicional de acessibilidade com seleção múltipla
     const disabilityCheckboxes = document.querySelectorAll('input[name="tipo_deficiencia"]');

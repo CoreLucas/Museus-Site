@@ -36,37 +36,20 @@ function applySearchAndFilter() {
     const museumData = getMuseumDataFromDOM();
     let visibleCount = 0;
     
-    if (!activeFilterBtn) {
-        // Se não há filtro ativo, mostrar todos
-        museumData.forEach(museum => {
-            // Buscar apenas no título do museu
-            const matchesSearch = !searchTerm || 
-                museum.name.toLowerCase().includes(searchTerm);
-            
-            if (matchesSearch) {
-                museum.element.style.display = 'block';
-                visibleCount++;
-            } else {
-                museum.element.style.display = 'none';
-            }
-        });
-        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
-        return;
-    }
-    
-    const activeFilter = activeFilterBtn.getAttribute('data-filter');
-    
     museumData.forEach(museum => {
-        // Buscar apenas no título do museu
+        // Buscar no título e descrição do museu
         const matchesSearch = !searchTerm || 
-            museum.name.toLowerCase().includes(searchTerm);
+            museum.name.toLowerCase().includes(searchTerm) ||
+            museum.description.toLowerCase().includes(searchTerm);
         
         let matchesFilter = false;
         
-        if (activeFilter === 'todos') {
-            // Se "Todos" está selecionado, mostrar todos os museus
+        if (!activeFilterBtn || activeFilterBtn.getAttribute('data-filter') === 'todos') {
+            // Se não há filtro ativo ou "Todos" está selecionado, mostrar todos os museus
             matchesFilter = true;
         } else {
+            const activeFilter = activeFilterBtn.getAttribute('data-filter');
+            
             // Obter as tags visuais do museu para comparação
             const tagElements = museum.element.querySelectorAll('.tag');
             const museumTags = Array.from(tagElements).map(tag => tag.textContent.trim().toLowerCase());
@@ -80,9 +63,11 @@ function applySearchAndFilter() {
                 'historia': 'história'
             };
             
+            // Verificar se o filtro ativo corresponde a alguma das tags do museu
             const expectedTag = filterToTagMap[activeFilter.toLowerCase()];
             if (expectedTag) {
-                matchesFilter = museumTags.includes(expectedTag);
+                // Verificar se alguma das tags do museu corresponde ao filtro esperado
+                matchesFilter = museumTags.some(tag => tag === expectedTag);
             }
         }
         
@@ -94,7 +79,10 @@ function applySearchAndFilter() {
         }
     });
     
-    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    // Mostrar/ocultar mensagem de "nenhum resultado"
+    if (noResults) {
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
 }
 
 // Função de ordenação
